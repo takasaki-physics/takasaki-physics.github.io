@@ -3,6 +3,10 @@ title: イメージギャラリー
 description: Markdown を利用して美しいイメージギャラリーを作成する
 date: 2023-09-19 00:00:00+0000
 image: 2.jpg
+categories:
+    - チュートリアル
+tags:
+    - 翻訳
 ---
 
 この Hugo の Stack テーマは Markdown を利用することで美しいイメージギャラリーを作成することができます。これは、 [PhotoSwipe](https://photoswipe.com/) を採用し、構文は [Typlog](https://typlog.com/) から影響を受けています。

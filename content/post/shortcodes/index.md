@@ -3,6 +3,10 @@ title: ショートコード
 description: Markdownで利用できる便利なショートコード
 date: 2023-09-20 00:00:00+0000
 image: cover.jpg
+categories:
+    - チュートリアル
+tags:
+    - 翻訳
 ---
 
 詳細については、[資料](https://stack.jimmycai.com/writing/shortcodes)を御覧ください。

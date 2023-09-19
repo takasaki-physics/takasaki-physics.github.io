@@ -3,6 +3,10 @@ title: 数式の書き方
 description: KaTeXを使った数式の書き方について
 date: 2023-09-19 00:00:00+0000
 math: true
+categories:
+    - チュートリアル
+tags:
+    - 翻訳
 ---
 
 こちら Stack は [KaTeX](https://katex.org/) を利用した数式の記述をサポートしています。
