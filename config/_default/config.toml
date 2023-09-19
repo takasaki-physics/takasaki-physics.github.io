@@ -3,6 +3,7 @@ baseurl = "https://takasaki-physics.github.io/"
 languageCode = "ja-jp"
 paginate = 5
 title = "高崎高校 物理部"
+publishDir = "docs"
 
 # Theme i18n support
 # Available values: en, fr, id, ja, ko, pt-br, zh-cn, zh-tw, es, de, nl, it, th, el, uk, ar
