@@ -1,22 +1,22 @@
 ---
-title: Image gallery
-description: Create beautiful interactive image gallery using Markdown
-date: 2023-08-26 00:00:00+0000
+title: イメージギャラリー
+description: Markdown を利用して美しいイメージギャラリーを作成する
+date: 2023-09-19 00:00:00+0000
 image: 2.jpg
 ---
 
-Hugo theme Stack supports the creation of interactive image galleries using Markdown. It's powered by [PhotoSwipe](https://photoswipe.com/) and its syntax was inspired by [Typlog](https://typlog.com/).
+この Hugo の Stack テーマは Markdown を利用することで美しいイメージギャラリーを作成することができます。これは、 [PhotoSwipe](https://photoswipe.com/) を採用し、構文は [Typlog](https://typlog.com/) から影響を受けています。
 
-To use this feature, the image must be in the same directory as the Markdown file, as it uses Hugo's page bundle feature to read the dimensions of the image. **External images are not supported.**
+この機能を利用するには、 Markdown ファイルと同一のディレクトリ内に画像を入れる必要があります。 Hugo のページバンドル機能を利用して、画像の寸法を読み取るためです。**外部の画像はサポートされていません。**
 
-## Syntax
+## 構文
 
 ```markdown
 ![Image 1](1.jpg) ![Image 2](2.jpg)
 ```
 
-## Result
+## 結果
 
 ![Image 1](1.jpg) ![Image 2](2.jpg)
 
-> Photo by [mymind](https://unsplash.com/@mymind) and [Luke Chesser](https://unsplash.com/@lukechesser) on [Unsplash](https://unsplash.com/)
+> こちらは [Unsplash](https://unsplash.com/) 上でアップロードされている [mymind](https://unsplash.com/@mymind) さんと [Luke Chesser](https://unsplash.com/@lukechesser) さんの画像を利用しました。
