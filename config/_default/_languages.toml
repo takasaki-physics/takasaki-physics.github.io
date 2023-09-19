@@ -1,6 +1,6 @@
 # Rename this file to languages.toml to enable multilingual support
-[en]
-languageName = "English"
+[ja]
+languageName = "Japanese"
 languagedirection = "ltr"
-title = "Example Site"
+title = "高崎高校 物理部 資料"
 weight = 1
