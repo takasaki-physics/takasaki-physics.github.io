@@ -1,23 +1,23 @@
 ---
-title: Math Typesetting
-description: Math typesetting using KaTeX
-date: 2023-08-24 00:00:00+0000
+title: 数式の書き方
+description: KaTeXを使った数式の書き方について
+date: 2023-09-19 00:00:00+0000
 math: true
 ---
 
-Stack has built-in support for math typesetting using [KaTeX](https://katex.org/).
+こちら Stack は [KaTeX](https://katex.org/) を利用した数式の記述をサポートしています。
 
-**It's not enabled by default side-wide,** but you can enable it for individual posts by adding `math: true` to the front matter. Or you can enable it side-wide by adding `math = true` to the `params.article` section in `config.toml`.
+**ですが、この機能は標準で使用できるわけではありません。** しかし posts の冒頭部の記述に `math: true` を追加するだけで利用可能になります。または、プロジェクト内の `config.toml` に `math = true` を追加することで常に利用可能になります。
 
-## Inline math
+## インライン数式
 
-This is an inline mathematical expression: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$
+こちらはインライン数式の例です: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$
 
 ```markdown
 $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$
 ```
 
-## Block math
+## ブロック数式
 
 $$
     \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
