@@ -1,6 +1,7 @@
 ---
 title: イメージギャラリー
 description: Markdown を利用して美しいイメージギャラリーを作成する
+slug: image-gallery
 date: 2023-09-19 00:00:00+0000
 image: 2.jpg
 categories:

@@ -1,6 +1,7 @@
 ---
 title: ショートコード
 description: Markdownで利用できる便利なショートコード
+slug: shortcodes
 date: 2023-09-20 00:00:00+0000
 image: cover.jpg
 categories:

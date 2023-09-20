@@ -1,7 +1,8 @@
 ---
 title: Markdown 構文ガイド
-date: 2023-09-20
 description: Sample article showcasing basic Markdown syntax and formatting for HTML elements.
+slug: markdown-syntax
+date: 2023-09-20
 categories: 
     - テーマ
     - 構文
