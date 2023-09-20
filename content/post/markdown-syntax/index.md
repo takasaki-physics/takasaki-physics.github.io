@@ -1,6 +1,6 @@
 ---
 title: Markdown 構文ガイド
-description: Sample article showcasing basic Markdown syntax and formatting for HTML elements.
+description: HTML 要素を成形する基本的な Markdown 構文の紹介記事
 slug: markdown-syntax
 date: 2023-09-20
 categories: 
@@ -38,7 +38,7 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 ## ブロック引用
 
-The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
+ブロック引用要素は、他の情報元から引用された内容を表します。 `footer` または `cite` 要素を使った引用や、注釈や省略形などの変更を伴うことも可能です。
 
 ### 出典なしのブロック引用
 
@@ -50,11 +50,11 @@ The blockquote element represents content that is quoted from another source, op
 > Don't communicate by sharing memory, share memory by communicating.<br>
 > — <cite>Rob Pike[^1]</cite>
 
-[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
+[^1]: 上記の引用は、2015年11月18日に開催された Gopherfest での Rob Pike's の [講演](https://www.youtube.com/watch?v=PAAkCSZUG1c) からの抜粋です。
 
 ## テーブル
 
-Tables aren't part of the core Markdown spec, but Hugo supports supports them out-of-the-box.
+テーブルは Markdown の仕様は含まれていません。しかし、 Hugo が テーブルをすぐに使えるようにサポートしています。
 
    名前 | 年齢
 --------|------
@@ -72,7 +72,7 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 | Lorem ipsum dolor sit amet, consectetur adipiscing elit. | Phasellus ultricies, sapien non euismod aliquam, dui ligula tincidunt odio, at accumsan nulla sapien eget ex. | Proin eleifend dictum ipsum, non euismod ipsum pulvinar et. Vivamus sollicitudin, quam in pulvinar aliquam, metus elit pretium purus | Proin sit amet velit nec enim imperdiet vehicula. | Ut bibendum vestibulum quam, eu egestas turpis gravida nec | Sed scelerisque nec turpis vel viverra. Vivamus vitae pretium sapien |
 
 ## コードブロック
-### Code block with backticks
+### バックチックによるコードブロック
 
 ```html
 <!doctype html>
@@ -87,7 +87,7 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 </html>
 ```
 
-### Code block indented with four spaces
+### 4スペースのインデントによるコードブロック
 
     <!doctype html>
     <html lang="ja">
@@ -100,7 +100,7 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
     </body>
     </html>
 
-### Diff code block
+### コードブロックで差分表示
 
 ```diff
 [dependencies.bevy]
@@ -113,22 +113,22 @@ rev = "11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13"
 ### 1行コードブロック
 
 ```html
-<p>A paragraph</p>
+<p>段落</p>
 ```
 
 ## リスト形式
 
 ### 順序のあるリスト
 
-1. First item
-2. Second item
-3. Third item
+1. 1つ目のアイテム
+2. 2つ目のアイテム
+3. 3つ目のアイテム
 
 ### 順序がないリスト
 
-* List item
-* Another item
-* And another item
+* リストアイテム
+* 他のアイテム
+* 他のアイテム
 
 ### 入れ子型リスト
 
