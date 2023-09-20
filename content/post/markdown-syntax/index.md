@@ -6,20 +6,22 @@ date: 2023-09-20
 categories: 
     - テーマ
     - 構文
+    - チュートリアル
 tags: 
     - markdown
     - css
     - html
     - テーマ
+    - 翻訳
 ---
 
-This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
+この記事では Hugo ファイルで使うことのできる一般的な Markdown 構文のサンプルを CSS で装飾された一般的な HTML 要素と一緒に紹介します。
 
 <!--more-->
 
-## Headings
+## 見出し
 
-The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
+こちらは HTML の `<h1>`—`<h6>` 要素に相当する6種類の見出しを使用できます。 `<h1>` が最大の見出しで、 `<h6>` に近づくほど小さくなっていきます。
 
 # H1
 ## H2
@@ -28,7 +30,7 @@ The following HTML `<h1>`—`<h6>` elements represent six levels of section head
 ##### H5
 ###### H6
 
-## Paragraph
+## 段落
 
 Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.
 
@@ -38,12 +40,12 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
 
-### Blockquote without attribution
+### 出典なしのブロック引用
 
 > Tiam, ad mint andaepu dandae nostion secatur sequo quae.
-> **Note** that you can use *Markdown syntax* within a blockquote.
+> **ノート** ブロック構文では、 *Markdown 構文* を利用可能です。
 
-### Blockquote with attribution
+### 出典ありのブロック引用
 
 > Don't communicate by sharing memory, share memory by communicating.<br>
 > — <cite>Rob Pike[^1]</cite>
@@ -54,7 +56,7 @@ The blockquote element represents content that is quoted from another source, op
 
 Tables aren't part of the core Markdown spec, but Hugo supports supports them out-of-the-box.
 
-   Name | Age
+   名前 | 年齢
 --------|------
     Bob | 27
   Alice | 23
@@ -116,36 +118,36 @@ rev = "11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13"
 
 ## リスト形式
 
-### Ordered List
+### 順序のあるリスト
 
 1. First item
 2. Second item
 3. Third item
 
-### Unordered List
+### 順序がないリスト
 
 * List item
 * Another item
 * And another item
 
-### Nested list
+### 入れ子型リスト
 
-* Fruit
-  * Apple
-  * Orange
-  * Banana
-* Dairy
-  * Milk
-  * Cheese
+* 果物
+  * りんご
+  * オレンジ
+  * バナナ
+* 乳製品
+  * 牛乳
+  * チーズ
 
 ## その他の要素 — abbr, sub, sup, kbd, mark
 
-<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
+<abbr title="Graphics Interchange Format">GIF</abbr> はビットマップ画像形式です。
 
 H<sub>2</sub>O
 
 X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
 
-Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.
+<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> を押すことでセッションを終了できます。
 
-Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+多くの<mark>サラマンダー</mark>は夜行性で、昆虫やミミズ、その他の生物を狩ります。
