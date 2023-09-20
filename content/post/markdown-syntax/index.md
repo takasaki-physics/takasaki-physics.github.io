@@ -1,15 +1,15 @@
 ---
-title: Markdown Syntax Guide
-date: 2023-09-07
+title: Markdown 構文ガイド
+date: 2023-09-20
 description: Sample article showcasing basic Markdown syntax and formatting for HTML elements.
+categories: 
+    - テーマ
+    - 構文
 tags: 
     - markdown
     - css
     - html
-    - themes
-categories:
-    - themes
-    - syntax
+    - テーマ
 ---
 
 This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
@@ -33,7 +33,7 @@ Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptio
 
 Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.
 
-## Blockquotes
+## ブロック引用
 
 The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
 
@@ -49,7 +49,7 @@ The blockquote element represents content that is quoted from another source, op
 
 [^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
 
-## Tables
+## テーブル
 
 Tables aren't part of the core Markdown spec, but Hugo supports supports them out-of-the-box.
 
@@ -58,28 +58,28 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
     Bob | 27
   Alice | 23
 
-### Inline Markdown within tables
+### テーブル内のインライン Markdown
 
-| Italics   | Bold     | Code   |
-| --------  | -------- | ------ |
-| *italics* | **bold** | `code` |
+| 斜字   | 太字     | コード   |
+| -----  | -------- | -------- |
+| *斜字* | **太字** | `コード` |
 
 | A                                                        | B                                                                                                             | C                                                                                                                                    | D                                                 | E                                                          | F                                                                    |
 |----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------|
 | Lorem ipsum dolor sit amet, consectetur adipiscing elit. | Phasellus ultricies, sapien non euismod aliquam, dui ligula tincidunt odio, at accumsan nulla sapien eget ex. | Proin eleifend dictum ipsum, non euismod ipsum pulvinar et. Vivamus sollicitudin, quam in pulvinar aliquam, metus elit pretium purus | Proin sit amet velit nec enim imperdiet vehicula. | Ut bibendum vestibulum quam, eu egestas turpis gravida nec | Sed scelerisque nec turpis vel viverra. Vivamus vitae pretium sapien |
 
-## Code Blocks
+## コードブロック
 ### Code block with backticks
 
 ```html
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>Example HTML5 Document</title>
+  <title>HTML5 資料例</title>
 </head>
 <body>
-  <p>Test</p>
+  <p>テスト</p>
 </body>
 </html>
 ```
@@ -87,13 +87,13 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 ### Code block indented with four spaces
 
     <!doctype html>
-    <html lang="en">
+    <html lang="ja">
     <head>
       <meta charset="utf-8">
-      <title>Example HTML5 Document</title>
+      <title>HTML5 資料例</title>
     </head>
     <body>
-      <p>Test</p>
+      <p>テスト</p>
     </body>
     </html>
 
@@ -107,13 +107,13 @@ rev = "11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13"
 + features = ["jpeg", "dynamic"]
 ```
 
-### One line code block
+### 1行コードブロック
 
 ```html
 <p>A paragraph</p>
 ```
 
-## List Types
+## リスト形式
 
 ### Ordered List
 
@@ -137,7 +137,7 @@ rev = "11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13"
   * Milk
   * Cheese
 
-## Other Elements — abbr, sub, sup, kbd, mark
+## その他の要素 — abbr, sub, sup, kbd, mark
 
 <abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
 
