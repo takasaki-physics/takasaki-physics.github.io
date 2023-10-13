@@ -36,18 +36,13 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 
 # レポジトリを登録する
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 # インストール
 sudo apt install apt-transport-https
-
 sudo apt update
-
 apt list code
-
 apt list -a code
-
 sudo apt install code
 ```
 
@@ -147,17 +142,17 @@ sudo apt-get update && \
   sudo apt-get install -y aspnetcore-runtime-7.0
 ```
 
-#### 新しいコンソールプロジェクトを追加
+#### 新しいコンソールプロジェクトの作成
 ```shell
 dotnet new console -o プロジェクト名
 ```
 
-#### 新しいBlazor wasmプロジェクトを追加
+#### 新しいBlazor wasmプロジェクトの作成
 ```shell
 dotnet new blazorwasm -o プロジェクト名 --pwa
 ```
 
-#### プロジェクトを起動
+#### プロジェクトの起動
 ```shell
 dotnet watch run
 ```
