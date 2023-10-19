@@ -2,7 +2,7 @@
 title: Links
 links:
   - title: GitHub
-    description: GitHub is the world's largest software development platform.
+    description: GitHub は世界最大のソフトウェア開発プラットフォームです。
     website: https://github.com
     image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
 menu:
@@ -14,20 +14,20 @@ menu:
 comments: false
 ---
 
-To use this feature, add `links` section to frontmatter.
+この機能を使うには、本文の前の `links` セクションに追加してください。
 
-This page's frontmatter:
+このページの本文の前:
 
 ```yaml
 links:
   - title: GitHub
-    description: GitHub is the world's largest software development platform.
+    description: GitHub は世界最大のソフトウェア開発プラットフォームです。
     website: https://github.com
     image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
   - title: TypeScript
-    description: TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
+    description: TypeScript は簡単な JavaScript にコンパイルする型付き上位互換です。
     website: https://www.typescriptlang.org
     image: ts-logo-128.jpg
 ```
 
-`image` field accepts both local and external images.
+`image` 領域は内部の画像と外部の画像の両方を利用できます。
