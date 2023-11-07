@@ -1,6 +1,6 @@
 ---
 title: ロボットの設計のやり方0 〜説明〜
-description: 先輩(2019年)からの技術継承-0
+description: 先輩(2019年)からの技術継承0
 slug: 2019-robo0
 date: 2023-11-06 00:00:00+0000
 categories:

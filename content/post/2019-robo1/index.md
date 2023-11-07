@@ -1,6 +1,6 @@
 ---
 title: ロボットの設計のやり方1 ～仕様決定編～
-description: 先輩(2019年)からの技術継承-1
+description: 先輩(2019年)からの技術継承1
 slug: 2019-robo1
 date: 2023-11-06 00:00:00+0000
 categories:
