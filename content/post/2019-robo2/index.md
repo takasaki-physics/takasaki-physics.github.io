@@ -1,6 +1,6 @@
 ---
 title: ロボットの設計のやり方2 ～部品編～
-description: 先輩(2019年)からの技術継承-2
+description: 先輩(2019年)からの技術継承2
 slug: 2019-robo2
 date: 2023-11-06 00:00:00+0000
 categories:
