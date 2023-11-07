@@ -1,7 +1,7 @@
 ---
 title: ロボットの設計のやり方0 〜説明〜
-description: 先輩(119期)からの技術継承-0
-slug: takasaki-119-0
+description: 先輩(2019年)からの技術継承-0
+slug: 2019-robo0
 date: 2023-11-06 00:00:00+0000
 categories:
     - ロボ設計
