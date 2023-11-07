@@ -1,7 +1,7 @@
 ---
 title: ロボットの設計のやり方3 ～EAGLE編～
-description: 先輩(119期)からの技術継承-3
-slug: takasaki-119-3
+description: 先輩(2019年)からの技術継承-3
+slug: 2019-robo3
 date: 2023-11-06 00:00:00+0000
 categories:
     - ロボ設計
