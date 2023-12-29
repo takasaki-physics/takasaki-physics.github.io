@@ -9,6 +9,7 @@ categories:
     - 開発
 tags:
     - 翠巒祭
+draft: true
 ---
 
 こんにちは。[mint73](https://github.com/mint73)です。
