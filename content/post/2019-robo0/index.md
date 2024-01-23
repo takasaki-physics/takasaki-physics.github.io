@@ -5,8 +5,7 @@ slug: 2019-robo0
 date: 2019-07-01 13:09:18+0900
 categories:
     - ロボ設計
-tags:
-    - 先輩からの引き継ぎ書類
+    - Archive_2019
 ---
 
 
