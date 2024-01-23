@@ -1,13 +1,12 @@
 ---
-title: Fusion360 を使った基盤の作り方
+title: Fusion360 を使った基板の作り方
 description: 回路設計をはじめる
 slug: fusion360
 date: 2023-09-21 00:00:00+0000
 image: image1.png
 categories:
     - 基板設計
-tags:
-    - 先輩からの引き継ぎ書類
+    - Archive_2023
 ---
 
 ## 編集者から
