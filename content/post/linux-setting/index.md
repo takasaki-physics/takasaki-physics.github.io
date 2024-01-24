@@ -4,10 +4,11 @@ description: 私的Linux設定方法
 slug: linux-setting
 date: 2023-10-11
 categories: 
-    - 開発環境
+    - 開発
 tags: 
     - Linux
     - ソフトウェア
+    - 開発環境整備
 ---
 
 こんにちは。<br />
