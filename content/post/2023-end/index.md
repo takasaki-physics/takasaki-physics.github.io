@@ -3,9 +3,8 @@ title: 翠巒祭実行の物置の掃除
 description: 物理部関係ない
 slug: 2023-end
 date: 2023-12-22 00:00:00+0000
-categories:
-    - 掃除
 tags:
+    - 掃除
     - 翠巒祭
 ---
 こんにちは!
