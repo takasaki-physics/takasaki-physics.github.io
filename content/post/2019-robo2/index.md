@@ -5,9 +5,8 @@ slug: 2019-robo2
 date: 2019-08-01 17:36:14+0900
 categories:
     - ハードウェア
-    - Archive
-tags: 
     - Archive_2019
+tags: 
     - ロボ設計
 ---
 

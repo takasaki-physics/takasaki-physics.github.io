@@ -6,10 +6,9 @@ date: 2023-09-21 00:00:00+0000
 image: image1.png
 categories:
     - ハードウェア
-    - Archive
+    - Archive_2023
 tags:
     - 基板設計
-    - Archive_2023
 ---
 
 ## 編集者から
