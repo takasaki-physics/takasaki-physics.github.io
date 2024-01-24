@@ -4,8 +4,11 @@ description: 先輩(2019年)からの技術継承2
 slug: 2019-robo2
 date: 2019-08-01 17:36:14+0900
 categories:
-    - ロボ設計
+    - ハードウェア
+    - Archive
+tags: 
     - Archive_2019
+    - ロボ設計
 ---
 
 ## 編集者から
