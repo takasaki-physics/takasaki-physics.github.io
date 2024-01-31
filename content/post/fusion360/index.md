@@ -5,8 +5,10 @@ slug: fusion360
 date: 2023-09-21 00:00:00+0000
 image: image1.png
 categories:
-    - 基板設計
+    - ハードウェア
     - Archive_2023
+tags:
+    - 基板設計
 ---
 
 ## 編集者から
