@@ -7,6 +7,8 @@ categories:
     - 発表
 tags:
     - SSH
+author:
+    - mint73
 ---
 
 こんにちは。[mint73](https://github.com/mint73)です。<br />
