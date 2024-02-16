@@ -2,12 +2,11 @@
 title: パソコンの整備
 description: Git の設定とか
 slug: 20240216-pc
-date: 2024-02-16 00:00:00+0900
+date: 2024-02-16 15:30:00+0900
 categories:
     - 開発
 tags:
     - パソコン
-draft: true
 ---
 
 こんにちは。[mint73](https://github.com/mint73)です。<br />
@@ -16,10 +15,12 @@ draft: true
 
 経緯に関しては、サーバー贈呈式の記事を参考にしてください。
 
+(自分は学級閉鎖とテスト前の部活停止期間によって、他のメンバーと比べて2週間遅れで受け取りました。)
+
 ## 整備内容
-*予定*
-- Git
-- VSCode
-- Visual Studio
-- ブラウザ
-- 自分好みのソフトとか
+- Git<br />
+開発に必須な Git を入れました。
+ついでに GitHub の設定も行ったので、ついに物理部の GitHub にEnglishLensのフルメンバー(2年生)が揃いました。
+- VSCode<br />
+日本語の設定などを行いました。
+Flutter の環境整備はまた今度行います。
