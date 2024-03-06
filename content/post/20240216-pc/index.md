@@ -20,7 +20,7 @@ tags:
 ## 整備内容
 - Git<br />
 開発に必須な Git を入れました。
-ついでに GitHub の設定も行ったので、ついに物理部の GitHub にEnglishLensのフルメンバー(2年生)が揃いました。
+ついでに GitHub の設定も行ったので、ついに物理部の GitHub に EnglishLens (2年生)のフルメンバーが揃いました。
 - VSCode<br />
 日本語の設定などを行いました。
 Flutter の環境整備はまた今度行います。
