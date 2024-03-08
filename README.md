@@ -1,6 +1,6 @@
 <img align="right" width="150" alt="logo" src="https://user-images.githubusercontent.com/5889006/190859553-5b229b4f-c476-4cbd-928f-890f5265ca4c.png">
 
-# 高崎高校 物理部 資料保管サイト
+# 高崎高校 物理部/SSH Blog
 こちらのサイトは、
 - [Hugo modules](https://gohugo.io/hugo-modules/)
 - [Hugo theme Stack](https://github.com/CaiJimmy/hugo-theme-stack)
