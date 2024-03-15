@@ -13,7 +13,9 @@ tags:
 今日は高崎女子高校と合同で課題研究合同発表会 (in Gメッセ群馬)が開催されました。
 
 ## 概要
-[高崎高校×高崎女子高校「課題研究合同発表会」 | 高崎高校ホームページ](https://takasaki-hs.gsn.ed.jp/blogs/blog_entries/view/197/6adc88f93323f69c2f0cc2fafe54db5c)
+- [高崎高校×高崎女子高校「課題研究合同発表会」 | 高崎高校ホームページ](https://takasaki-hs.gsn.ed.jp/blogs/blog_entries/view/197/6adc88f93323f69c2f0cc2fafe54db5c)
+- [合同発表会 | NHK](https://www3.nhk.or.jp/lnews/maebashi/20240314/1060016553.html)<br />
+EnglishLens が紹介されていますね。素晴らしい。
 
 Gメッセ群馬にて課題研究合同発表会が実施されました。<br />
 > ※ちなみに URL とタグに `ssh` が入っていますが、高崎女子高校は SSH 指定校ではありません。<br />
