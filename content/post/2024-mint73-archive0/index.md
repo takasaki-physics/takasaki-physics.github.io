@@ -1,5 +1,5 @@
 ---
-title: 2024年の指南
+title: 2024年からの指南 (0)
 description: mint73 からの技術継承
 slug: 2024-mint73-archive0
 date: 2024-03-14 10:00:00+0900
