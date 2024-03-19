@@ -95,7 +95,7 @@ tags:
 ---
 ```
 他の記事の記述方法を真似すると良いです。<br />
-(*[content/post/markdown-syntax/index.md](https://github.com/mint73/takasaki-physics.github.io/blob/main/content/post/markdown-syntax/index.md?plain=1)* など)<br />
+(*[content/post/markdown-syntax/index.md](https://github.com/takasaki-physics/takasaki-physics.github.io/blob/main/content/post/markdown-syntax/index.md)* など)<br />
 
 この記述のあとに通常の Markdown 形式で記述を進めてください。<br />
 
