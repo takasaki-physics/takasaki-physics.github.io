@@ -1,14 +1,13 @@
-# セキュリティーポリシー / Security Policy
+# Security Policy / セキュリティーポリシー
 
-## サポートしているバージョン / Supported Versions
+## Supported Versions / サポートしているバージョン
 
-| バージョン / Version | サポート / Supported |
+| Version / バージョン | Supported / サポート |
 | ------------------- | ------------------- |
-| 2023.8 <            | :white_check_mark:  |
-| < 2023.8            | :x:                 |
+| latest              | :white_check_mark:  |
 
-## 脆弱性の報告 / Reporting a Vulnerability
+## Reporting a Vulnerability / 脆弱性の報告
 
 物理部内に GitHub を使える人がいるかどうかによって決まります。<br />
-今年(2023年)は[私](https://github.com/mint73)が最低1ヶ月に1回は確認できます。<br />
+2023-2024年は [mint73](https://github.com/mint73) が対応しています。<br />
 ただし、私は技術力に乏しいので、改善方法などについてもご教授いただけると幸いです。<br />
