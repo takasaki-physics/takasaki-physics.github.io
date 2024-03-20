@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>開発 on 高崎高校 物理部/SSH</title><link>https://takasaki-physics.github.io/categories/%E9%96%8B%E7%99%BA/</link><description>Recent content in 開発 on 高崎高校 物理部/SSH</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Mon, 19 Feb 2024 16:00:00 +0900</lastBuildDate><atom:link href="https://takasaki-physics.github.io/categories/%E9%96%8B%E7%99%BA/index.xml" rel="self" type="application/rss+xml"/><item><title>Git インストール後に必ずすること</title><link>https://takasaki-physics.github.io/p/20240219-git-setting/</link><pubDate>Mon, 19 Feb 2024 16:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240219-git-setting/</guid><description>&lt;img src="https://takasaki-physics.github.io/p/20240219-git-setting/git-bash.png" alt="Featured image of post Git インストール後に必ずすること" />&lt;p>こんにちは。
+&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> です。&lt;/p>
+&lt;p>今回は Git インストール後に必ず必要な設定に関して記述していきます。
+(先週金曜日の Git 設定の時に忘れていたやつ。)&lt;/p>
+&lt;h2 id="方法">方法&lt;/h2>
+&lt;p>ユーザー名とメールアドレスの設定をします。&lt;/p>
+&lt;ol>
+&lt;li>Git Bash を起動&lt;br />
+初めに Git Bash を起動します。&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/20240219-git-setting/git-bash.png"
+width="1200"
+height="1197"
+srcset="https://takasaki-physics.github.io/p/20240219-git-setting/git-bash_hub9b80889bd8921279845e2cc319b3fb9_872846_480x0_resize_box_3.png 480w, https://takasaki-physics.github.io/p/20240219-git-setting/git-bash_hub9b80889bd8921279845e2cc319b3fb9_872846_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Git Bash"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+>&lt;/p>
+&lt;p>Windows の場合は上のように起動できます。
+VSCode の Git Bash を利用しても構いません。&lt;/p>
+&lt;ol>
+&lt;li>設定する
+Git Bash で以下のコマンドを実行します。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ git config --global user.name &lt;span class="o">[&lt;/span>ユーザー名&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ git config --global user.email &lt;span class="o">[&lt;/span>メールアドレス&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 例&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ git config --global user.name &lt;span class="s2">&amp;#34;mint73&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ git config --global user.email example@example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ユーザー名もメールアドレスも GitHub と同じものがよいでしょう。&lt;/p>
+&lt;ol>
+&lt;li>確認する
+Git Bash で以下のコマンドを実行することで正常に設定できているか確認できます。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ git config --global --list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">user.name&lt;span class="o">=&lt;/span>mint73
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">user.email&lt;span class="o">=&lt;/span>example@example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>以上です。&lt;/p>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://reasonable-code.com/git-init-setting/" target="_blank" rel="noopener"
+>https://reasonable-code.com/git-init-setting/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>情報共有しましょう!</title><link>https://takasaki-physics.github.io/p/20240219-discuss/</link><pubDate>Mon, 19 Feb 2024 12:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240219-discuss/</guid><description>&lt;img src="https://takasaki-physics.github.io/p/20240219-discuss/discussions.png" alt="Featured image of post 情報共有しましょう!" />&lt;p>こんにちは。
+&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> です。&lt;/p>
+&lt;p>こちらは、主に物理部の部員や開発者向けの資料となっています。&lt;/p>
+&lt;h2 id="github-discussions">GitHub Discussions&lt;/h2>
+&lt;p>物理部の Discussions は&lt;a class="link" href="https://github.com/orgs/takasaki-physics/discussions" target="_blank" rel="noopener"
+>こちら&lt;/a>!!&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/20240219-discuss/discussions.png"
+width="1365"
+height="564"
+srcset="https://takasaki-physics.github.io/p/20240219-discuss/discussions_hua11d3c0079427c4d8434fe2a3a245065_114855_480x0_resize_box_3.png 480w, https://takasaki-physics.github.io/p/20240219-discuss/discussions_hua11d3c0079427c4d8434fe2a3a245065_114855_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="GitHub Discussions"
+class="gallery-image"
+data-flex-grow="242"
+data-flex-basis="580px"
+>&lt;/p>
+&lt;p>GitHub には Discussions という機能があります。
+一般的にはレポジトリの Discussions がプログラムの新機能に関するアイデア出しやプログラムへの質問などで利用されます。
+Organization でも同様の機能が利用可能で、物理部では一般的な会話に利用するつもりです。(まあ、基本的な会話は物理部の Slack でも良いのですが、履歴が残らないので、私的にはこちらを利用したいと考えています。)&lt;/p>
+&lt;p>(GitHub アカウントを持っている人なら)誰でもこちらに質問可能なので、ぜひぜひご利用ください。&lt;/p></description></item><item><title>パソコンの整備</title><link>https://takasaki-physics.github.io/p/20240216-pc/</link><pubDate>Fri, 16 Feb 2024 15:30:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240216-pc/</guid><description>&lt;p>こんにちは。&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>です。&lt;br />
+先日のサーバー贈呈式の際に、糸井さんから個人のパソコンをいただきました。&lt;br />
+(パソコンの話は書いてよいのかわからなかかったのですが、上毛新聞のサーバー贈呈式の記事にてパソコンについても書いてあったので、物理部 Blog でも本記事にて記載することにしました。)&lt;/p>
+&lt;p>経緯に関しては、サーバー贈呈式の記事を参考にしてください。&lt;/p>
+&lt;p>(自分は学級閉鎖とテスト前の部活停止期間によって、他のメンバーと比べて2週間遅れで受け取りました。)&lt;/p>
+&lt;h2 id="整備内容">整備内容&lt;/h2>
+&lt;ul>
+&lt;li>Git&lt;br />
+開発に必須な Git を入れました。
+ついでに GitHub の設定も行ったので、ついに物理部の GitHub に EnglishLens (2年生)のフルメンバーが揃いました。&lt;/li>
+&lt;li>VSCode&lt;br />
+日本語の設定などを行いました。
+Flutter の環境整備はまた今度行います。&lt;/li>
+&lt;/ul></description></item><item><title>物理部にサーバーを提供していただきました</title><link>https://takasaki-physics.github.io/p/20240202-server/</link><pubDate>Fri, 02 Feb 2024 22:30:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240202-server/</guid><description>&lt;p>こんにちは。&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>です。&lt;br />
+今日は物理部のサーバー贈呈式が行われました。&lt;br />
+ありがとうございます!!&lt;br />
+物理部で様々な用途で役立てていきます。&lt;br />
+(実際に利用できるのはまだのようです。設定などが済んだあとに利用できると思います。&lt;br />
+もしかしたら私達は時期的にあまり使えないかもしれませんが、後輩たちがうまく使ってくれるでしょう。)&lt;br />&lt;/p>
+&lt;h2 id="概要">概要&lt;/h2>
+&lt;p>上毛新聞社が開催する&lt;a class="link" href="https://shidojin.jp/incubation.html" target="_blank" rel="noopener"
+>&lt;strong>指導陣Jr.インキュベーション&lt;/strong>&lt;/a>という、高校生の研究とそれに興味を持った企業様を結びつける発表会がありました。&lt;br />
+その際に、私達はEnglishLensの発表を行い、&lt;a class="link" href="https://www.itoi-shoji.co.jp/company/itoi-holdings/" target="_blank" rel="noopener"
+>&lt;strong>糸井ホールディングス&lt;/strong>&lt;/a>の&lt;strong>社長様&lt;/strong>(高崎高校のOB)から支援していただけることが決まり、サーバー(など)を支援していただけることになりました。&lt;/p>
+&lt;h2 id="内容">内容&lt;/h2>
+&lt;p>本当だったら、私もこのサーバー譲渡の会に行くはずだったのですが、まさかの学級閉鎖により、私は行けませんでした…&lt;br />
+(感謝の言葉を直接伝えたかったです…)&lt;/p>
+&lt;p>というか、EnglishLensを小学校で使ってもらう際に次ぐ2回目なんですが…(白目)&lt;br />
+2回のイベントに学級閉鎖(自分は元気)で参加できないとはなんとも無念です…&lt;/p>
+&lt;p>ということで、私は&lt;strong>何が行われたのかはわかりません&lt;/strong>。(ぽんこつ)&lt;/p>
+&lt;h2 id="最後に">最後に&lt;/h2>
+&lt;p>繰り返しとなりますが、サーバーを購入していただいた糸井様、そしてその機会を作ってくださった上毛新聞社様、並びにここまで協力してくださった先生やメンバーの3人、そしてその他の協力者の皆様、本当にありがとうございました。&lt;br />
+これからもEnglishLensチームや高崎高校 物理部は精進して参ります。&lt;/p></description></item><item><title>パソコン整備</title><link>https://takasaki-physics.github.io/p/pc-mente/</link><pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/pc-mente/</guid><description>&lt;p>本資料では、 2023/10/31 までに行ったパソコン整備の内容について記録します。&lt;/p>
+&lt;h2 id="tddr">TD;DR&lt;/h2>
+&lt;ul>
+&lt;li>場所移動&lt;/li>
+&lt;li>バージョンアップ&lt;/li>
+&lt;li>VSCode とか&lt;/li>
+&lt;/ul>
+&lt;h2 id="環境">環境&lt;/h2>
+&lt;p>(タワー型PC)&lt;/p>
+&lt;ul>
+&lt;li>OS: Windows10 21H2 (当時)&lt;/li>
+&lt;li>CPU: Intel core i シリーズ (詳細は忘れました)&lt;/li>
+&lt;li>GPU: Radeon RX 570&lt;/li>
+&lt;li>RAM: 8GB x 2 枚&lt;/li>
+&lt;li>SSD: 256GB 程度? (Intel製)&lt;/li>
+&lt;li>HDD: 400GB 程度? (サムスン製)&lt;/li>
+&lt;/ul>
+&lt;h2 id="整備内容">整備内容&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>OS 再インストール&lt;br />
+先述ではWindows10 21H2と書いたのですが、サーバー化計画(失敗)にて現在はKDE Neonを入れているので、OSをまるごと入れ直しました。&lt;br />
+(LinuxのDEとPCのGPUのRadeonと相性が悪く、GNOMEでもKDEでも少し使っていると画面が乱れるため、まともに使えませんでした。ドライバは頑張ったのですが、諦めました。)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>場所移動&lt;br />
+現在の設置場所(講義室後ろ)はWi-Fiが途切れ途切れなので、前側(Wi-Fiのすぐ近く)に移動しました。&lt;br />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>基本ソフトウェアインストール&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>VSCode&lt;br />
+なぜかMicrosoft Storeになかったので、公式サイトからインストールしました。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Git&lt;br />
+バージョン管理システム界隈の最高傑作&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Flutter開発環境&lt;br />
+今回の本来の目的です。&lt;br />
+エディタは先述のVSCodeを使います。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>今後予定&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>.NET SDKのインストール&lt;br />
+C#を推している人物として後で入れておきます。&lt;br />
+&lt;del>Visual Studioは重いので入れません。&lt;/del> (追記: 課題研究で使うので入れました。)&lt;br />
+&lt;del>VSCodeにC# Devとかの拡張機能を入れておくので、それを使ってください&lt;/del> (追記: SDK入れてないのでそのままでは使えません。)。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>旧データ整理&lt;br />
+パソコン内のHDDには古いデータが残っているので、今後整備予定です。&lt;br />
+引き継ぎ資料も含まれていたため、内容が現代でも通じるものに関してはこちらのサイトに追加したいと考えています。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Linux環境設定</title><link>https://takasaki-physics.github.io/p/linux-setting/</link><pubDate>Wed, 11 Oct 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/linux-setting/</guid><description>&lt;p>こんにちは。&lt;br />
+今回は私的Linux環境の準備方法を説明します。&lt;br />&lt;/p>
+&lt;h2 id="ソフト開発関係">ソフト開発関係&lt;/h2>
+&lt;h3 id="vscode">VSCode&lt;/h3>
+&lt;p>テキストエディタです。&lt;br />&lt;/p>
+&lt;p>VimとかKateとかもありますけど、私はVSCodeが最推しですね。&lt;br />
+比較的軽量で、拡張機能によって豊富な機能を搭載でき、なおかつシンプルなため、初心者から神まで御用達のツールとなっています。&lt;br />
+本職のプログラマーやWebデザイナーなどにも人気です。&lt;br />
+(皆さんは個人開発だと思うのであまり関係ありませんが、商用利用の際もライセンスが軽いので使いやすいです。)&lt;br />&lt;/p>
+&lt;p>さて、VSCodeはLinux(Debian系)だと様々な方法でインストールできますが、いちばん簡単な方法だと、&lt;code>apt&lt;/code>を使った方法になります。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://qiita.com/yoshiyasu1111/items/e21a77ed68b52cb5f7c8" target="_blank" rel="noopener"
+>Qiita - UbuntuにVSCodeをインストールする3つの方法&lt;/a>&lt;br />&lt;/p>
+&lt;h4 id="インストール">インストール&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># curlのインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install curl
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># curlでMicrosoftのキーをダウンロード&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl https://packages.microsoft.com/keys/microsoft.asc &lt;span class="p">|&lt;/span> gpg --dearmor &amp;gt; microsoft.gpg
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># レポジトリを登録する&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo install -o root -g root -m &lt;span class="m">644&lt;/span> microsoft.gpg /etc/apt/trusted.gpg.d/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo sh -c &lt;span class="s1">&amp;#39;echo &amp;#34;deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main&amp;#34; &amp;gt; /etc/apt/sources.list.d/vscode.list&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># インストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install apt-transport-https
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt list code
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt list -a code
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install code
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動">起動&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">code
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="opera">Opera&lt;/h3>
+&lt;p>ブラウザです。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://tutorialcrawler.com/ubuntu-debian/ubuntu-20-04%E3%81%ABopera%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener"
+>UbuntuにOperaをインストールする方法&lt;/a>&lt;br />&lt;/p>
+&lt;h4 id="インストール-1">インストール&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># キーのダウンロード&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wget -qO- https://deb.opera.com/archive.key &lt;span class="p">|&lt;/span> sudo apt-key add -
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> deb https://deb.opera.com/opera-stable/ stable non-free &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/opera.list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># インストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install opera-stable
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-1">起動&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">opera --lang&lt;span class="o">=&lt;/span>ja
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="言語設定推奨">言語設定(推奨)&lt;/h4>
+&lt;p>ちなみに、初期状態でデスクトップアイコンから起動しても英語なので、.desktopファイルを少しいじる必要があります。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://forums.opera.com/topic/58114/can-t-change-ui-language-no-option-display-opera-in-that-language/4" target="_blank" rel="noopener"
+>Opera Forums - UIの言語を変える方法&lt;/a>(英文)&lt;br />&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">cat /usr/share/applications/opera.desktop
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># [Desktop Entry]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Version=1.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Name=Opera&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># GenericName=Web browser&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Comment=Fast and secure web browser&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># TryExec=opera&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Exec=opera %U&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Terminal=false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Icon=opera&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># この&amp;#34;Exec=opera %U&amp;#34;の部分を&amp;#34;Exec=opera --lang=ja %U&amp;#34;にvimなどで変える&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo vim /usr/share/applications/opera.desktop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="グラフィック系">グラフィック系&lt;/h2>
+&lt;h3 id="krita">Krita&lt;/h3>
+&lt;p>イラスト系最高傑作ソフトです。&lt;br />
+開発者の皆様はあまり使わないかも知れませんが、私はイラストを描くことが好きなので、紹介させていただきます。&lt;br />&lt;/p>
+&lt;p>&lt;code>apt&lt;/code>版はバージョンがかなり古いので、公式からインストールしましょう。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://docs.krita.org/ja/user_manual/getting_started/installation.html#linux" target="_blank" rel="noopener"
+>Krita Docs - Kritaのインストール方法&lt;/a>&lt;/p>
+&lt;h4 id="インストール-2">インストール&lt;/h4>
+&lt;ol>
+&lt;li>&lt;a class="link" href="https://krita.org/jp/download-jp/krita-desktop-jp/" target="_blank" rel="noopener"
+>Krita公式サイトのダウンロードページ&lt;/a>からappimageをダウンロードします。&lt;/li>
+&lt;li>krita.appimageが入っているディレクトリ内で以下のコマンドを打ちます。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">chmod a+x ./krita.appimage
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-2">起動&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">./krita.appimage
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>エラーが起こる場合はそれをインストールしましょう。&lt;br />
+.desktopファイルを作っておくとGUIからも起動できるので楽です。&lt;br />&lt;/p>
+&lt;h2 id="コンソール系">コンソール系&lt;/h2>
+&lt;h3 id="net-sdk">.NET SDK&lt;/h3>
+&lt;p>C#やVB.NET、F#を動作させるのに必要なSDKです。&lt;br />
+今回はDebian12のインストール方法を記載します。&lt;br />
+それ以外のOSの場合は下のURLを参考にしてください。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://learn.microsoft.com/ja-jp/dotnet/core/install/" target="_blank" rel="noopener"
+>Microsoft - .NETをインストールする&lt;/a>&lt;br />&lt;/p>
+&lt;h4 id="インストール-3">インストール&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># キーのインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dpkg -i packages-microsoft-prod.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rm packages-microsoft-prod.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># SDKのインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sudo apt-get install -y dotnet-sdk-7.0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ランタイムのインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sudo apt-get install -y aspnetcore-runtime-7.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="新しいコンソールプロジェクトの作成">新しいコンソールプロジェクトの作成&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">dotnet new console -o プロジェクト名
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="新しいblazor-wasmプロジェクトの作成">新しいBlazor wasmプロジェクトの作成&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">dotnet new blazorwasm -o プロジェクト名 --pwa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="プロジェクトの起動">プロジェクトの起動&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">dotnet watch run
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="neofetch">neofetch&lt;/h3>
+&lt;p>端末情報が見れるソフトです。&lt;br />
+メモリ使用量とかも見れるので便利です。&lt;br />&lt;/p>
+&lt;h4 id="インストール-4">インストール&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install neofetch -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-3">起動&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">neofetch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="tint">tint&lt;/h3>
+&lt;p>テトリスです。&lt;br />&lt;/p>
+&lt;h4 id="インストール-5">インストール&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install tint -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-4">起動&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">tint
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="sl">sl&lt;/h3>
+&lt;p>電車が走るコマンドです。&lt;br />
+中断できないので&lt;code>ls&lt;/code>コマンドと間違えたときに邪魔なコマンドです。&lt;br />&lt;/p>
+&lt;h4 id="インストール-6">インストール&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install sl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-5">起動&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>sl -l&lt;/code>にすると長くなります。&lt;br />
+&lt;kbd>Ctrl&lt;/kbd> + &lt;kbd>C&lt;/kbd> でも中断できないという謎仕様です。&lt;br />&lt;/p>
+&lt;h3 id="cmatrix">cmatrix&lt;/h3>
+&lt;p>コマンドライン上でマトリックスできるコマンドです。&lt;br />
+人気コマンド。&lt;br />&lt;/p>
+&lt;h4 id="インストール-7">インストール&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install cmatrix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-6">起動&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">cmatrix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>cmatrix -C red&lt;/code>のように色を変えることもできます。&lt;br />&lt;/p></description></item></channel></rss>
