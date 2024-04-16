@@ -12,7 +12,7 @@ tags:
     - Colaboratory
 ---
 
-本シリーズは、新1年を対象とした基礎プログラムの解説資料になっています。
+本シリーズ (Python を基礎から - Google Colaboratory を使ったプログラム基礎 - ) は、新1年生を対象とした基礎プログラムの解説資料になっています。
 
 ## 一覧 (作成予定を含む)
 1. 環境構築
@@ -23,7 +23,7 @@ tags:
 1. 配列
 
 ## 編集について
-Typo 、追記、新資料の寄稿など大歓迎です。
+誤字訂正、追記、新資料の寄稿など大歓迎です。
 是非 [PR](https://github.com/takasaki-physics/takasaki-physics.github.io/pulls) を…
 
 第124期 [mint](https://github.com/mint73) (2024年度 3年)
