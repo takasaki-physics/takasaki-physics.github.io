@@ -1,5 +1,5 @@
 ---
-title: Python を基礎から - 0
+title: Python を基礎から - 0 説明
 description: Google Colaboratory を使ったプログラム基礎
 slug: tutorial-python-000
 date: 2024-04-16 15:40:00+0900
