@@ -34,7 +34,7 @@ print("Hello World!")
 
 数値の出力例:
 ```python
-int number = 200
+number = 200
 print(number)
 
 # 出力> 200
@@ -42,7 +42,7 @@ print(number)
 
 文字の出力例:
 ```python
-string text = "Apple"
+text = "Apple"
 print(text)
 
 # 出力> Apple

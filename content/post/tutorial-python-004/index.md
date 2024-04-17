@@ -20,7 +20,7 @@ tags:
 数値の扱いには前回のページで紹介した int 型を利用します。
 
 ```python
-int number = 30
+number = 30
 print (number)
 
 # 出力> 30
