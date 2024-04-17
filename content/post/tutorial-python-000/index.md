@@ -15,11 +15,11 @@ tags:
 本シリーズ (Python を基礎から - Google Colaboratory を使ったプログラム基礎 - ) は、新1年生を対象とした基礎プログラムの解説資料になっています。
 
 ## 一覧 (作成予定を含む)
-1. [環境構築](./tutorial-python-001)
-1. [Hello World!](./tutorial-python-002)
+1. [環境構築](../tutorial-python-001)
+1. [Hello World!](../tutorial-python-002)
 1. 変数について - int, string
-1. [四則演算](./tutorial-python-004)
-1. [入力を受け取ろう](./tutorial-python-005)
+1. [四則演算](../tutorial-python-004)
+1. [入力を受け取ろう](../tutorial-python-005)
 1. 条件分岐 - if 文
 1. 繰り返し - for 文
 1. 配列
