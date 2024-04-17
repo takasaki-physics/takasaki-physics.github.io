@@ -41,3 +41,6 @@ number_2 = input("2つめの数を入力してください: ")
 # (入力時に文字を入れるとエラーになります)
 print(int(number_1) + int(number_2))
 ```
+
+---
+Last Code Checked: 2024/4/17 by [mint73](https://github.com/mint73)

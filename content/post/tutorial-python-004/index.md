@@ -89,3 +89,6 @@ print (number_1 + number_2)
 
 # 出力> 54
 ```
+
+---
+Last Code Checked: 2024/4/17 by [mint73](https://github.com/mint73)

@@ -47,3 +47,6 @@ print(text)
 
 # 出力> Apple
 ```
+
+---
+Last Code Checked: 2024/4/17 by [mint73](https://github.com/mint73)
