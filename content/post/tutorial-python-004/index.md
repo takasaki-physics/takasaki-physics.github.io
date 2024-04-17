@@ -1,5 +1,5 @@
 ---
-title: Python を基礎から 4 - 電卓を作ろう (四則演算)
+title: Python を基礎から 4 - 四則演算
 description: Google Colaboratory を使ったプログラム基礎
 slug: tutorial-python-004
 date: 2024-04-16 16:23:00+0900
@@ -13,11 +13,11 @@ tags:
 ---
 
 ## 目的
-電卓の作成を通して、四則演算や int への理解を深める。
+簡単な計算を行います。
 
 ## 四則演算
 ### 振り返り
-数値の扱いには前回のページで紹介した通り、 int 型を利用します。
+数値の扱いには前回のページで紹介した int 型を利用します。
 
 ```python
 int number = 30
