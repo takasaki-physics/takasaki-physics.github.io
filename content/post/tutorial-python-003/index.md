@@ -81,6 +81,8 @@ int 型の使用例
 int number = 200;
 
 Console.WriteLine(number);
+
+// 出力> 200
 ```
 
 (int 型に文字列を入れるとエラーになります。)
@@ -88,7 +90,5 @@ Console.WriteLine(number);
 
 以上です。
 
-<!--
 ---
-Last Code Checked: 2024/4/xx by [mint73](https://github.com/mint73)
--->
+Last Code Checked: 2024/4/18 by [mint73](https://github.com/mint73)
