@@ -2,7 +2,7 @@
 title: Python を基礎から 3 - 変数について
 description: Google Colaboratory を使ったプログラム基礎
 slug: tutorial-python-003
-date: 2024-04-18 20:04:00+0900
+date: 2024-04-18 22:05:00+0900
 categories:
     - 開発
     - Python基礎

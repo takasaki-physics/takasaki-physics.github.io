@@ -2,7 +2,7 @@
 title: Python を基礎から 5 - 入力を受け取ろう
 description: Google Colaboratory を使ったプログラム基礎
 slug: tutorial-python-005
-date: 2024-04-16 16:50:00+0900
+date: 2024-04-18 22:05:00+0900
 categories:
     - 開発
     - Python基礎
