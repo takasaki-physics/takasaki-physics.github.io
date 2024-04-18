@@ -17,7 +17,7 @@ tags:
 ## 一覧 (作成予定を含む)
 1. [環境構築](../tutorial-python-001)
 1. [Hello World!](../tutorial-python-002)
-1. 変数について - int, string
+1. [変数について - int, string](../tutorial-python-003)
 1. [四則演算](../tutorial-python-004)
 1. [入力を受け取ろう](../tutorial-python-005)
 1. 条件分岐 - if 文
