@@ -10,6 +10,7 @@ tags:
     - プログラム
     - Python
     - Colaboratory
+    - 開発環境整備
 ---
 
 ## 目的
