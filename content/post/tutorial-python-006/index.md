@@ -34,9 +34,29 @@ tags:
 ```python
 number = 100
 if number == 100:
-    printf("number is 100.")
+    printf("number is 100.") # number が100だったときに処理
 ```
-`number` の数値を変更すると、出力がされません。
+`number` の数値が`100`のときは文字が出力され、`100`以外のときは出力がされません。
 
 ### 複雑な比較
 `if` でなかった場合は、 `else` や `elif` を利用します。
+
+例:
+```python
+number = 100
+if number == 100:
+    printf("number is 100.") # number が100だったときに処理
+else:
+    printf("number is not 100.") # number が100以外のときに処理
+```
+
+```python
+number = 100
+if number == 100:
+    printf("number is 100.") # number が100だったときに処理
+elif number == 120:
+    printf("number is 120.") # number が120だったときに処理
+```
+
+本資料では解説しませんが、更に複雑な条件分岐に関しては、 `match` 文を利用します。
+これは、他の言語に当たる `switch-case` 文のようなものです。
