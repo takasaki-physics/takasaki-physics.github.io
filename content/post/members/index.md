@@ -10,12 +10,16 @@ weight: 2
 
 (私が把握している人物のみとなっています。もしご自身が物理部メンバーだった人や、知り合いで知っている人がいらっしゃったら [Issue](https://github.com/takasaki-physics/takasaki-physics.github.io/issues) を立ててください。こちらに追加します。)
 
+### 116期 (2014/4月 - 2017/3月)
+- [よしひさ](https://github.com/yosihisa) (部長)
+翠巒祭関係で知ったので、追加しました。
+
 ### 122期 (2020/4月 - 2023/3月)
 - [Sanzentyo](https://github.com/Sanzentyo) (部長)  
 ロボ関連のレポジトリがあるので、参考になると思います。
 
 ### 123期 (2021/4月 - 2024/3月)
-- [negi-tech](https://github.com/negi-tech) (副部長?)  
+- [negi-tech](https://github.com/negi-tech) / [Koji Negishi](https://github.com/koji1027) (副部長?)  
 ロボ関連のレポジトリがあるので、参考になると思います。
 
 ### 124期 (2022/4月 - 2025/3月)
