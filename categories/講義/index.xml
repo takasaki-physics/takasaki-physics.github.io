@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>講義 on 高崎高校 物理部/SSH</title><link>https://takasaki-physics.github.io/categories/%E8%AC%9B%E7%BE%A9/</link><description>Recent content in 講義 on 高崎高校 物理部/SSH</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Fri, 19 Apr 2024 00:00:00 +0900</lastBuildDate><atom:link href="https://takasaki-physics.github.io/categories/%E8%AC%9B%E7%BE%A9/index.xml" rel="self" type="application/rss+xml"/><item><title>講義 - Python を基礎から</title><link>https://takasaki-physics.github.io/p/20240419-python/</link><pubDate>Fri, 19 Apr 2024 00:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240419-python/</guid><description>&lt;p>&lt;a class="link" href="../tutorial-python-000" >Python を基礎から - Google Colaboratory を使ったプログラム基礎 - &lt;/a>シリーズの講義を行いました。&lt;/p>
+&lt;p>基本講義は私 &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> が、補助を&lt;a class="link" href="https://github.com/nAgI314" target="_blank" rel="noopener"
+>部長&lt;/a>が行ってくれました。&lt;/p>
+&lt;h2 id="内容">内容
+&lt;/h2>&lt;p>新1年生に Google Colaboratory を利用した Python の環境構築とプログラムの基礎を解説しました。
+現在は000-005まで作成していますが、これから作成予定の006-008の部分の解説も行っています。
+これは、高崎高校では必修の&lt;strong>情報I&lt;/strong>のプログラムの部分(3学期後半に学ぶ部分)を一通り踏襲した形になります。
+(関数 &lt;code>def&lt;/code> の解説を除く&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>)&lt;/p>
+&lt;p>今後の開発で役に立つと思うので、忘れたときはぜひ資料をご覧ください。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>内容的にはそれほど難しくないのですが、時間があまりなかったので省きました。あと、 &amp;ldquo;Python を基礎から&amp;rdquo; の資料作成予定に入っていなかったので、忘れていました。&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item></channel></rss>
