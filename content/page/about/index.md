@@ -32,6 +32,9 @@ menu:
 - [Koji Negishi](https://github.com/koji1027) / 旧: [negi-tech](https://github.com/negi-tech) (副部長?)  
 ロボ関連のレポジトリがあるので、参考になると思います。定期戦運営チーフ。
 
+- [mochivraft01](https://github.com/mochicraft01)  
+(多分物理部の人だと思います)
+
 ### 124期 (2022/4月 - 2025/3月)
 - [nAgI314](https://github.com/nAgI314) (部長)  
 VR 上毛かるたの人。翠巒祭模擬店班。
