@@ -32,9 +32,25 @@ tags:
 
 配列をコードで表す場合は、`array1 = ["a", "b", "c", "d"]` のように宣言することができます。
 
+例:
+```python
+books = ["Murder on the Orient Express", "The ABC Murders", "And Then There Were None", "Dead Man's Folly"]
+```
+
 また、`array1[0]` や `array1[1]` のように指定することで、それぞれの要素 `"a"` や `"b"` などを取り出すことができます。
 
-これを先程の例で示すと、以下のコードになります。
+例:
+```python
+books = ["Murder on the Orient Express", "The ABC Murders", "And Then There Were None", "Dead Man's Folly"]
+
+print(books[0]) # 配列の1番目を出力 (配列は0から数えるので、1番目を出力する場合は0を指定する)
+# 出力> Murder on the Orient Express
+
+print(books[1]) # 配列の2番目を出力 (配列は0から数えるので、2番目を出力する場合は1を指定する)
+# 出力> The ABC Murders
+```
+
+その他に以下のようなことも可能です。
 
 例:
 ```python
@@ -42,12 +58,6 @@ books = ["Murder on the Orient Express", "The ABC Murders", "And Then There Were
 
 print(books) # 配列全体を出力
 # 出力> ['Murder on the Orient Express', 'The ABC Murders', 'And Then There Were None', "Dead Man's Folly"]
-
-print(books[0]) # 配列の1番目を出力 (配列は0から数えるので、1番目を出力する場合は0を指定する)
-# 出力> Murder on the Orient Express
-
-print(books[1]) # 配列の2番目を出力 (配列は0から数えるので、2番目を出力する場合は1を指定する)
-# 出力> The ABC Murders
 
 # 配列を利用してそれぞれの要素を出力
 for i in range(len(books)): # len(books) は配列の長さ。これは1から数えるので、4が返される
@@ -68,7 +78,7 @@ numbers = [6, 1, 52, 30, 3]
 print(numbers[0])
 # 出力> 6
 
-# 配列の数値を利用して計算もできます。
+# 配列の数値を利用して計算する
 cal = numbers[0] + numbers[1]
 print(cal)
 # 出力> 7
@@ -86,4 +96,4 @@ print(numbers)
 応用的な内容や、2次元配列などについては追記するかもしれません。
 
 ---
-Last Code Checked 2024/7/12 by [mint73](https://github.com/mint73)
+Last Code Checked: 2024/7/12 by [mint73](https://github.com/mint73)
