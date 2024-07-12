@@ -36,6 +36,8 @@ number = 100
 if number == 100:
     printf("number is 100.") # number が100だったときに処理
 ```
+`number` に`100`とそれ以外の数字を入れてコードを動かしてみてください。
+
 `number` の数値が`100`のときは文字が出力され、`100`以外のときは出力がされません。
 
 ### 複雑な比較
@@ -45,18 +47,21 @@ if number == 100:
 ```python
 number = 100
 if number == 100:
-    printf("number is 100.") # number が100だったときに処理
+    print("number is 100.") # number が100だったときに処理
 else:
-    printf("number is not 100.") # number が100以外のときに処理
+    print("number is not 100.") # number が100以外のときに処理
 ```
 
 ```python
 number = 100
 if number == 100:
-    printf("number is 100.") # number が100だったときに処理
+    print("number is 100.") # number が100だったときに処理
 elif number == 120:
-    printf("number is 120.") # number が120だったときに処理
+    print("number is 120.") # number が120だったときに処理
 ```
 
 本資料では解説しませんが、更に複雑な条件分岐に関しては、 `match` 文を利用します。
 これは、他の言語に当たる `switch-case` 文のようなものです。
+
+---
+Last Code Checked 2024/7/12 by [mint73](https://github.com/mint73)
