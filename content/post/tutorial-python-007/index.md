@@ -21,9 +21,13 @@ tags:
 例:
 ```python
 for i in range(4):
-  print(i + " ")
+  print(i)
 
-# 出力> 0 1 2 3
+# 出力>
+# 0
+# 1
+# 2
+# 3
 ```
 
 `range(N)` とすると、`N-1` (`0` から数えるので、 `N` ではなく `N-1`) まで増えます。
@@ -34,7 +38,7 @@ for i in range(4):
 例:
 ```python
 for i in range(4):
-  printf("Hello World!")
+  print("Hello World!")
 
 # 出力>
 # Hello World!
@@ -42,3 +46,6 @@ for i in range(4):
 # Hello World!
 # Hello World!
 ```
+
+---
+Last Code Checked: 2024/7/12 by [mint73](https://github.com/mint73)
