@@ -20,9 +20,9 @@ tags:
 1. [変数について - int, string](../tutorial-python-003)
 1. [四則演算](../tutorial-python-004)
 1. [入力を受け取ろう](../tutorial-python-005)
-1. 条件分岐 - if 文
-1. 繰り返し - for 文
-1. 配列
+1. [条件分岐 - if 文](../tutorial-python-006)
+1. [繰り返し - for 文](../tutorial-python-007)
+1. [配列 (list)](../tutorial-python-008)
 
 ## 編集について
 誤字訂正、追記、新資料の寄稿など大歓迎です。
