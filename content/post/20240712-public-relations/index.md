@@ -5,6 +5,7 @@ slug: 20240712-public-relations
 date: 2024-07-12 10:01:00+0900
 categories:
     - 広報
+    - Archive_2024
 tags: 
     - Blog
     - Misskey
