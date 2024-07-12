@@ -15,7 +15,7 @@ tags:
 
 ## 目的
 Python の環境構築を解説します。
-今回は、準備が容易な Google Colaboratory を利用します。
+ここでは基本無料で、簡単に Python を動かすことができる Google Colaboratory を利用します。
 
 ## 環境構築
 ### 場所
