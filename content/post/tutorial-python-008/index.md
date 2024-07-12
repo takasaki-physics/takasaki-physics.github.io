@@ -1,5 +1,5 @@
 ---
-title: Python を基礎から 8 - 配列
+title: Python を基礎から 8 - 配列 (list)
 description: Google Colaboratory を使ったプログラム基礎
 slug: tutorial-python-008
 date: 2024-07-12 17:24:00+0900
@@ -15,7 +15,7 @@ tags:
 ## 目的
 1次元配列を処理できるようにします。
 
-(配列は array のことを示す場合もありますが、ここでは list の話をします)
+(配列というと、array のことを示す場合もありますが、今回は list の話をします)
 
 ## 1次元配列
 そもそも、1次元配列とは Excel の横列または縦列だけを利用するようなイメージです。
