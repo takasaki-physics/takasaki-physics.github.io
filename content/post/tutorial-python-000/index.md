@@ -14,7 +14,9 @@ tags:
 
 本シリーズ (Python を基礎から - Google Colaboratory を使ったプログラム基礎 - ) は、新1年生を対象とした基礎プログラムの解説資料になっています。
 
-## 一覧 (作成予定を含む)
+## 一覧
+Category: [Python基礎](https://takasaki-physics.github.io/categories/python基礎/)
+
 1. [環境構築](../tutorial-python-001)
 1. [Hello World!](../tutorial-python-002)
 1. [変数について - int, string](../tutorial-python-003)
