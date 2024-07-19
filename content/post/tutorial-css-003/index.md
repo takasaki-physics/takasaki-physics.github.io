@@ -1,5 +1,5 @@
 ---
-title: CSS 基礎 3 - 色彩に関してのおすすめ
+title: CSS 基礎 3 - 色彩の薦め
 description: アプリケーションに彩りを
 slug: tutorial-css-003
 date: 2024-07-19 12:37:00+0900
