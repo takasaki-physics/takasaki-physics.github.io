@@ -19,14 +19,14 @@ tags:
 (Monaca でなくても参考にできます)
 
 ## 一覧 (作成予定を含む)
-1. 環境構築/準備
-1. 基本
-1. 角丸と空白の美
-1. 色彩に関してのおすすめ (他の文章は読まなくてもいいけど、これは読んでほしい)
-1. Material UI から学ぶデザインの真髄
+1. [環境構築/準備](../tutorial-css-001)
+1. [角丸と空白の美](../tutorial-css-002)
+1. [色彩に関してのおすすめ](../tutorial-css-003)
+<!-- (他の文章は読まなくてもいいけど、これは読んでほしい) -->
+<!-- 1. Material UI から学ぶデザインの真髄 -->
 
 ## 編集について
 誤字訂正、追記、新資料の寄稿など大歓迎です。
-[PR](https://github.com/takasaki-physics/takasaki-physics.github.io/pulls) をお願いします。
+その際は GitHub から [PR](https://github.com/takasaki-physics/takasaki-physics.github.io/pulls) をお願いします。
 
 第124期 [mint](https://github.com/mint73) (2024年度 3年)
