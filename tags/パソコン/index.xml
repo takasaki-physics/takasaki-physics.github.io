@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>パソコン on 高崎高校 物理部/SSH</title><link>https://takasaki-physics.github.io/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/</link><description>Recent content in パソコン on 高崎高校 物理部/SSH</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Fri, 16 Feb 2024 15:30:00 +0900</lastBuildDate><atom:link href="https://takasaki-physics.github.io/tags/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3/index.xml" rel="self" type="application/rss+xml"/><item><title>パソコンの整備</title><link>https://takasaki-physics.github.io/p/20240216-pc/</link><pubDate>Fri, 16 Feb 2024 15:30:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240216-pc/</guid><description>&lt;p>こんにちは。&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>です。&lt;br />
+先日のサーバー贈呈式の際に、糸井さんから個人のパソコンをいただきました。&lt;br />
+(パソコンの話は書いてよいのかわからなかかったのですが、上毛新聞のサーバー贈呈式の記事にてパソコンについても書いてあったので、物理部 Blog でも本記事にて記載することにしました。)&lt;/p>
+&lt;p>経緯に関しては、サーバー贈呈式の記事を参考にしてください。&lt;/p>
+&lt;p>(自分は学級閉鎖とテスト前の部活停止期間によって、他のメンバーと比べて2週間遅れで受け取りました。)&lt;/p>
+&lt;h2 id="整備内容">整備内容
+&lt;/h2>&lt;ul>
+&lt;li>Git&lt;br />
+開発に必須な Git を入れました。
+ついでに GitHub の設定も行ったので、ついに物理部の GitHub に EnglishLens (2年生)のフルメンバーが揃いました。&lt;/li>
+&lt;li>VSCode&lt;br />
+日本語の設定などを行いました。
+Flutter の環境整備はまた今度行います。&lt;/li>
+&lt;/ul></description></item></channel></rss>
