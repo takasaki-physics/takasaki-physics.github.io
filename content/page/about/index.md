@@ -18,32 +18,59 @@ menu:
 ## メンバー一覧
 こちらには、過去の人物を含めた GitHub のアカウントを所持している人物の一覧となっています。
 
-(私が把握している人物のみとなっています。もしご自身が物理部メンバーだった人や、知り合いで知っている人がいらっしゃったら [Issue](https://github.com/takasaki-physics/takasaki-physics.github.io/issues) を立ててください。こちらに追加します。)
+(高崎高校 OB で GitHub アカウントお持ちの方は [Issue](https://github.com/takasaki-physics/takasaki-physics.github.io/issues) を立ててくれたら、こちらに追加します)
 
 ### 116期 (2014/4月 - 2017/3月)
-- [よしひさ](https://github.com/yosihisa) (部長)  
-翠巒祭関係で知ったので、追加しました。
+
+| 名前 | 物理部 | 翠巒祭 | 説明 |
+| - | - | - | - |
+| [よしひさ](https://github.com/yosihisa) | 部長 | Web課チーフ | - |
+
+### 117期? (2015?/4月 - 2018?/3月)
+
+| 名前 | 物理部 | 翠巒祭 | 説明 |
+| - | - | - | - |
+| [hueeeeee](https://github.com/aieeeee) | ×? | Web課? | - |
+
+### 118期? (2016?/4月 - 2019?/3月)
+
+| 名前 | 物理部 | 翠巒祭 | 説明 |
+| - | - | - | - |
+| [aqz](https://github.com/tamaina) | ×? | Web課 | [SUIRANFES](https://github.com/suiranfes) の創始者 |
 
 ### 122期 (2020/4月 - 2023/3月)
-- [Sanzentyo](https://github.com/Sanzentyo) (部長)  
-ロボ関連のレポジトリがあるので、参考になると思います。
+
+| 名前 | 物理部 | 翠巒祭 | 説明 |
+| - | - | - | - |
+| [Sanzentyo](https://github.com/Sanzentyo) | 部長 | ? | ロボ関連のレポジトリがあるので、参考になると思います。 |
 
 ### 123期 (2021/4月 - 2024/3月)
-- [Koji Negishi](https://github.com/koji1027) / 旧: [negi-tech](https://github.com/negi-tech) (副部長?)  
-ロボ関連のレポジトリがあるので、参考になると思います。定期戦運営チーフ。
 
-- [mochivraft01](https://github.com/mochicraft01)  
-(多分物理部の人だと思います)
+| 名前 | 物理部 | 翠巒祭 | 定期戦 | 説明 |
+| - | - | - | - | - |
+| [Koji Negishi](https://github.com/koji1027)<br />旧: [negi-tech](https://github.com/negi-tech) | 副部長? | ? | 運営チーフ | ロボ関連のレポジトリがあるので、参考になると思います。 |
+| [mochivraft01](https://github.com/mochicraft01) | 〇? | ? | ? | - |
 
 ### 124期 (2022/4月 - 2025/3月)
-- [nAgI314](https://github.com/nAgI314) (部長)  
-VR 上毛かるたの人。翠巒祭模擬店班。
 
-- [Izaak-Grinner](https://github.com/Izaak-Grinner) (副部長)  
-クトゥルフとか哲学とか宗教とか知識が広い人。一応生徒会。定期戦運営チーフ。
+| 名前 | 物理部 | 翠巒祭 | 定期戦 | 説明 |
+| - | - | - | - | - |
+| [nAgI314](https://github.com/nAgI314) | 部長 | 模擬店班 | - | VR 上毛かるたの人 |
+| [Izaak-Grinner](https://github.com/Izaak-Grinner) | 副部長 | - | 運営チーフ | 一応生徒会。クトゥルフとか哲学とか宗教とか知識が広い人 |
+| [ssadokafy](https://github.com/ssadokafy) | 〇 | 実行委員長 | 長縄チーフ | 元生徒会。聖人。物理部の頭脳で、理論派 |
+| [mint73](https://github.com/mint73) | 〇 | 食堂喫茶店班 | 運営書記 | 一応生徒会。現在の物理部 Blog (このウェブサイト) を整備した人。技術派。趣味 (別名義) で、OSS への貢献 |
+| - |
+| [jared20061122](https://github.com/jared20061122) | △ | ? | ? | (幽霊部員) 本垢じゃない気がする |
+| [Kawato777](https://github.com/Kawato777) | × | ポスパン[^suiranfes-poster]チーフ | 〇 | SSH で玉入れの研究をした人 (物理部ではない) |
 
-- [ssadokafy](https://github.com/ssadokafy)  
-聖人。物理部の頭脳で、理論派。翠巒祭実行委員長。
+[^suiranfes-poster]: ポスター・パンフレット班
 
-- [mint73](https://github.com/mint73)  
-現在の物理部 Blog (このウェブサイト) を整備した人。技術派。趣味 (別アカウント) では、 OSS への貢献をしてます。一応生徒会。翠巒祭食堂喫茶店班/定期戦運営書記。
+### 125期 (2023/4月 - 2026/3月)
+
+| 名前 | 物理部 | 翠巒祭 | 説明 |
+| - | - | - | - |
+| [Shimikow](https://github.com/Shimikow) | 部長 | 実行委員長 | - |
+| [yosshi430](https://github.com/yosshi430) | 〇 | 副実行委員長 | - |
+| [orandempty](https://github.com/orandempty) | 〇 | Web課チーフ | - |
+| [Shitake@rcj](https://github.com/KI4hara)<br />Sub: [Kiyohara@sub](https://github.com/Shi1take) | 〇 | ? | - |
+| [neo-mao](https://github.com/neo-mao) | 〇 | ? | - |
