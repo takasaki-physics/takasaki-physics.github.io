@@ -24,7 +24,7 @@ menu:
 
 | 名前 | 物理部 | 翠巒祭 | 説明 |
 | - | - | - | - |
-| [よしひさ](https://github.com/yosihisa) | 部長 | Web課チーフ | - |
+| [よしひさ](https://github.com/yosihisa) | 部長 | Web課チーフ | ロボ関連のレポジトリあり |
 
 ### 117期? (2015?/4月 - 2018?/3月)
 
@@ -42,35 +42,37 @@ menu:
 
 | 名前 | 物理部 | 翠巒祭 | 説明 |
 | - | - | - | - |
-| [Sanzentyo](https://github.com/Sanzentyo) | 部長 | ? | ロボ関連のレポジトリがあるので、参考になると思います。 |
+| [Sanzentyo](https://github.com/Sanzentyo) | 部長 | ? | ロボ関連のレポジトリあり |
 
 ### 123期 (2021/4月 - 2024/3月)
 
 | 名前 | 物理部 | 翠巒祭 | 定期戦 | 説明 |
 | - | - | - | - | - |
-| [Koji Negishi](https://github.com/koji1027)<br />旧: [negi-tech](https://github.com/negi-tech) | 副部長? | ? | 運営チーフ | ロボ関連のレポジトリがあるので、参考になると思います。 |
+| [Koji Negishi](https://github.com/koji1027)<br />旧: [negi-tech](https://github.com/negi-tech) | 副部長? | ? | 運営チーフ | ロボ関連のレポジトリあり |
 | [mochivraft01](https://github.com/mochicraft01) | 〇? | ? | ? | - |
 
 ### 124期 (2022/4月 - 2025/3月)
 
 | 名前 | 物理部 | 翠巒祭 | 定期戦 | 説明 |
 | - | - | - | - | - |
-| [nAgI314](https://github.com/nAgI314) | 部長 | 模擬店班 | - | VR 上毛かるたの人 |
-| [Izaak-Grinner](https://github.com/Izaak-Grinner) | 副部長 | - | 運営チーフ | 一応生徒会。クトゥルフとか哲学とか宗教とか知識が広い人 |
+| [nAgI314](https://github.com/nAgI314) | 部長 | 模擬店班 | × | VR 上毛かるたの人 |
+| [Izaak-Grinner](https://github.com/Izaak-Grinner) | 副部長 | × | 運営チーフ | 一応生徒会。技術派 |
 | [ssadokafy](https://github.com/ssadokafy) | 〇 | 実行委員長 | 長縄チーフ | 元生徒会。聖人。物理部の頭脳で、理論派 |
-| [mint73](https://github.com/mint73) | 〇 | 食堂喫茶店班 | 運営書記 | 一応生徒会。現在の物理部 Blog (このウェブサイト) を整備した人。技術派。趣味 (別名義) で、OSS への貢献 |
-| - |
-| [jared20061122](https://github.com/jared20061122) | △ | ? | ? | (幽霊部員) 本垢じゃない気がする |
-| [Kawato777](https://github.com/Kawato777) | × | ポスパン[^suiranfes-poster]チーフ | 〇 | SSH で玉入れの研究をした人 (物理部ではない) |
+| [mint73](https://github.com/mint73) | 〇 | 食堂喫茶店班 | 運営書記 | 一応生徒会。物理部 Blog (ここ) を整備した人。<br />別名義でも、OSS への貢献してる技術派。 |
+| - | - | - | - | - |
+| [jared20061122](https://github.com/jared20061122) | △[^note-1] | ? | ? | - [^note-2] |
+| [Kawato777](https://github.com/Kawato777) | × | ポスパン[^suiranfes-poster]チーフ | 〇 | SSH で玉入れの研究をした人 (すごい) |
 
+[^note-1]: 幽霊部員
+[^note-2]: 利用状況的に本垢じゃない気がする
 [^suiranfes-poster]: ポスター・パンフレット班
 
 ### 125期 (2023/4月 - 2026/3月)
 
 | 名前 | 物理部 | 翠巒祭 | 説明 |
 | - | - | - | - |
-| [Shimikow](https://github.com/Shimikow) | 部長 | 実行委員長 | - |
-| [yosshi430](https://github.com/yosshi430) | 〇 | 副実行委員長 | - |
+| [Shimikow](https://github.com/Shimikow) | 部長 | 実行委員長 | 多分生徒会 |
+| [yosshi430](https://github.com/yosshi430) | 〇 | 副実行委員長 | 多分生徒会 |
 | [orandempty](https://github.com/orandempty) | 〇 | Web課チーフ | - |
-| [Shitake@rcj](https://github.com/KI4hara)<br />Sub: [Kiyohara@sub](https://github.com/Shi1take) | 〇 | ? | - |
+| [Shitake@rcj](https://github.com/KI4hara)<br />Sub: [Kiyohara@sub](https://github.com/Shi1take) | 〇 | ? | 生徒会かも? |
 | [neo-mao](https://github.com/neo-mao) | 〇 | ? | - |
