@@ -34,15 +34,25 @@ menu:
 
 ### 118期? (2016?/4月 - 2019?/3月)
 
+| 名前 | 部活 | 翠巒祭 | 説明 |
+| - | - | - | - |
+| [aqz](https://github.com/tamaina) | 鉄道研究部 (部長)[^aqz-club] | Web課 | [SUIRANFES](https://github.com/suiranfes) の創始者 |
+
+[^aqz-club]: https://misskey.io/notes/9xg3ktsxsjtt00y1
+
+### 121期? (2019/4月 - 2022/3月)
+
 | 名前 | 物理部 | 翠巒祭 | 説明 |
 | - | - | - | - |
-| [aqz](https://github.com/tamaina) | ×? | Web課 | [SUIRANFES](https://github.com/suiranfes) の創始者 |
+| いの[^ino-misskey] | ? | 履物課 | (証拠 [1](https://misskey.io/notes/9xgw8rko1urh01ka) [2](https://misskey.io/notes/9xgw77ep1d6d02ca) [3](https://misskey.io/notes/9xgp0bqk03hc01zq) [4](https://misskey.io/notes/9xgorhcr03hc01im) [5](https://misskey.io/notes/9xg3jgwwsjtt00td)) |
+
+[^ino-misskey]: https://misskey.io/@ino_firefly@onsen-musume.fun
 
 ### 122期 (2020/4月 - 2023/3月)
 
 | 名前 | 物理部 | 翠巒祭 | 説明 |
 | - | - | - | - |
-| [Sanzentyo](https://github.com/Sanzentyo) | 部長 | ? | ロボ関連のレポジトリあり |
+| [Sanzentyo](https://github.com/Sanzentyo) | 部長 | 清掃課 チーフ | ロボ関連のレポジトリあり |
 
 ### 123期 (2021/4月 - 2024/3月)
 
