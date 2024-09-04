@@ -32,12 +32,13 @@ menu:
 | - | - | - | - |
 | [hueeeeee](https://github.com/aieeeee) | ×? | Web課? | - |
 
-### 118期? (2016?/4月 - 2019?/3月)
+### 118期 (2016/4月 - 2019/3月)
 
 | 名前 | 部活 | 翠巒祭 | 説明 |
 | - | - | - | - |
-| [aqz](https://github.com/tamaina) | 鉄道研究部 (部長)[^aqz-club] | Web課 | [SUIRANFES](https://github.com/suiranfes) の創始者 |
+| [aqz](https://github.com/tamaina)[^aqz-118] | 鉄道研究部 (部長)[^aqz-club] | Web課 | [SUIRANFES](https://github.com/suiranfes) の創始者 |
 
+[^aqz-118]: https://misskey.io/notes/9xrcj4kwnvoj01ij
 [^aqz-club]: https://misskey.io/notes/9xg3ktsxsjtt00y1
 
 ### 121期? (2019/4月 - 2022/3月)
