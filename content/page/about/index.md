@@ -2,7 +2,7 @@
 title: About
 description: Blog について
 date: 2024-05-28 22:13:00+0900
-lastmod: 2024-07-02 12:28:00+0900
+lastmod: 2024-09-04 22:47:00+0900
 layout: about
 slug: about
 menu:
@@ -41,13 +41,14 @@ menu:
 [^aqz-118]: https://misskey.io/notes/9xrcj4kwnvoj01ij
 [^aqz-club]: https://misskey.io/notes/9xg3ktsxsjtt00y1
 
-### 121期? (2019/4月 - 2022/3月)
+### 121期 (2019/4月 - 2022/3月)
 
 | 名前 | 物理部 | 翠巒祭 | 説明 |
 | - | - | - | - |
-| いの[^ino-misskey] | ? | 履物課 | (証拠 [1](https://misskey.io/notes/9xgw8rko1urh01ka) [2](https://misskey.io/notes/9xgw77ep1d6d02ca) [3](https://misskey.io/notes/9xgp0bqk03hc01zq) [4](https://misskey.io/notes/9xgorhcr03hc01im) [5](https://misskey.io/notes/9xg3jgwwsjtt00td)) |
+| いの[^ino-misskey][^ino-121] | ? | 履物課 | (証拠 [1](https://misskey.io/notes/9xgw8rko1urh01ka) [2](https://misskey.io/notes/9xgw77ep1d6d02ca) [3](https://misskey.io/notes/9xgp0bqk03hc01zq) [4](https://misskey.io/notes/9xgorhcr03hc01im) [5](https://misskey.io/notes/9xg3jgwwsjtt00td)) |
 
 [^ino-misskey]: https://misskey.io/@ino_firefly@onsen-musume.fun
+[^ino-121]: https://misskey.io/notes/9xrfwkapftra009u
 
 ### 122期 (2020/4月 - 2023/3月)
 
@@ -74,7 +75,7 @@ menu:
 | [jared20061122](https://github.com/jared20061122) | △[^note-1] | ? | ? | - [^note-2] |
 | [Kawato777](https://github.com/Kawato777) | × | ポスパン[^suiranfes-poster]チーフ | 〇 | SSH で玉入れの研究をした人 (すごい) |
 
-[^note-1]: 幽霊部員
+[^note-1]: 名簿上は物理部員だが、ほとんど活動に参加していない (幽霊部員)
 [^note-2]: 利用状況的に本垢じゃない気がする
 [^suiranfes-poster]: ポスター・パンフレット班
 
