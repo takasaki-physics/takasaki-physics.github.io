@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EnglishLens on 高崎高校 物理部/SSH</title><link>https://takasaki-physics.github.io/tags/englishlens/</link><description>Recent content in EnglishLens on 高崎高校 物理部/SSH</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Thu, 07 Mar 2024 23:00:00 +0900</lastBuildDate><atom:link href="https://takasaki-physics.github.io/tags/englishlens/index.xml" rel="self" type="application/rss+xml"/><item><title>エムズ英会話 x EnglishLens</title><link>https://takasaki-physics.github.io/p/20240307-englishlens/</link><pubDate>Thu, 07 Mar 2024 23:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240307-englishlens/</guid><description>&lt;p>こんにちは。 &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> です。&lt;br />
+今日は&lt;a class="link" href="https://emzsys.com/info-wp/" target="_blank" rel="noopener"
+>エムズ英会話&lt;/a>(高崎本部校)にて EnglishLens を実際に使ってもらいました。&lt;br />
+ご招待いただき誠にありがとうございました。&lt;/p>
+&lt;h2 id="概要">概要
+&lt;/h2>&lt;p>英会話教室にて EnglishLens の説明を行い、実際に利用してもらいました。&lt;br />
+EnglishLens の実証(ユーザーテスト)では学童、小学校に次ぐ3回目となります。&lt;br />
+(とはいっても、学童は&lt;a class="link" href="https://github.com/nAgI314" target="_blank" rel="noopener"
+>部長&lt;/a>のみ参加、小学校のときは自分のクラスが学級閉鎖で参加できなかったため、私は今回のユーザーテストで初参加でした。)&lt;/p>
+&lt;h2 id="全体流れ">全体流れ
+&lt;/h2>&lt;p>今回は1時間の時間をいただき、前回の小学校の時と同様に進めました。&lt;/p>
+&lt;p>初めに別室で動作テストや英会話塾の先生と打ち合わせを行いました。&lt;/p>
+&lt;ol>
+&lt;li>簡単な使い方説明&lt;br />
+初めに簡単に利用方法を説明しました。&lt;br />
+とはいっても、最近の子供たちはデジタルに慣れているようで、ほとんど説明していないうちでもすでによく使えていました。(すごい)&lt;br />
+撮影しても応答が遅いという問題があったので、この辺の安定性に関しては今後改良をしていく予定です。&lt;br />
+(実際にフレームワークを変更した最新版を現在作成途中です。SSHなど他の活動の影響もあってあまり進んでいないのですが…)&lt;/li>
+&lt;li>実際に使ってもらう&lt;br />
+今回は8人が対象のため、2人で1グループとして、様々な場所で写真を撮ってもらいました。&lt;br />
+今回は外も許可が出たので、珍しい単語も見つけられたのではないかと思います。&lt;br />
+単語に関しては後日解析を行います。&lt;/li>
+&lt;li>単語テストをグループでだしあう&lt;br />
+見つけた単語の中から4グループでお互い単語テストを出し合いました。&lt;br />
+盛り上がっていたのでよかったです。&lt;/li>
+&lt;li>アンケート&lt;br />
+授業についてアンケートを行いました。&lt;/li>
+&lt;/ol>
+&lt;p>これで授業は終了し、この後先生方からご意見をいただきました。&lt;br />
+ここでは詳細は伏せますが、とても参考になる意見や、自分たちでは到底思いつかないアイデアなどをたくさんいただけたため、これらをこれからの開発に生かしていきます!!&lt;/p>
+&lt;h2 id="最後に">最後に
+&lt;/h2>&lt;p>初めは&amp;quot;英語だけの授業&amp;quot;や&amp;quot;学年が違う&amp;quot;など心配要素はありましたが、 &lt;a class="link" href="https://github.com/ssadokafy" target="_blank" rel="noopener"
+>ssadokafy&lt;/a> (メンバーの1人)の素晴らしい英語力とお互い仲の良い英会話塾の生徒たちに救われました。&lt;br />
+自分は英会話塾には行ったことがなかったのですが、話を聞く感じでは、様々なカリキュラムを導入しており、なかなかおもしろそうでした。&lt;br />
+(いつもあの人数なのかはわかりませんが、指導する先生がとても多いのが驚きでした。)&lt;/p>
+&lt;p>再度となりますが、今日は招待いただき、また授業での様々なサポートや貴重なご意見誠にありがとうございました。&lt;/p></description></item></channel></rss>
