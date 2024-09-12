@@ -54,7 +54,7 @@ menu:
 
 | 名前 | 物理部 | 翠巒祭 | 説明 |
 | - | - | - | - |
-| [Sanzentyo](https://github.com/Sanzentyo) | 部長 | 清掃課 チーフ | ロボ関連のレポジトリあり |
+| [Sanzentyo](https://github.com/Sanzentyo) | 部長 | 清掃課チーフ | ロボ関連のレポジトリあり |
 
 ### 123期 (2021/4月 - 2024/3月)
 
@@ -74,10 +74,12 @@ menu:
 | - | - | - | - | - |
 | [jared20061122](https://github.com/jared20061122) | △[^note-1] | ? | ? | - [^note-2] |
 | [Kawato777](https://github.com/Kawato777) | × | ポスパン[^suiranfes-poster]チーフ | 〇 | SSH で玉入れの研究をした人 (すごい) |
+| [星田しほ](https://misskey.io/@hoshidashiho)[^hoshida-name] | × | ? | ([証拠](https://misskey.io/notes/9w7jcsdmontx039x)/DM で確認済み) |
 
 [^note-1]: 名簿上は物理部員だが、ほとんど活動に参加していない (幽霊部員)
 [^note-2]: 利用状況的に本垢じゃない気がする
 [^suiranfes-poster]: ポスター・パンフレット班
+[^hoshida-name]: おそらく本名ではない
 
 ### 125期 (2023/4月 - 2026/3月)
 
