@@ -64,8 +64,22 @@ gh config set editor "code --wait"
 gh config set editor "vim"
 ```
 
+## おまけ: HTTPS を SSH に切り替える方法
+
+```sh
+git remote set-url origin git@github.com:example/example.git
+# 例: git remote set-url origin git@github.com:takasaki-physics/takasaki-physics.github.io.git
+```
+
 ## さいごに
 
 SSH 接続が非常に楽だね。
 
 (スクリーンショットを撮るべきでした…)
+
+---
+
+Ref
+- https://qiita.com/s_yasunaga/items/110d21828bd4f578850d
+- https://qiita.com/shirokuma89dev/items/da116405f40d50c9fc99
+- https://github.com/cli/cli
