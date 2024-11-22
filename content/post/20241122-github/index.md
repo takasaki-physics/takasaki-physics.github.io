@@ -83,3 +83,4 @@ Ref
 - https://qiita.com/s_yasunaga/items/110d21828bd4f578850d
 - https://qiita.com/shirokuma89dev/items/da116405f40d50c9fc99
 - https://github.com/cli/cli
+- https://qiita.com/ryomoucmei/items/ec8c225603ef983fc318
