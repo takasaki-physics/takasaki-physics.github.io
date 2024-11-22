@@ -1,5 +1,5 @@
 ---
-title: GitHub CLI で GitHub と SSH 接続する (Windows)
+title: GitHub CLI で GitHub と SSH 接続する
 description: SSH 接続しよう
 slug: 20241122-github
 date: 2024-11-22 21:23:00+0900
