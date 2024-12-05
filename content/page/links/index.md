@@ -5,6 +5,10 @@ links:
     description: GitHub は世界最大のソフトウェア開発プラットフォームです。
     website: https://github.com
     image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+  - title: ハードウェア開発 参考資料
+    description: 先輩が作成してくれました。ロボの参考にしてください!!
+    website: https://negi-tech.net
+    image: https://negi-tech.net/assets/images/favicon.png
 menu:
     main: 
         weight: 5
@@ -14,6 +18,7 @@ menu:
 comments: false
 ---
 
+<!--
 この機能を使うには、本文の前の `links` セクションに追加してください。
 
 このページの本文の前:
@@ -31,3 +36,4 @@ links:
 ```
 
 `image` 領域は内部の画像と外部の画像の両方を利用できます。
+-->
