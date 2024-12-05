@@ -1,0 +1,151 @@
+<!doctype html><html lang=ja-jp dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="私的Linux設定方法"><title>Linux環境設定</title>
+<link rel=canonical href=https://takasaki-physics.github.io/p/linux-setting/><link rel=stylesheet href=/scss/style.min.6a3a2d4b9d064c872386982af1f9c4284f458c73d1d1a25cba14c757dd3cb1f9.css><meta property='og:title' content="Linux環境設定"><meta property='og:description' content="私的Linux設定方法"><meta property='og:url' content='https://takasaki-physics.github.io/p/linux-setting/'><meta property='og:site_name' content='高崎高校 物理部/SSH'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Linux'><meta property='article:tag' content='ソフトウェア'><meta property='article:tag' content='開発環境整備'><meta property='article:published_time' content='2023-10-11T00:00:00+00:00'><meta property='article:modified_time' content='2023-10-11T00:00:00+00:00'><meta name=twitter:title content="Linux環境設定"><meta name=twitter:description content="私的Linux設定方法"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=メニューを開く・閉じる>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu897059592634026878.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>💻</span></figure><div class=site-meta><h1 class=site-name><a href=/>高崎高校 物理部/SSH</a></h1><h2 class=site-description>群馬県立高崎高等学校 物理部/SSH Blog + 資料保管サイトです。</h2></div></header><ol class=menu-social><li><a href=https://github.com/takasaki-physics target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=/index.xml target=_blank title=RSS rel=me><svg class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="5" cy="19" r="1"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li><li><a href=https://twitter.com/takataka_robo target=_blank title=Twitter rel=me><svg class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84.0 00.497-3.753C20.18 7.773 21.692 5.25 22 4.009z"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>Links</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>ダークモード</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目次</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#ソフト開発関係>ソフト開発関係</a><ol><li><a href=#vscode>VSCode</a><ol><li><a href=#インストール>インストール</a></li><li><a href=#起動>起動</a></li></ol></li><li><a href=#opera>Opera</a><ol><li><a href=#インストール-1>インストール</a></li><li><a href=#起動-1>起動</a></li><li><a href=#言語設定推奨>言語設定(推奨)</a></li></ol></li></ol></li><li><a href=#グラフィック系>グラフィック系</a><ol><li><a href=#krita>Krita</a><ol><li><a href=#インストール-2>インストール</a></li><li><a href=#起動-2>起動</a></li></ol></li></ol></li><li><a href=#コンソール系>コンソール系</a><ol><li><a href=#net-sdk>.NET SDK</a><ol><li><a href=#インストール-3>インストール</a></li><li><a href=#新しいコンソールプロジェクトの作成>新しいコンソールプロジェクトの作成</a></li><li><a href=#新しいblazor-wasmプロジェクトの作成>新しいBlazor wasmプロジェクトの作成</a></li><li><a href=#プロジェクトの起動>プロジェクトの起動</a></li></ol></li><li><a href=#neofetch>neofetch</a><ol><li><a href=#インストール-4>インストール</a></li><li><a href=#起動-3>起動</a></li></ol></li><li><a href=#tint>tint</a><ol><li><a href=#インストール-5>インストール</a></li><li><a href=#起動-4>起動</a></li></ol></li><li><a href=#sl>sl</a><ol><li><a href=#インストール-6>インストール</a></li><li><a href=#起動-5>起動</a></li></ol></li><li><a href=#cmatrix>cmatrix</a><ol><li><a href=#インストール-7>インストール</a></li><li><a href=#起動-6>起動</a></li></ol></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E9%96%8B%E7%99%BA/>開発</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/linux-setting/>Linux環境設定</a></h2><h3 class=article-subtitle>私的Linux設定方法</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2023-10-11</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>読了時間: 4分</time></div></footer></div></header><section class=article-content><p>こんにちは。<br>今回は私的Linux環境の準備方法を説明します。<br></p><h2 id=ソフト開発関係>ソフト開発関係</h2><h3 id=vscode>VSCode</h3><p>テキストエディタです。<br></p><p>VimとかKateとかもありますけど、私はVSCodeが最推しですね。<br>比較的軽量で、拡張機能によって豊富な機能を搭載でき、なおかつシンプルなため、初心者から神まで御用達のツールとなっています。<br>本職のプログラマーやWebデザイナーなどにも人気です。<br>(皆さんは個人開発だと思うのであまり関係ありませんが、商用利用の際もライセンスが軽いので使いやすいです。)<br></p><p>さて、VSCodeはLinux(Debian系)だと様々な方法でインストールできますが、いちばん簡単な方法だと、<code>apt</code>を使った方法になります。<br></p><p>参考: <a class=link href=https://qiita.com/yoshiyasu1111/items/e21a77ed68b52cb5f7c8 target=_blank rel=noopener>Qiita - UbuntuにVSCodeをインストールする3つの方法</a><br></p><h4 id=インストール>インストール</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># curlのインストール</span>
+</span></span><span class=line><span class=cl>sudo apt install curl
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># curlでMicrosoftのキーをダウンロード</span>
+</span></span><span class=line><span class=cl>curl https://packages.microsoft.com/keys/microsoft.asc <span class=p>|</span> gpg --dearmor &gt; microsoft.gpg
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># レポジトリを登録する</span>
+</span></span><span class=line><span class=cl>sudo install -o root -g root -m <span class=m>644</span> microsoft.gpg /etc/apt/trusted.gpg.d/
+</span></span><span class=line><span class=cl>sudo sh -c <span class=s1>&#39;echo &#34;deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main&#34; &gt; /etc/apt/sources.list.d/vscode.list&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># インストール</span>
+</span></span><span class=line><span class=cl>sudo apt install apt-transport-https
+</span></span><span class=line><span class=cl>sudo apt update
+</span></span><span class=line><span class=cl>apt list code
+</span></span><span class=line><span class=cl>apt list -a code
+</span></span><span class=line><span class=cl>sudo apt install code
+</span></span></code></pre></td></tr></table></div></div><h4 id=起動>起動</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>code
+</span></span></code></pre></td></tr></table></div></div><h3 id=opera>Opera</h3><p>ブラウザです。<br></p><p>参考: <a class=link href=https://tutorialcrawler.com/ubuntu-debian/ubuntu-20-04%E3%81%ABopera%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/ target=_blank rel=noopener>UbuntuにOperaをインストールする方法</a><br></p><h4 id=インストール-1>インストール</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># キーのダウンロード</span>
+</span></span><span class=line><span class=cl>wget -qO- https://deb.opera.com/archive.key <span class=p>|</span> sudo apt-key add - 
+</span></span><span class=line><span class=cl><span class=nb>echo</span> deb https://deb.opera.com/opera-stable/ stable non-free <span class=p>|</span> sudo tee /etc/apt/sources.list.d/opera.list 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># インストール</span>
+</span></span><span class=line><span class=cl>sudo apt update
+</span></span><span class=line><span class=cl>sudo apt install opera-stable
+</span></span></code></pre></td></tr></table></div></div><h4 id=起動-1>起動</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>opera --lang<span class=o>=</span>ja
+</span></span></code></pre></td></tr></table></div></div><h4 id=言語設定推奨>言語設定(推奨)</h4><p>ちなみに、初期状態でデスクトップアイコンから起動しても英語なので、.desktopファイルを少しいじる必要があります。<br></p><p>参考: <a class=link href=https://forums.opera.com/topic/58114/can-t-change-ui-language-no-option-display-opera-in-that-language/4 target=_blank rel=noopener>Opera Forums - UIの言語を変える方法</a>(英文)<br></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>cat /usr/share/applications/opera.desktop
+</span></span><span class=line><span class=cl><span class=c1># [Desktop Entry]</span>
+</span></span><span class=line><span class=cl><span class=c1># Version=1.0</span>
+</span></span><span class=line><span class=cl><span class=c1># Name=Opera</span>
+</span></span><span class=line><span class=cl><span class=c1># GenericName=Web browser</span>
+</span></span><span class=line><span class=cl><span class=c1># Comment=Fast and secure web browser</span>
+</span></span><span class=line><span class=cl><span class=c1># TryExec=opera</span>
+</span></span><span class=line><span class=cl><span class=c1># Exec=opera %U</span>
+</span></span><span class=line><span class=cl><span class=c1># Terminal=false</span>
+</span></span><span class=line><span class=cl><span class=c1># Icon=opera</span>
+</span></span><span class=line><span class=cl><span class=c1># ...</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># この&#34;Exec=opera %U&#34;の部分を&#34;Exec=opera --lang=ja %U&#34;にvimなどで変える</span>
+</span></span><span class=line><span class=cl>sudo vim /usr/share/applications/opera.desktop
+</span></span></code></pre></td></tr></table></div></div><h2 id=グラフィック系>グラフィック系</h2><h3 id=krita>Krita</h3><p>イラスト系最高傑作ソフトです。<br>開発者の皆様はあまり使わないかも知れませんが、私はイラストを描くことが好きなので、紹介させていただきます。<br></p><p><code>apt</code>版はバージョンがかなり古いので、公式からインストールしましょう。<br></p><p>参考: <a class=link href=https://docs.krita.org/ja/user_manual/getting_started/installation.html#linux target=_blank rel=noopener>Krita Docs - Kritaのインストール方法</a></p><h4 id=インストール-2>インストール</h4><ol><li><a class=link href=https://krita.org/jp/download-jp/krita-desktop-jp/ target=_blank rel=noopener>Krita公式サイトのダウンロードページ</a>からappimageをダウンロードします。</li><li>krita.appimageが入っているディレクトリ内で以下のコマンドを打ちます。</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>chmod a+x ./krita.appimage
+</span></span></code></pre></td></tr></table></div></div><h4 id=起動-2>起動</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>./krita.appimage
+</span></span></code></pre></td></tr></table></div></div><p>エラーが起こる場合はそれをインストールしましょう。<br>.desktopファイルを作っておくとGUIからも起動できるので楽です。<br></p><h2 id=コンソール系>コンソール系</h2><h3 id=net-sdk>.NET SDK</h3><p>C#やVB.NET、F#を動作させるのに必要なSDKです。<br>今回はDebian12のインストール方法を記載します。<br>それ以外のOSの場合は下のURLを参考にしてください。<br></p><p>参考: <a class=link href=https://learn.microsoft.com/ja-jp/dotnet/core/install/ target=_blank rel=noopener>Microsoft - .NETをインストールする</a><br></p><h4 id=インストール-3>インストール</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># キーのインストール</span>
+</span></span><span class=line><span class=cl>wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+</span></span><span class=line><span class=cl>sudo dpkg -i packages-microsoft-prod.deb
+</span></span><span class=line><span class=cl>rm packages-microsoft-prod.deb
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># SDKのインストール</span>
+</span></span><span class=line><span class=cl>sudo apt-get update <span class=o>&amp;&amp;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  sudo apt-get install -y dotnet-sdk-7.0
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># ランタイムのインストール</span>
+</span></span><span class=line><span class=cl>sudo apt-get update <span class=o>&amp;&amp;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>  sudo apt-get install -y aspnetcore-runtime-7.0
+</span></span></code></pre></td></tr></table></div></div><h4 id=新しいコンソールプロジェクトの作成>新しいコンソールプロジェクトの作成</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>dotnet new console -o プロジェクト名
+</span></span></code></pre></td></tr></table></div></div><h4 id=新しいblazor-wasmプロジェクトの作成>新しいBlazor wasmプロジェクトの作成</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>dotnet new blazorwasm -o プロジェクト名 --pwa
+</span></span></code></pre></td></tr></table></div></div><h4 id=プロジェクトの起動>プロジェクトの起動</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>dotnet watch run
+</span></span></code></pre></td></tr></table></div></div><h3 id=neofetch>neofetch</h3><p>端末情報が見れるソフトです。<br>メモリ使用量とかも見れるので便利です。<br></p><h4 id=インストール-4>インストール</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo apt install neofetch -y
+</span></span></code></pre></td></tr></table></div></div><h4 id=起動-3>起動</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>neofetch
+</span></span></code></pre></td></tr></table></div></div><h3 id=tint>tint</h3><p>テトリスです。<br></p><h4 id=インストール-5>インストール</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo apt install tint -y
+</span></span></code></pre></td></tr></table></div></div><h4 id=起動-4>起動</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>tint
+</span></span></code></pre></td></tr></table></div></div><h3 id=sl>sl</h3><p>電車が走るコマンドです。<br>中断できないので<code>ls</code>コマンドと間違えたときに邪魔なコマンドです。<br></p><h4 id=インストール-6>インストール</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo apt install sl
+</span></span></code></pre></td></tr></table></div></div><h4 id=起動-5>起動</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sl
+</span></span></code></pre></td></tr></table></div></div><p><code>sl -l</code>にすると長くなります。<br><kbd>Ctrl</kbd> + <kbd>C</kbd> でも中断できないという謎仕様です。<br></p><h3 id=cmatrix>cmatrix</h3><p>コマンドライン上でマトリックスできるコマンドです。<br>人気コマンド。<br></p><h4 id=インストール-7>インストール</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo apt install cmatrix
+</span></span></code></pre></td></tr></table></div></div><h4 id=起動-6>起動</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>cmatrix
+</span></span></code></pre></td></tr></table></div></div><p><code>cmatrix -C red</code>のように色を変えることもできます。<br></p></section><footer class=article-footer><section class=article-tags><a href=/tags/linux/>Linux</a>
+<a href=/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/>ソフトウェア</a>
+<a href=/tags/%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E6%95%B4%E5%82%99/>開発環境整備</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>関連するコンテンツ</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/tutorial-css-001/><div class=article-details><h2 class=article-title>CSS 基礎 1 - 環境構築/準備</h2></div></a></article><article><a href=/p/tutorial-python-001/><div class=article-details><h2 class=article-title>Python を基礎から 1 - 環境構築</h2></div></a></article><article><a href=/p/pc-mente/><div class=article-details><h2 class=article-title>パソコン整備</h2></div></a></article><article><a href=/p/tutorial-css-003/><div class=article-details><h2 class=article-title>CSS 基礎 3 - 色彩の薦め</h2></div></a></article><article><a href=/p/tutorial-css-002/><div class=article-details><h2 class=article-title>CSS 基礎 2 - 角丸と空白の美</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//https-takasaki-physics-github-io.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2023 -
+2024 高崎高校 物理部/SSH</section><section class=powerby><a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> で構築されています。<br>テーマ <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.29.0>Stack</a></b> は <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> によって設計されています。</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
