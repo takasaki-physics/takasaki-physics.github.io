@@ -63,7 +63,7 @@ Blog は外部の人にはあまり見られることがないと思うので、
 サーバー (インスタンス) は misskey.io を推奨します。
 (もし物理部のサーバーを使えるなら、独自のインスタンスを立ち上げてもいいけど、技術的にも学校の許可的にも厳しそう)
 
-運用方法は [(仮)](https://misskey.io/@kakkokari_gtyih) さん (彼は高校生で misskey の開発者) の学校の[とんこう科学部](https://misskey.io/@natureofmad_)とか[とんこう文化祭](https://misskey.io/@tonko_fes)とかが参考になると思います。
+運用方法は [(仮)](https://misskey.io/@kakkokari_gtyih) さん (高校生のときから misskey を開発している偉人) の学校の[とんこう科学部](https://misskey.io/@natureofmad_)とか[とんこう文化祭](https://misskey.io/@tonko_fes)とかが参考になると思います。
 
 ### GitHub
 
