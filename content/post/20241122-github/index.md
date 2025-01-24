@@ -73,13 +73,14 @@ git remote set-url origin git@github.com:example/example.git
 
 ## さいごに
 
-SSH 接続が非常に楽だね。
+SSH 接続が非常に簡単にできますね。
 
 (スクリーンショットを撮るべきでした…)
 
 ---
 
-Ref
+### 参考文献
+
 - https://qiita.com/s_yasunaga/items/110d21828bd4f578850d
 - https://qiita.com/shirokuma89dev/items/da116405f40d50c9fc99
 - https://github.com/cli/cli
