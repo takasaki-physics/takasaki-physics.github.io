@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python基礎 on 高崎高校 物理部/SSH</title><link>https://takasaki-physics.github.io/categories/python%E5%9F%BA%E7%A4%8E/</link><description>Recent content in Python基礎 on 高崎高校 物理部/SSH</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Fri, 12 Jul 2024 17:24:00 +0900</lastBuildDate><atom:link href="https://takasaki-physics.github.io/categories/python%E5%9F%BA%E7%A4%8E/index.xml" rel="self" type="application/rss+xml"/><item><title>Python を基礎から 8 - 配列 (list)</title><link>https://takasaki-physics.github.io/p/tutorial-python-008/</link><pubDate>Fri, 12 Jul 2024 17:24:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-008/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>1次元配列を処理できるようにします。&lt;/p>
+&lt;p>(配列というと、array のことを示す場合もありますが、今回は list の話をします)&lt;/p>
+&lt;h2 id="1次元配列">1次元配列
+&lt;/h2>&lt;p>そもそも、1次元配列とは Excel の横列または縦列だけを利用するようなイメージです。&lt;/p>
+&lt;p>ここでは例として、以下のように本を積み重ねる場合を考えてみましょう。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>本のタイトル&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Murder on the Orient Express&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>The ABC Murders&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>And Then There Were None&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Dead Man&amp;rsquo;s Folly&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>配列をコードで表す場合は、&lt;code>array1 = [&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;, &amp;quot;d&amp;quot;]&lt;/code> のように宣言することができます。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">books&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Murder on the Orient Express&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;The ABC Murders&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;And Then There Were None&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Dead Man&amp;#39;s Folly&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>また、&lt;code>array1[0]&lt;/code> や &lt;code>array1[1]&lt;/code> のように指定することで、それぞれの要素 &lt;code>&amp;quot;a&amp;quot;&lt;/code> や &lt;code>&amp;quot;b&amp;quot;&lt;/code> などを取り出すことができます。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">books&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Murder on the Orient Express&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;The ABC Murders&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;And Then There Were None&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Dead Man&amp;#39;s Folly&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1"># 配列の1番目を出力 (配列は0から数えるので、1番目を出力する場合は0を指定する)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; Murder on the Orient Express&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1"># 配列の2番目を出力 (配列は0から数えるので、2番目を出力する場合は1を指定する)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; The ABC Murders&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>その他に以下のようなことも可能です。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">books&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Murder on the Orient Express&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;The ABC Murders&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;And Then There Were None&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Dead Man&amp;#39;s Folly&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 配列全体を出力&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; [&amp;#39;Murder on the Orient Express&amp;#39;, &amp;#39;The ABC Murders&amp;#39;, &amp;#39;And Then There Were None&amp;#39;, &amp;#34;Dead Man&amp;#39;s Folly&amp;#34;]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 配列を利用してそれぞれの要素を出力&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">)):&lt;/span> &lt;span class="c1"># len(books) は配列の長さ。これは1から数えるので、4が返される&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Murder on the Orient Express&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># The ABC Murders&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># And Then There Were None&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Dead Man&amp;#39;s Folly&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>数値を扱うことも可能です。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">numbers&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">6&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">52&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">30&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 配列の数値を利用して計算する&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">cal&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">cal&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 7&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 小さい順に並び替える&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 並び替え前&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; [6, 1, 52, 30, 3]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">numbers&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sort&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1"># 並び替え&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; [1, 3, 6, 30, 52]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>これで一通りのガイドは終わりとなります。&lt;/p>
+&lt;p>応用的な内容や、2次元配列などについては追記するかもしれません。&lt;/p>
+&lt;hr>
+&lt;p>Last Code Checked: 2024/7/12 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>Python を基礎から 7 - 繰り返し - for 文</title><link>https://takasaki-physics.github.io/p/tutorial-python-007/</link><pubDate>Fri, 12 Jul 2024 16:50:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-007/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>繰り返しの処理をします。&lt;/p>
+&lt;h2 id="繰り返し">繰り返し
+&lt;/h2>&lt;p>&lt;code>for i in range(N)&lt;/code> (&lt;code>N&lt;/code> は数値) を利用します。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 3&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>range(N)&lt;/code> とすると、&lt;code>N-1&lt;/code> (&lt;code>0&lt;/code> から数えるので、 &lt;code>N&lt;/code> ではなく &lt;code>N-1&lt;/code>) まで増えます。&lt;/p>
+&lt;h3 id="繰り返し文字を出力">繰り返し文字を出力
+&lt;/h3>&lt;p>&lt;code>Hello World!&lt;/code> を4回表示してみましょう。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Hello World!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Hello World!&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Hello World!&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Hello World!&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Hello World!&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Last Code Checked: 2024/7/12 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>Python を基礎から 6 - 条件分岐 - if 文</title><link>https://takasaki-physics.github.io/p/tutorial-python-006/</link><pubDate>Wed, 01 May 2024 10:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-006/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>条件分岐をします。&lt;/p>
+&lt;p>これにより、数値の大きさによって出力を変えることができます。&lt;/p>
+&lt;h2 id="条件分岐">条件分岐
+&lt;/h2>&lt;p>&lt;code>if&lt;/code> を利用します。&lt;/p>
+&lt;h3 id="比較">比較
+&lt;/h3>&lt;p>比較の際に利用する主なコード (比較演算子) は以下の通りです。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>x == y&lt;/code> - x と y が等しい&lt;/li>
+&lt;li>&lt;code>x != y&lt;/code> - x と y が等しくない&lt;/li>
+&lt;li>&lt;code>x &amp;gt; y&lt;/code> - x が y より大きい&lt;/li>
+&lt;li>&lt;code>x &amp;lt; y&lt;/code> - x が y 未満&lt;/li>
+&lt;li>&lt;code>x &amp;gt;= y&lt;/code> - x が y 以上&lt;/li>
+&lt;li>&lt;code>x &amp;lt;= y&lt;/code> - x が y 以下&lt;/li>
+&lt;/ul>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">number&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;number is 100.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># number が100だったときに処理&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>number&lt;/code> に&lt;code>100&lt;/code>とそれ以外の数字を入れてコードを動かしてみてください。&lt;/p>
+&lt;p>&lt;code>number&lt;/code> の数値が&lt;code>100&lt;/code>のときは文字が出力され、&lt;code>100&lt;/code>以外のときは出力がされません。&lt;/p>
+&lt;h3 id="複雑な比較">複雑な比較
+&lt;/h3>&lt;p>&lt;code>if&lt;/code> でなかった場合は、 &lt;code>else&lt;/code> や &lt;code>elif&lt;/code> を利用します。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">number&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;number is 100.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># number が100だったときに処理&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;number is not 100.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># number が100以外のときに処理&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">number&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;number is 100.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># number が100だったときに処理&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">elif&lt;/span> &lt;span class="n">number&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">120&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;number is 120.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># number が120だったときに処理&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>本資料では解説しませんが、更に複雑な条件分岐に関しては、 &lt;code>match&lt;/code> 文を利用します。
+これは、他の言語に当たる &lt;code>switch-case&lt;/code> 文のようなものです。&lt;/p>
+&lt;hr>
+&lt;p>Last Code Checked 2024/7/12 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>Python を基礎から 5 - 入力を受け取ろう</title><link>https://takasaki-physics.github.io/p/tutorial-python-005/</link><pubDate>Thu, 18 Apr 2024 22:05:05 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-005/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>ユーザーからの入力を受け取ります。&lt;/p>
+&lt;p>これで、コード内で定義していない数値を扱うことができます。&lt;/p>
+&lt;h2 id="入力">入力
+&lt;/h2>&lt;p>&lt;code>input()&lt;/code> を利用します。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">text&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">input&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;文字列を入力してください: &amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 文字列を入力してください: &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># (&amp;#34;りんご&amp;#34; と入力する)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;文字: &amp;#34;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">text&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 文字: りんご&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="電卓を作ろう">電卓を作ろう
+&lt;/h2>&lt;p>前回の記事と組み合わせることで、電卓を作ることができます。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number_1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">input&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;1つめの数を入力してください: &amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">number_2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">input&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;2つめの数を入力してください: &amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 入力した文字を数字に変換して計算&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># (入力時に文字を入れるとエラーになります)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">number_1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">number_2&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Last Code Checked: 2024/4/17 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>Python を基礎から 4 - 四則演算</title><link>https://takasaki-physics.github.io/p/tutorial-python-004/</link><pubDate>Thu, 18 Apr 2024 22:05:04 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-004/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>簡単な計算を行います。&lt;/p>
+&lt;h2 id="四則演算">四則演算
+&lt;/h2>&lt;h3 id="振り返り">振り返り
+&lt;/h3>&lt;p>数値の扱いには前回のページで紹介した int 型を利用します。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 30&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="演算">演算
+&lt;/h3>&lt;ul>
+&lt;li>足し算: &lt;code>+&lt;/code>&lt;/li>
+&lt;li>引き算: &lt;code>-&lt;/code>&lt;/li>
+&lt;li>掛け算: &lt;code>*&lt;/code> (注意!)&lt;/li>
+&lt;li>割り算: &lt;code>/&lt;/code>&lt;/li>
+&lt;li>割り算(余り): &lt;code>%&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>を利用します。&lt;/p>
+&lt;p>以下が例です。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 足し算 (320 + 430)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">320&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">430&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 750&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 引き算 (320 - 430)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">320&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="mi">430&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; -110&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 掛け算 (320 x 430)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">320&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="mi">430&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 137600&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 割り算 (20 ÷ 10)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">20&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 2.0&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 割り算(余り) (24 ÷ 10)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">24&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 4&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>+&lt;/code> では文字列の結合ができます。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;30&amp;#34;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s2">&amp;#34;円&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 30円&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>当然変数も利用できます。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 数値の定義&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">number_1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">24&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">number_2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">number_1&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">number_2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 54&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Last Code Checked: 2024/4/17 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>Python を基礎から 3 - 変数について</title><link>https://takasaki-physics.github.io/p/tutorial-python-003/</link><pubDate>Thu, 18 Apr 2024 22:05:03 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-003/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>変数の使い方と種類についての簡単な説明です。&lt;/p>
+&lt;h2 id="変数">変数
+&lt;/h2>&lt;h3 id="変数とは">変数とは
+&lt;/h3>&lt;p>変数とは、名前の通り値を変更できる文字のことを表します。
+数学で言うと &lt;code>x&lt;/code> や &lt;code>y&lt;/code> ですね。
+計算を行うときに利用するため、プログラムには必須の概念となっています。&lt;/p>
+&lt;h3 id="箱を使った説明">箱を使った説明
+&lt;/h3>&lt;p>変数はよく&lt;strong>箱&lt;/strong>として説明されます。
+ここでも、その例を用いて説明します。&lt;/p>
+&lt;p>数値や文字などの変数を利用するためには、箱 (実際には型) を利用します。
+しかし、初期状態ではその箱はないため、自分で定義する必要があります。&lt;/p>
+&lt;p>このように宣言します。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 数値の宣言&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">number&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 文字の宣言&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">text&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;apple&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-003/001.svg"
+loading="lazy"
+alt="001"
+>&lt;/p>
+&lt;p>数値 (int 型) と文字 (string 型) は、扱いが異なります。&lt;/p>
+&lt;p>次の資料で詳しく紹介しますが、
+数値は &lt;code>+&lt;/code> をしたときに計算されます。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number_1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">20&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">number_2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">number_1&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">number_2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 50&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>文字は数値とは異なり、結合されます。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">text_1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;20&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">text_2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;30&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">text_1&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">text_2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 2030&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>このように、数値と文字は扱いが異なっています。
+これは、&lt;/p>
+&lt;ul>
+&lt;li>int 型&lt;br />
+数値だけが入れられる箱&lt;/li>
+&lt;li>string 型&lt;br />
+文字が入れられる箱&lt;/li>
+&lt;/ul>
+&lt;p>に分けられています。&lt;/p>
+&lt;p>Python や Ruby では自動的に処理されるため (型推論) 、型を指定する必要はありませんが、 C や C# はそれぞれ宣言する必要があります。&lt;/p>
+&lt;details>
+&lt;summary>C# の例&lt;/summary>
+&lt;p>int 型の使用例&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cs" data-lang="cs">&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="n">number&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">200&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">WriteLine&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 出力&amp;gt; 200&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>(int 型に文字列を入れるとエラーになります。)&lt;/p>
+&lt;/details>&lt;br />
+&lt;p>以上です。&lt;/p>
+&lt;hr>
+&lt;p>Last Code Checked: 2024/4/18 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>Python を基礎から 2 - Hello World!</title><link>https://takasaki-physics.github.io/p/tutorial-python-002/</link><pubDate>Thu, 18 Apr 2024 22:05:02 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-002/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>文字の出力方法を解説します。
+今後、プログラムを動かすときに正常に動作しているかどうかを確認するなど、利用の機会が多いコマンドです。&lt;/p>
+&lt;p>文字の出力では &lt;code>print()&lt;/code> という関数を利用します。&lt;/p>
+&lt;h2 id="hello-world">Hello World!
+&lt;/h2>&lt;h3 id="文字列の出力">文字列の出力
+&lt;/h3>&lt;p>&lt;code>Hello World!&lt;/code> を出力します。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Hello World!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; Hello World!&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="変数の出力">変数の出力
+&lt;/h3>&lt;p>変数を利用した出力方法を紹介します。
+(変数の扱い方は別の文章で詳しく解説します。)&lt;/p>
+&lt;p>数値の出力例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">200&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 200&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>文字の出力例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">text&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;Apple&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">text&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; Apple&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Last Code Checked: 2024/4/17 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>Python を基礎から 1 - 環境構築</title><link>https://takasaki-physics.github.io/p/tutorial-python-001/</link><pubDate>Thu, 18 Apr 2024 22:05:01 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-001/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>Python の環境構築を解説します。
+ここでは基本無料で、簡単に Python を動かすことができる Google Colaboratory を利用します。&lt;/p>
+&lt;h2 id="環境構築">環境構築
+&lt;/h2>&lt;h3 id="場所">場所
+&lt;/h3>&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-001/1.png"
+width="881"
+height="716"
+srcset="https://takasaki-physics.github.io/p/tutorial-python-001/1_hu_af49e21fee76812f.png 480w, https://takasaki-physics.github.io/p/tutorial-python-001/1_hu_63be9c8aa8d365fb.png 1024w"
+loading="lazy"
+alt="Search"
+class="gallery-image"
+data-flex-grow="123"
+data-flex-basis="295px"
+>&lt;/p>
+&lt;p>初めに、 &lt;a class="link" href="https://colab.research.google.com" target="_blank" rel="noopener"
+>https://colab.research.google.com&lt;/a> にアクセスします。
+(よく使うので、ブックマークで保存すると便利だと思います。)&lt;/p>
+&lt;p>Google アカウントでログインします。&lt;/p>
+&lt;h3 id="開始">開始
+&lt;/h3>&lt;p>ノートブック(作業ファイル)を作成します。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-001/2.png"
+width="1366"
+height="719"
+srcset="https://takasaki-physics.github.io/p/tutorial-python-001/2_hu_a2ce74ea45b05c4c.png 480w, https://takasaki-physics.github.io/p/tutorial-python-001/2_hu_8b2103b9b85f61b3.png 1024w"
+loading="lazy"
+alt="Make a new notebook"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>&lt;/p>
+&lt;p>これで下のように、コードを書くことができます。
+コードの左のボタンで動作できます。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-001/3.png"
+width="1366"
+height="719"
+srcset="https://takasaki-physics.github.io/p/tutorial-python-001/3_hu_4f7af8f61e9ceeb5.png 480w, https://takasaki-physics.github.io/p/tutorial-python-001/3_hu_be700ff048b00f1a.png 1024w"
+loading="lazy"
+alt="Write and move your code"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>&lt;/p>
+&lt;h3 id="作業の保存">作業の保存
+&lt;/h3>&lt;p>下の図のように行うことで、セーブできます。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-001/4.png"
+width="1366"
+height="719"
+srcset="https://takasaki-physics.github.io/p/tutorial-python-001/4_hu_714900ced6a6024d.png 480w, https://takasaki-physics.github.io/p/tutorial-python-001/4_hu_4210ad115a0593e1.png 1024w"
+loading="lazy"
+alt="Save"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>&lt;/p>
+&lt;p>または、 &lt;kbd>Ctrl&lt;/kbd> + &lt;kbd>S&lt;/kbd> で保存できます。&lt;/p></description></item><item><title>Python を基礎から 0 - 説明</title><link>https://takasaki-physics.github.io/p/tutorial-python-000/</link><pubDate>Thu, 18 Apr 2024 22:05:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-000/</guid><description>&lt;p>本シリーズ (Python を基礎から - Google Colaboratory を使ったプログラム基礎 - ) は、新1年生を対象とした基礎プログラムの解説資料になっています。&lt;/p>
+&lt;h2 id="一覧">一覧
+&lt;/h2>&lt;p>Category: &lt;a class="link" href="https://takasaki-physics.github.io/categories/python%e5%9f%ba%e7%a4%8e/" target="_blank" rel="noopener"
+>Python基礎&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>&lt;a class="link" href="../tutorial-python-001" >環境構築&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-002" >Hello World!&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-003" >変数について - int, string&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-004" >四則演算&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-005" >入力を受け取ろう&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-006" >条件分岐 - if 文&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-007" >繰り返し - for 文&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-008" >配列 (list)&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="編集について">編集について
+&lt;/h2>&lt;p>誤字訂正、追記、新資料の寄稿など大歓迎です。
+是非 &lt;a class="link" href="https://github.com/takasaki-physics/takasaki-physics.github.io/pulls" target="_blank" rel="noopener"
+>PR&lt;/a> を…&lt;/p>
+&lt;p>第124期 &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint&lt;/a> (2024年度 3年)&lt;/p></description></item></channel></rss>

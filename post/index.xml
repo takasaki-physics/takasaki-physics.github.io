@@ -1,0 +1,3468 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 高崎高校 物理部/SSH</title><link>https://takasaki-physics.github.io/post/</link><description>Recent content in Posts on 高崎高校 物理部/SSH</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Fri, 22 Nov 2024 21:23:00 +0900</lastBuildDate><atom:link href="https://takasaki-physics.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>はじめに</title><link>https://takasaki-physics.github.io/p/getting-started/</link><pubDate>Wed, 20 Sep 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/getting-started/</guid><description>&lt;img src="https://takasaki-physics.github.io/p/getting-started/cover.jpg" alt="Featured image of post はじめに" />&lt;p>ようこそ!&lt;/p>
+&lt;p>こちらは、高崎高校 物理部によって運営されている資料保管用サイトです。&lt;/p>
+&lt;p>こちらのサイトは、静的サイトジェネレーター(SSG)の Hugo を利用し、そのテーマとして &lt;a class="link" href="https://stack.jimmycai.com/" target="_blank" rel="noopener"
+>Stack&lt;/a> を採用しています。
+また、 &lt;a class="link" href="https://github.com/takasaki-physics/takasaki-physics.github.io" target="_blank" rel="noopener"
+>GitHub&lt;/a> でレポジトリの保管しています。&lt;/p>
+&lt;blockquote>
+&lt;p>こちらは &lt;a class="link" href="https://unsplash.com/" target="_blank" rel="noopener"
+>Unsplash&lt;/a> 上でアップロードされている &lt;a class="link" href="https://unsplash.com/@pawel_czerwinski" target="_blank" rel="noopener"
+>Pawel Czerwinski&lt;/a> さんの画像を利用しました。&lt;/p>
+&lt;/blockquote></description></item><item><title>GitHub CLI で GitHub と SSH 接続する</title><link>https://takasaki-physics.github.io/p/20241122-github/</link><pubDate>Fri, 22 Nov 2024 21:23:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20241122-github/</guid><description>&lt;p>お久しぶりです。&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> ですわ。&lt;/p>
+&lt;p>なぜか HTTPS 通信ができなくなったので、SSH 接続に切り替えたお話ですわ。&lt;/p>
+&lt;h2 id="インストール">インストール
+&lt;/h2>&lt;h3 id="windows">Windows
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">winget install --id GitHub.cli
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>このコマンドを打ったら、一度ターミナルを再起動してください。タブを消しただけではだめです、ウィンドウごと再起動してくださいね。&lt;/p>
+&lt;p>詳細: &lt;a class="link" href="https://github.com/cli/cli?tab=readme-ov-file#windows" target="_blank" rel="noopener"
+>https://github.com/cli/cli?tab=readme-ov-file#windows&lt;/a>&lt;/p>
+&lt;h3 id="macos">macOS
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">brew install gh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>詳細: &lt;a class="link" href="https://github.com/cli/cli?tab=readme-ov-file#macos" target="_blank" rel="noopener"
+>https://github.com/cli/cli?tab=readme-ov-file#macos&lt;/a>&lt;/p>
+&lt;h3 id="linux">Linux
+&lt;/h3>&lt;p>ディストリビューションごとに結構違うので、&lt;a class="link" href="https://github.com/cli/cli/blob/trunk/docs/install_linux.md" target="_blank" rel="noopener"
+>ドキュメント&lt;/a>を参考にしてください。&lt;/p>
+&lt;h2 id="アカウント連携">アカウント連携
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">gh auth login --web
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol>
+&lt;li>Git を操作するプロトコルを HTTPS にするか SSH にするか選べます。(今回は &lt;code>SSH&lt;/code>)&lt;/li>
+&lt;li>SSH 暗号を作るかどうか聞かれます。(初めて SSH する際は作ってください)&lt;/li>
+&lt;li>ブラウザが立ち上がるので、コマンドにあるワンタイムコードを入力してください。(例: &lt;code>3D41-8747&lt;/code> のような数字)&lt;/li>
+&lt;/ol>
+&lt;p>終わりです! :tada:&lt;/p>
+&lt;h2 id="おまけ-エディター設定">おまけ: エディター設定
+&lt;/h2>&lt;h3 id="vscode">VSCode
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">gh config &lt;span class="nb">set&lt;/span> editor &lt;span class="s2">&amp;#34;code --wait&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="vim">Vim
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">gh config &lt;span class="nb">set&lt;/span> editor &lt;span class="s2">&amp;#34;vim&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="おまけ-https-を-ssh-に切り替える方法">おまけ: HTTPS を SSH に切り替える方法
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">git remote set-url origin git@github.com:example/example.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 例: git remote set-url origin git@github.com:takasaki-physics/takasaki-physics.github.io.git&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="さいごに">さいごに
+&lt;/h2>&lt;p>SSH 接続が非常に簡単にできますね。&lt;/p>
+&lt;p>(スクリーンショットを撮るべきでした…)&lt;/p>
+&lt;hr>
+&lt;h3 id="参考文献">参考文献
+&lt;/h3>&lt;ul>
+&lt;li>&lt;a class="link" href="https://qiita.com/s_yasunaga/items/110d21828bd4f578850d" target="_blank" rel="noopener"
+>https://qiita.com/s_yasunaga/items/110d21828bd4f578850d&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://qiita.com/shirokuma89dev/items/da116405f40d50c9fc99" target="_blank" rel="noopener"
+>https://qiita.com/shirokuma89dev/items/da116405f40d50c9fc99&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/cli/cli" target="_blank" rel="noopener"
+>https://github.com/cli/cli&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://qiita.com/ryomoucmei/items/ec8c225603ef983fc318" target="_blank" rel="noopener"
+>https://qiita.com/ryomoucmei/items/ec8c225603ef983fc318&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>CSS 基礎 3 - 色彩の薦め</title><link>https://takasaki-physics.github.io/p/tutorial-css-003/</link><pubDate>Fri, 19 Jul 2024 12:37:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-css-003/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>デザインにおける色の利用方法について解説します。&lt;/p>
+&lt;p>この資料は CSS とは関係なく、開発者に知ってもらいたいデザインに関する知識を乗せているので、ぜひ読んでみてください。&lt;/p>
+&lt;h2 id="tldr">TL;DR;
+&lt;/h2>&lt;p>似た色を使うのがいいです。&lt;/p>
+&lt;p>&lt;a class="link" href="https://mui.com/material-ui/customization/color/#color-palette" target="_blank" rel="noopener"
+>Color | Material UI&lt;/a> みたいな&lt;/p>
+&lt;h2 id="色彩学">色彩学
+&lt;/h2>&lt;h3 id="色の重要さ">色の重要さ
+&lt;/h3>&lt;blockquote>
+&lt;p>いろいろあるよね〜&lt;/p>
+&lt;p>(&lt;a class="link" href="https://github.com/ssadokafy" target="_blank" rel="noopener"
+>@ssadokafy&lt;/a> / &lt;a class="link" href="https://github.com/nAgI314" target="_blank" rel="noopener"
+>部長&lt;/a>)&lt;/p>
+&lt;/blockquote>
+&lt;p>色は、デザインにとって一番重要と言っても過言ではない要素です。&lt;/p>
+&lt;p>以下の2つの画像を御覧ください。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/table1.png"
+width="455"
+height="378"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/table1_hu_ced05f40f2c5e136.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/table1_hu_7fcf3b75b8e3f2ca.png 1024w"
+loading="lazy"
+alt="テーブル"
+class="gallery-image"
+data-flex-grow="120"
+data-flex-basis="288px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/table2.png"
+width="455"
+height="378"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/table2_hu_d31602fcc250e8a9.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/table2_hu_990fc9c7595ad6d2.png 1024w"
+loading="lazy"
+alt="テーブル"
+class="gallery-image"
+data-flex-grow="120"
+data-flex-basis="288px"
+>&lt;/p>
+&lt;p>(&lt;a class="link" href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/table" target="_blank" rel="noopener"
+>https://developer.mozilla.org/ja/docs/Web/HTML/Element/table&lt;/a> を参考にして作成)&lt;/p>
+&lt;p>どちらも同じ UI ですが、配色によってこれほどにも印象が変わります。&lt;/p>
+&lt;p>色彩という要素を抑えることで、アプリケーションのデザインで他のグループよりも1手先を行くことができます!&lt;/p>
+&lt;h3 id="色彩を構成する3つの要素">色彩を構成する3つの要素
+&lt;/h3>&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/color-space1.png"
+width="400"
+height="400"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/color-space1_hu_a457ae3a783b25dd.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/color-space1_hu_f30a3306cdfa75a5.png 1024w"
+loading="lazy"
+alt="色相環"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+>&lt;/p>
+&lt;p>(出典: &lt;a class="link" href="https://ja.wikipedia.org/wiki/%e8%89%b2%e7%9b%b8#/media/%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab:HLSColorSpace.png" target="_blank" rel="noopener"
+>Wikipedia&lt;/a>)&lt;/p>
+&lt;p>以下の3つの要素を合わせることで、すべての色を作ることが可能です。
+(色の考え方は多くありますが、今回は標準的な HSV 色空間に関して解説します)&lt;/p>
+&lt;h4 id="色相">色相
+&lt;/h4>&lt;p>色相 (&lt;em>Hue&lt;/em>) とは、青、赤などのベースとなる色です。
+色相環の円周上という表現がわかりやすいと思います。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-hue.png"
+width="188"
+height="244"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-hue_hu_a56fd998b1eece3f.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-hue_hu_9ee39d4a86333e6f.png 1024w"
+loading="lazy"
+alt="色相"
+class="gallery-image"
+data-flex-grow="77"
+data-flex-basis="184px"
+>&lt;/p>
+&lt;p>&lt;code>#ff0000&lt;/code> &lt;code>#ff0088&lt;/code> &lt;code>#ff00ff&lt;/code>&lt;/p>
+&lt;h4 id="彩度">彩度
+&lt;/h4>&lt;p>彩度 (&lt;em>Saturation&lt;/em>/&lt;em>Chroma&lt;/em>) とは、ベースの色の濃さです。
+色相が青とすると、彩度が高いときは青に近く、彩度が低いと白に近くなります。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-chroma.png"
+width="188"
+height="244"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-chroma_hu_736c0a181b2c4232.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-chroma_hu_452e37b033a3c2d4.png 1024w"
+loading="lazy"
+alt="彩度"
+class="gallery-image"
+data-flex-grow="77"
+data-flex-basis="184px"
+>&lt;/p>
+&lt;p>&lt;code>#0000ff&lt;/code> &lt;code>#4444ff&lt;/code> &lt;code>#8888ff&lt;/code>&lt;/p>
+&lt;h4 id="明度">明度
+&lt;/h4>&lt;p>明度 (&lt;em>Value&lt;/em>/&lt;em>Brightness&lt;/em>) とは、色の明るさです。
+明度が高いときはベースの色や白に近く、明度が低いときは黒に近くなります。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-value.png"
+width="188"
+height="244"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-value_hu_f77ba9f9d3f07374.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-value_hu_b8e6cc9e1c6a151b.png 1024w"
+loading="lazy"
+alt="明度"
+class="gallery-image"
+data-flex-grow="77"
+data-flex-basis="184px"
+>&lt;/p>
+&lt;p>&lt;code>#00ff00&lt;/code> &lt;code>#00aa00&lt;/code> &lt;code>#008800&lt;/code>&lt;/p>
+&lt;h3 id="配色で気をつけるところ">配色で気をつけるところ
+&lt;/h3>&lt;h4 id="色を多くしすぎない">色を多くしすぎない
+&lt;/h4>&lt;p>色を多くすると、どうしてもごちゃごちゃしているように見えてしまいます。&lt;/p>
+&lt;p>メインで利用する色は4~5色にする、というように決めておくとよいでしょう。&lt;/p>
+&lt;h4 id="補色">補色
+&lt;/h4>&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/color-space2.png"
+width="400"
+height="400"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/color-space2_hu_ebecb10b42777045.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/color-space2_hu_8b40a799d5dc4393.png 1024w"
+loading="lazy"
+alt="補色"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+>&lt;/p>
+&lt;p>補色は、色相が逆の色の組み合わせです。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-red-green.png"
+width="187"
+height="166"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-red-green_hu_1bee32e63e73babe.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-red-green_hu_6869afdf57df7e38.png 1024w"
+loading="lazy"
+alt="補色 赤-緑"
+class="gallery-image"
+data-flex-grow="112"
+data-flex-basis="270px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-blue-orange.png"
+width="187"
+height="166"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-blue-orange_hu_764d59e7067b8ce3.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-blue-orange_hu_1c6a6f6a106cc48b.png 1024w"
+loading="lazy"
+alt="補色 青-橙"
+class="gallery-image"
+data-flex-grow="112"
+data-flex-basis="270px"
+>&lt;/p>
+&lt;p>赤の背景に緑の文字など、補色の組み合わせは見づらいので、使わないのが無難でしょう。&lt;/p>
+&lt;h4 id="コントラスト比">コントラスト比
+&lt;/h4>&lt;p>この画像を御覧ください。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-contrast.png"
+width="538"
+height="330"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-contrast_hu_91f5f73c51136f21.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-contrast_hu_30d007e38bee0415.png 1024w"
+loading="lazy"
+alt="コントラスト比"
+class="gallery-image"
+data-flex-grow="163"
+data-flex-basis="391px"
+>&lt;/p>
+&lt;p>どちらの文字が読みやすいでしょうか。&lt;/p>
+&lt;p>もちろん、上ですよね。&lt;/p>
+&lt;p>これは、コントラスト比という要素に関わります。
+そのまま明るさの比なのですが、このコントラスト比が大きいほど文字が読みやすいため、これを意識することは重要です。&lt;/p>
+&lt;p>(人間 (特に色覚異常の人) は色相の違いよりも明度の違いの方が知覚しやすいといわれています)&lt;/p>
+&lt;p>開発者ツールで確認するのが良いでしょう。&lt;/p>
+&lt;h4 id="類似色">類似色
+&lt;/h4>&lt;p>基本的に、色は類似色で固めるのが無難です。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-hue.png"
+width="188"
+height="244"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-hue_hu_a56fd998b1eece3f.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-hue_hu_9ee39d4a86333e6f.png 1024w"
+loading="lazy"
+alt="色相"
+class="gallery-image"
+data-flex-grow="77"
+data-flex-basis="184px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-chroma.png"
+width="188"
+height="244"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-chroma_hu_736c0a181b2c4232.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-chroma_hu_452e37b033a3c2d4.png 1024w"
+loading="lazy"
+alt="彩度"
+class="gallery-image"
+data-flex-grow="77"
+data-flex-basis="184px"
+>&lt;/p>
+&lt;p>青紫、青、水色のように、色相を少しずつ変えるパターンと、濃い青、薄い青、白のように、彩度を少しずつ変えるパターンがあります。前者では、水色や黄色などの薄めの色と、青紫のような濃い色を用意し、対比しやすいように準備するのが良いかと思います。&lt;/p>
+&lt;h3 id="色系のツール">色系のツール
+&lt;/h3>&lt;p>便利ツールとして、以下のものがあげられます。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://color.adobe.com" target="_blank" rel="noopener"
+>Adobe Color&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://colorhunt.co/" target="_blank" rel="noopener"
+>Color Hunt&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="おまけ">おまけ
+&lt;/h2>&lt;p>おまけです。読まないほうがいいです。&lt;/p>
+&lt;h3 id="赤紫は存在しない">赤紫は存在しない
+&lt;/h3>&lt;p>&lt;a class="link" href="https://www.youtube.com/watch?v=PYE09lfwSys" target="_blank" rel="noopener"
+>赤紫とかいう「ない色」 | YouTube&lt;/a>&lt;/p>
+&lt;p>面白いので、ぜひ見てみてください。(私は動画の作者ではないです)&lt;/p>
+&lt;h3 id="色覚異常">色覚異常
+&lt;/h3>&lt;p>色覚異常 (色覚多様性) は、人間の錐体 (色の感覚細胞) が欠けている場合に起こる症状です。&lt;/p>
+&lt;p>ほとんどの人は赤、緑、青の3つの錐体が存在し、可視光の色を検知することができます。
+しかし、赤の錐体と緑の錐体は進化する前は元々同じ錐体だったため、稀に赤の錐体または緑の錐体が存在しない人が居ます。
+これを2色彩 (正常に見える色と、グレーまたは別の色として見える色がある) と定義しています。
+(ごく稀に赤の錐体と緑の錐体が存在するのに青の錐体がない人も居ますが、極めて少数です。ほとんどの青の錐体がない人は赤の錐体も、緑の錐体もない1色彩 (モノクロに見える) となります)&lt;/p>
+&lt;p>また、錐体がまったくないわけではないけど、少ないということもあり、色弱または軽度の色覚異常として考慮されています。&lt;/p>
+&lt;p>色覚異常は男性が多く、1型2色彩 (赤の錐体がない) や2型2色彩 (緑の錐体がない) が特に多いです。
+この場合、赤色の文字などは黒またはグレーの文字のように見えるため、区別が難しくなっています。&lt;/p>
+&lt;p>高度なアプリケーションを開発する場合は、このあたりを考慮にいれると多くの人に使いやすいアプリケーションにできます。&lt;/p>
+&lt;p>(Web ページを右クリック -&amp;gt; &amp;ldquo;検証&amp;rdquo; -&amp;gt; 右上の &lt;code>︙&lt;/code> -&amp;gt; その他のツール -&amp;gt; レンダリング -&amp;gt; 色覚異常をエミュレート を利用してください。)&lt;/p>
+&lt;p>ちなみに、3型2色彩 (青の錐体がない) では、青色が青緑のように見えます。
+青の錐体がないのに、青が見えるというのは奇妙ですが、これは錐体の検知の仕組み的にこの様になっているようです。&lt;/p>
+&lt;p>&lt;a class="link" href="https://ja.wikipedia.org/wiki/%e8%89%b2#%e4%b8%89%e7%a8%ae%e3%81%ae%e9%8c%90%e4%bd%93%e7%b4%b0%e8%83%9e%e3%81%a8%e4%b8%89%e5%8e%9f%e8%89%b2" target="_blank" rel="noopener"
+>色 | Wikipedia&lt;/a> とかが参考になるかもしれません。&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.color.org/index.xalter" target="_blank" rel="noopener"
+>ICC&lt;/a> は国際的な色彩学の組織です。英文ですが、詳しく知りたかったらこの組織の文章を読んでみるのも良いでしょう。&lt;/p>
+&lt;h3 id="lch-色空間">L*c*h 色空間
+&lt;/h3>&lt;p>色空間に関しては、HSV 色空間は絶対的な (コンピュータ的な) 指定は得意なのですが、人間による知覚的な色空間はあまり得意ではありません。
+ここで、知覚的な (人間的な) 色の指定を行うことができる L*c*h 色空間の考え方も面白いので、ぜひ調べてもらえたらと思えます。&lt;/p>
+&lt;p>&lt;a class="link" href="https://qiita.com/soi/items/9439ba59cef99b1a1ea5" target="_blank" rel="noopener"
+>OK L*C*H を使おう | Qiita&lt;/a> この文章は参考になると思います。&lt;/p>
+&lt;h3 id="iso-3864-4">ISO 3864-4
+&lt;/h3>&lt;blockquote>
+&lt;p>ISO3864では、標識は、言葉の壁を克服するためにグラフィカルな物とすることと規定している。&lt;/p>
+&lt;p>(&lt;a class="link" href="https://ja.wikipedia.org/wiki/ISO_3864" target="_blank" rel="noopener"
+>ISO 3864 | Wikipedia&lt;/a> より引用)&lt;/p>
+&lt;/blockquote>
+&lt;p>標識の色彩に関する国際規格ですが、警告色などの参考になるかと思います。&lt;/p>
+&lt;p>一般的な UI フレームワークではこれよりも薄い色を利用されることが多いと感じます。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://mui.com/material-ui/customization/palette/#values" target="_blank" rel="noopener"
+>Material UI (MUI)&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://fluent2.microsoft.design/color#semantic-colors" target="_blank" rel="noopener"
+>Fluent&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://getbootstrap.jp/docs/5.3/utilities/colors/#%e3%82%ab%e3%83%a9%e3%83%bc" target="_blank" rel="noopener"
+>Bootstrap&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>CSS 基礎 2 - 角丸と空白の美</title><link>https://takasaki-physics.github.io/p/tutorial-css-002/</link><pubDate>Fri, 19 Jul 2024 09:54:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-css-002/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>角丸の使い方と利用しやすい UI について記載します。&lt;/p>
+&lt;h2 id="角丸">角丸
+&lt;/h2>&lt;p>角丸とは、名前の通り角を丸くすることです。&lt;/p>
+&lt;p>角を丸くすることで、より自然物のようなデザインに仕上げることができます。&lt;/p>
+&lt;p>ボタンは、通常以下のようなデザインとなります。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/button1.png"
+width="248"
+height="123"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/button1_hu_ae2f78f478f865b4.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/button1_hu_a6a9e80fb11b2b45.png 1024w"
+loading="lazy"
+alt="ボタン"
+class="gallery-image"
+data-flex-grow="201"
+data-flex-basis="483px"
+>&lt;/p>
+&lt;p>(画像は &lt;code>border-width: 0;&lt;/code> と &lt;code>background-color: lightblue;&lt;/code> の微調整を加えています)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.html" data-lang=".html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">button&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>ボタン&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">button&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>これに、角丸を適応してみましょう。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/button2.png"
+width="248"
+height="123"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/button2_hu_1071cb233c3fc031.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/button2_hu_456fbdbec612cd1a.png 1024w"
+loading="lazy"
+alt="ボタン"
+class="gallery-image"
+data-flex-grow="201"
+data-flex-basis="483px"
+>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">button&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">border-radius&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">6&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>これだけで、柔らかいデザインになったのがわかると思います。&lt;/p>
+&lt;h2 id="空白">空白
+&lt;/h2>&lt;p>まずは以下の2つの画像を御覧ください。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/page2.png"
+width="269"
+height="193"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/page2_hu_a2d7f38396b8d037.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/page2_hu_c8036fe05f2d5c00.png 1024w"
+loading="lazy"
+alt="空白あり"
+class="gallery-image"
+data-flex-grow="139"
+data-flex-basis="334px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/page1.png"
+width="196"
+height="104"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/page1_hu_62c27974aa2c197.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/page1_hu_dc687447330d1bac.png 1024w"
+loading="lazy"
+alt="空白なし"
+class="gallery-image"
+data-flex-grow="188"
+data-flex-basis="452px"
+>&lt;/p>
+&lt;p>どちらのほうが見やすく、使いやすいでしょうか。&lt;/p>
+&lt;p>ほとんどの人は左を選択すると思います。&lt;/p>
+&lt;p>文字が詰まっていると、どこを読めばいいのかがわかりにくくなると思います。
+また、空白の少ないボタンは、タップの範囲が狭くなるため、パソコンでのクリックも、携帯でのタップ操作も難しくなります。&lt;/p>
+&lt;p>ここで、適度な空白を設けることによって視認性を向上し、操作のしやすいデザインに仕上げることができます。&lt;/p>
+&lt;h3 id="padding-と-margin">Padding と Margin
+&lt;/h3>&lt;p>空白の設け方は主に2種類あり、&lt;code>Margin&lt;/code> と &lt;code>Padding&lt;/code> になります。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/padding1.png"
+width="774"
+height="289"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/padding1_hu_40554b07be4c0c34.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/padding1_hu_ae95af30056a2911.png 1024w"
+loading="lazy"
+alt="Margin&amp;Padding"
+class="gallery-image"
+data-flex-grow="267"
+data-flex-basis="642px"
+>&lt;/p>
+&lt;p>それぞれ、&lt;code>Margin&lt;/code> は内側の空白、&lt;code>Padding&lt;/code> は外側の空白となります。&lt;/p>
+&lt;p>といってもよくわからないので、詳しく説明します。&lt;/p>
+&lt;p>&lt;code>Margin&lt;/code> は背景を含めた部分の空白となります。
+それに対し、&lt;code>Padding&lt;/code> は背景を含まない部分の空白となっています。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/padding2.png"
+width="327"
+height="290"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/padding2_hu_4586e119a6af831e.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/padding2_hu_ce3406dd39b8b30b.png 1024w"
+loading="lazy"
+alt="Padding"
+class="gallery-image"
+data-flex-grow="112"
+data-flex-basis="270px"
+>&lt;/p>
+&lt;p>&lt;code>Padding&lt;/code> は別の要素と重複します。&lt;/p>
+&lt;h3 id="指定">指定
+&lt;/h3>&lt;p>&lt;code>Margin&lt;/code> と &lt;code>Padding&lt;/code> は通常&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">要素&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">margin&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">12&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>のように指定します。&lt;/p>
+&lt;p>しかし、縦と横で異なる値を指定する場合は &lt;code>縦 横&lt;/code> で指定できます。
+つまり、&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">要素&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">margin&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">12&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="mi">18&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>と指定することで、縦方向に12px、横方向に18px の &lt;code>Margin&lt;/code> または &lt;code>Padding&lt;/code> を指定できます。&lt;/p>
+&lt;p>更に、上下左右で異なる指定をする場合は &lt;code>上 右 下 左&lt;/code> の順番にします。&lt;/p>
+&lt;h2 id="おまけ">おまけ
+&lt;/h2>&lt;p>開発者ツールを利用すると便利に開発ができます。&lt;/p>
+&lt;ol>
+&lt;li>Web ページを開き、右クリックをします。&lt;/li>
+&lt;li>&amp;ldquo;検証&amp;quot;を選択します。&lt;br>
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool1.png"
+width="1366"
+height="680"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool1_hu_62210180a35f4cdd.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool1_hu_466358927f6c6cd8.png 1024w"
+loading="lazy"
+alt="検証"
+class="gallery-image"
+data-flex-grow="200"
+data-flex-basis="482px"
+>&lt;/li>
+&lt;li>HTML やそれに関係する CSS を見ることができます。一時的に CSS を変更し、見た目を変更することも可能です。(一時的なので、ここでの変更は保存されません。ロードしたら消えます)
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool2.png"
+width="1366"
+height="681"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool2_hu_2592d2db08795c2a.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool2_hu_ceb05a0b97264883.png 1024w"
+loading="lazy"
+alt="検証"
+class="gallery-image"
+data-flex-grow="200"
+data-flex-basis="481px"
+>&lt;/li>
+&lt;li>ツールの右上のボタンを押し、要素の上にカーソルを乗せると、&lt;code>Margin&lt;/code> や &lt;code>Padding&lt;/code> などの情報が出ます。&lt;br>
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool3.png"
+width="1366"
+height="680"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool3_hu_b48599a5d6166a12.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool3_hu_654f7c13e3f9dc63.png 1024w"
+loading="lazy"
+alt="検証"
+class="gallery-image"
+data-flex-grow="200"
+data-flex-basis="482px"
+>&lt;/li>
+&lt;/ol>
+&lt;h2 id="まとめ">まとめ
+&lt;/h2>&lt;p>角丸と空白を使いこなし、美しいデザインを目指しましょう。&lt;/p></description></item><item><title>CSS 基礎 1 - 環境構築/準備</title><link>https://takasaki-physics.github.io/p/tutorial-css-001/</link><pubDate>Thu, 18 Jul 2024 12:07:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-css-001/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>CSS の利用方法を解説します。&lt;/p>
+&lt;h2 id="環境構築">環境構築
+&lt;/h2>&lt;h3 id="css-とは">CSS とは
+&lt;/h3>&lt;p>そもそも、CSS (Cascading Style Sheets) は HTML の装飾に利用されます。&lt;/p>
+&lt;p>詳細は Mozilla が作成する &lt;a class="link" href="https://developer.mozilla.org/ja/docs/Learn/Getting_started_with_the_web/CSS_basics" target="_blank" rel="noopener"
+>CSS の基本&lt;/a>を御覧ください。&lt;/p>
+&lt;h3 id="準備">準備
+&lt;/h3>&lt;p>HTML ファイルは &lt;code>index.html&lt;/code> とします。&lt;/p>
+&lt;p>&lt;code>index.html&lt;/code> 内の &lt;code>&amp;lt;head&amp;gt;&lt;/code> 要素内に &lt;code>&amp;lt;link href=&amp;quot;style.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot;&amp;gt;&lt;/code> を追加してください。 (もしかしたら最初からあるかも)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-index.html" data-lang="index.html">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;ja&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;lt;!-- 略 --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;style.css&amp;#34;&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;stylesheet&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;lt;!-- 略 --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>続いて、CSS ファイルを &lt;code>style.css&lt;/code> として作成します。
+場所は &lt;code>index.html&lt;/code> と同じにするのが楽です。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">./
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└style.css
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>これですぐに CSS が利用できます。&lt;/p>
+&lt;h3 id="動作確認">動作確認
+&lt;/h3>&lt;p>では、CSS がしっかりと動作するか見てみましょう。&lt;/p>
+&lt;p>まずは、この HTML 要素の色を変えてみましょう。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.html" data-lang=".html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>りんご&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>style.css&lt;/code> を以下のようにしてください。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-style.css" data-lang="style.css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">p&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>これで、文字の色が赤色に変化することがわかると思います。
+この時点で色が変更していない場合は、環境構築がうまくいっていない可能性があるので、やり直してみてください。&lt;/p>
+&lt;h3 id="指定方法">指定方法
+&lt;/h3>&lt;h4 id="基本指定">基本指定
+&lt;/h4>&lt;p>先ほど、サラッと紹介しましたが、CSS は以下の方法で指定します。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">要素&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">変更:&lt;/span> &lt;span class="err">内容&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>要素は、&lt;code>p&lt;/code> や &lt;code>body&lt;/code>、全体を指定する &lt;code>:root&lt;/code> などがあります。&lt;/p>
+&lt;h4 id="id-class-指定">ID, Class 指定
+&lt;/h4>&lt;p>また、&lt;code>&amp;lt;p id=&amp;quot;apple&amp;quot; class=&amp;quot;fruits&amp;quot;&amp;gt;りんご&amp;lt;/p&amp;gt;&lt;/code>
+このような ID は &lt;code>#apple&lt;/code>。Class は &lt;code>.fruits&lt;/code> のように指定できます。&lt;/p>
+&lt;p>また、&lt;code>&amp;lt;p style=&amp;quot;color: blue&amp;quot;&amp;gt;青色&amp;lt;p&amp;gt;&lt;/code> のように直接指定することも可能です。&lt;/p>
+&lt;p>複数指定する場合は &lt;code>,&lt;/code> で区切ります。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">p&lt;/span>&lt;span class="o">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">#&lt;/span>&lt;span class="nn">apple&lt;/span>&lt;span class="o">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">fruits&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">background-color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">blue&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="子要素指定">子要素指定
+&lt;/h4>&lt;p>連続して指定すると、子要素だけに CSS を適応できます。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">p&lt;/span> &lt;span class="nt">a&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">yellow&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.html" data-lang=".html">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;lt;!-- &amp;lt;a&amp;gt; 要素が &amp;lt;p&amp;gt; 要素の中にあるときだけ黄色になる --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>黄色&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;lt;!-- &amp;lt;a&amp;gt; 要素が &amp;lt;p&amp;gt; 要素の中にないときは黄色にならない --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>黄色じゃない&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>黄色じゃない&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>黄色じゃない&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>CSS 基礎 0 - 概要</title><link>https://takasaki-physics.github.io/p/tutorial-css-000/</link><pubDate>Thu, 18 Jul 2024 10:54:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-css-000/</guid><description>&lt;p>本シリーズ (CSS 基礎 - アプリケーションに彩りを - ) は、2年生を対象とした CSS の解説資料になっています。&lt;/p>
+&lt;h2 id="経緯">経緯
+&lt;/h2>&lt;p>2年生がウェブアプリケーション (Monaca) を作成しているときに、デザインで困っていそうだったので作成しました。
+(Monaca でなくても参考にできます)&lt;/p>
+&lt;h2 id="一覧">一覧
+&lt;/h2>&lt;ol>
+&lt;li>&lt;a class="link" href="../tutorial-css-001" >環境構築/準備&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-css-002" >角丸と空白の美&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-css-003" >色彩の薦め&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;!-- (他の文章は読まなくてもいいけど、これは読んでほしい) -->
+&lt;!-- 1. Material UI から学ぶデザインの真髄 -->
+&lt;h2 id="編集について">編集について
+&lt;/h2>&lt;p>誤字訂正、追記、新資料の寄稿など大歓迎です。
+その際は GitHub から &lt;a class="link" href="https://github.com/takasaki-physics/takasaki-physics.github.io/pulls" target="_blank" rel="noopener"
+>PR&lt;/a> をお願いします。&lt;/p>
+&lt;p>第124期 &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint&lt;/a> (2024年度 3年)&lt;/p></description></item><item><title>Python を基礎から 8 - 配列 (list)</title><link>https://takasaki-physics.github.io/p/tutorial-python-008/</link><pubDate>Fri, 12 Jul 2024 17:24:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-008/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>1次元配列を処理できるようにします。&lt;/p>
+&lt;p>(配列というと、array のことを示す場合もありますが、今回は list の話をします)&lt;/p>
+&lt;h2 id="1次元配列">1次元配列
+&lt;/h2>&lt;p>そもそも、1次元配列とは Excel の横列または縦列だけを利用するようなイメージです。&lt;/p>
+&lt;p>ここでは例として、以下のように本を積み重ねる場合を考えてみましょう。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>本のタイトル&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Murder on the Orient Express&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>The ABC Murders&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>And Then There Were None&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Dead Man&amp;rsquo;s Folly&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>配列をコードで表す場合は、&lt;code>array1 = [&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;, &amp;quot;d&amp;quot;]&lt;/code> のように宣言することができます。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">books&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Murder on the Orient Express&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;The ABC Murders&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;And Then There Were None&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Dead Man&amp;#39;s Folly&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>また、&lt;code>array1[0]&lt;/code> や &lt;code>array1[1]&lt;/code> のように指定することで、それぞれの要素 &lt;code>&amp;quot;a&amp;quot;&lt;/code> や &lt;code>&amp;quot;b&amp;quot;&lt;/code> などを取り出すことができます。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">books&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Murder on the Orient Express&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;The ABC Murders&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;And Then There Were None&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Dead Man&amp;#39;s Folly&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1"># 配列の1番目を出力 (配列は0から数えるので、1番目を出力する場合は0を指定する)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; Murder on the Orient Express&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1"># 配列の2番目を出力 (配列は0から数えるので、2番目を出力する場合は1を指定する)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; The ABC Murders&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>その他に以下のようなことも可能です。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">books&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;Murder on the Orient Express&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;The ABC Murders&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;And Then There Were None&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Dead Man&amp;#39;s Folly&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 配列全体を出力&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; [&amp;#39;Murder on the Orient Express&amp;#39;, &amp;#39;The ABC Murders&amp;#39;, &amp;#39;And Then There Were None&amp;#39;, &amp;#34;Dead Man&amp;#39;s Folly&amp;#34;]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 配列を利用してそれぞれの要素を出力&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">)):&lt;/span> &lt;span class="c1"># len(books) は配列の長さ。これは1から数えるので、4が返される&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Murder on the Orient Express&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># The ABC Murders&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># And Then There Were None&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Dead Man&amp;#39;s Folly&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>数値を扱うことも可能です。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">numbers&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">6&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">52&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">30&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 配列の数値を利用して計算する&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">cal&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">numbers&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">cal&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 7&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 小さい順に並び替える&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># 並び替え前&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; [6, 1, 52, 30, 3]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">numbers&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sort&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1"># 並び替え&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">numbers&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; [1, 3, 6, 30, 52]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>これで一通りのガイドは終わりとなります。&lt;/p>
+&lt;p>応用的な内容や、2次元配列などについては追記するかもしれません。&lt;/p>
+&lt;hr>
+&lt;p>Last Code Checked: 2024/7/12 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>Python を基礎から 7 - 繰り返し - for 文</title><link>https://takasaki-physics.github.io/p/tutorial-python-007/</link><pubDate>Fri, 12 Jul 2024 16:50:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-007/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>繰り返しの処理をします。&lt;/p>
+&lt;h2 id="繰り返し">繰り返し
+&lt;/h2>&lt;p>&lt;code>for i in range(N)&lt;/code> (&lt;code>N&lt;/code> は数値) を利用します。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 3&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>range(N)&lt;/code> とすると、&lt;code>N-1&lt;/code> (&lt;code>0&lt;/code> から数えるので、 &lt;code>N&lt;/code> ではなく &lt;code>N-1&lt;/code>) まで増えます。&lt;/p>
+&lt;h3 id="繰り返し文字を出力">繰り返し文字を出力
+&lt;/h3>&lt;p>&lt;code>Hello World!&lt;/code> を4回表示してみましょう。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">4&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Hello World!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Hello World!&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Hello World!&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Hello World!&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Hello World!&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Last Code Checked: 2024/7/12 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>広報活動について</title><link>https://takasaki-physics.github.io/p/20240712-public-relations/</link><pubDate>Fri, 12 Jul 2024 10:01:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240712-public-relations/</guid><description>&lt;h2 id="広報活動について">広報活動について
+&lt;/h2>&lt;p>主に物理部、一部翠巒祭&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>の広報についても記載します。&lt;/p>
+&lt;p>※もちろん皆さん忙しいと思うので、ここに記載している内容は完全に無視してもいいです。&lt;/p>
+&lt;h3 id="blog">Blog
+&lt;/h3>&lt;ul>
+&lt;li>物理部/SSH Blog - &lt;a class="link" href="https://takasaki-physics.github.io/" target="_blank" rel="noopener"
+>https://takasaki-physics.github.io/&lt;/a> (&lt;a class="link" href="https://github.com/takasaki-physics/takasaki-physics.github.io" target="_blank" rel="noopener"
+>GitHub&lt;/a>)&lt;/li>
+&lt;li>翠巒祭開発者 Blog - &lt;a class="link" href="https://blog.suiranfes.blue/" target="_blank" rel="noopener"
+>https://blog.suiranfes.blue/&lt;/a> (&lt;a class="link" href="https://github.com/suiranfes/blog.suiranfes.blue" target="_blank" rel="noopener"
+>GitHub&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;p>両方とも &lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
+>Hugo&lt;/a> という仕組みを利用し、GitHub で管理しています。&lt;/p>
+&lt;p>(GitHub アカウントは、学校のアカウントではなく個人のアカウントで作成することを強く推奨します)&lt;/p>
+&lt;p>物理部/SSH Blog は存続してほしいと考えています。
+投稿内容は Blog でも構いませんし、技術移行の資料やプログラムのガイドブック (内部向け資料) とかでもいいと思います。面倒だったら Qiita とかを使うのでも良いかもしれません。&lt;/p>
+&lt;p>翠巒祭開発者 Blog は任せます。どっちでもいいです。&lt;/p>
+&lt;h3 id="sns">SNS
+&lt;/h3>&lt;p>こちらが本題です。&lt;/p>
+&lt;p>Blog は外部の人にはあまり見られることがないと思うので、広報としては効果が低いと思います。
+そこで、SNS の利用を推奨します。&lt;/p>
+&lt;p>広報は高崎高校の活動を知ってもらうことや、他校の人と協力することなどにもつながるので良いと思います。&lt;br>
+具体的には、物理部はロボの高度技術に関しての協力、翠巒祭は来客の集客で役に立つと思います。&lt;br>
+(翠巒祭は各班課でも結構やっています)&lt;/p>
+&lt;p>私が中学生だった頃は、高崎高校がどのような活動をしているかというのは&lt;a class="link" href="https://takasaki-hs.gsn.ed.jp/" target="_blank" rel="noopener"
+>高崎高校のホームページ&lt;/a>からしか情報を仕入れられませんでした。(翠巒祭のウェブサイトの存在も知らなかった)
+なので、高崎高校を目指す中学生を初めとした多くの人に高崎高校の活動を知ってもらえるように広報をしてもらえたら嬉しいとおもいます。&lt;/p>
+&lt;h4 id="twitter-x">Twitter (X)
+&lt;/h4>&lt;p>&lt;a class="link" href="https://twitter.com/takataka_robo" target="_blank" rel="noopener"
+>物理部ロボ&lt;/a> / &lt;a class="link" href="https://twitter.com/suiranfes" target="_blank" rel="noopener"
+>翠巒祭&lt;/a>&lt;/p>
+&lt;h4 id="misskey">Misskey
+&lt;/h4>&lt;p>近年急速に成長を遂げている分散型 SNS です。&lt;/p>
+&lt;p>フォロワーが少なくても、リアクションがつきやすいので、続けるモチベーションになると思います。
+(Twitter (X) はいいねとかがつきにくいので、モチベーションがすぐになくなってしまう気がする)&lt;/p>
+&lt;p>我らが &lt;a class="link" href="https://p1.a9z.dev/@aqz" target="_blank" rel="noopener"
+>aqz&lt;/a> 大先輩も misskey の開発者なので、個人的には翠巒祭側で特に使ってほしいですね。&lt;/p>
+&lt;p>サーバー (インスタンス) は misskey.io を推奨します。
+(もし物理部のサーバーを使えるなら、独自のインスタンスを立ち上げてもいいけど、技術的にも学校の許可的にも厳しそう)&lt;/p>
+&lt;p>運用方法は &lt;a class="link" href="https://misskey.io/@kakkokari_gtyih" target="_blank" rel="noopener"
+>(仮)&lt;/a> さん (高校生のときから misskey を開発している偉人) の学校の&lt;a class="link" href="https://misskey.io/@natureofmad_" target="_blank" rel="noopener"
+>とんこう科学部&lt;/a>とか&lt;a class="link" href="https://misskey.io/@tonko_fes" target="_blank" rel="noopener"
+>とんこう文化祭&lt;/a>とかが参考になると思います。&lt;/p>
+&lt;h3 id="github">GitHub
+&lt;/h3>&lt;p>&lt;a class="link" href="https://github.com/takasaki-physics" target="_blank" rel="noopener"
+>物理部&lt;/a> / &lt;a class="link" href="https://github.com/suiranfes" target="_blank" rel="noopener"
+>翠巒祭&lt;/a>&lt;/p>
+&lt;p>管理方法を考え中なので、しばらくお待ち下さい。
+(Admin 権限をあげないと新しいメンバーの招待ができないけど、誤って歴代のレポジトリを消してしまわないかという心配がある)&lt;/p>
+&lt;p>卒業までには引き継げるように準備をする予定です。&lt;/p>
+&lt;p>ちなみに、物理部 GitHub は私 (&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>) が、翠巒祭 GitHub は 65th の Web 課だった &lt;a class="link" href="https://github.com/tamaina" target="_blank" rel="noopener"
+>aqz&lt;/a> 大先輩が設立しました。&lt;/p>
+&lt;h3 id="その他">その他
+&lt;/h3>&lt;p>とくになし☆&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>現在の物理部2年生に翠巒祭重役が多いので&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Python を基礎から 6 - 条件分岐 - if 文</title><link>https://takasaki-physics.github.io/p/tutorial-python-006/</link><pubDate>Wed, 01 May 2024 10:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-006/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>条件分岐をします。&lt;/p>
+&lt;p>これにより、数値の大きさによって出力を変えることができます。&lt;/p>
+&lt;h2 id="条件分岐">条件分岐
+&lt;/h2>&lt;p>&lt;code>if&lt;/code> を利用します。&lt;/p>
+&lt;h3 id="比較">比較
+&lt;/h3>&lt;p>比較の際に利用する主なコード (比較演算子) は以下の通りです。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>x == y&lt;/code> - x と y が等しい&lt;/li>
+&lt;li>&lt;code>x != y&lt;/code> - x と y が等しくない&lt;/li>
+&lt;li>&lt;code>x &amp;gt; y&lt;/code> - x が y より大きい&lt;/li>
+&lt;li>&lt;code>x &amp;lt; y&lt;/code> - x が y 未満&lt;/li>
+&lt;li>&lt;code>x &amp;gt;= y&lt;/code> - x が y 以上&lt;/li>
+&lt;li>&lt;code>x &amp;lt;= y&lt;/code> - x が y 以下&lt;/li>
+&lt;/ul>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">number&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;number is 100.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># number が100だったときに処理&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>number&lt;/code> に&lt;code>100&lt;/code>とそれ以外の数字を入れてコードを動かしてみてください。&lt;/p>
+&lt;p>&lt;code>number&lt;/code> の数値が&lt;code>100&lt;/code>のときは文字が出力され、&lt;code>100&lt;/code>以外のときは出力がされません。&lt;/p>
+&lt;h3 id="複雑な比較">複雑な比較
+&lt;/h3>&lt;p>&lt;code>if&lt;/code> でなかった場合は、 &lt;code>else&lt;/code> や &lt;code>elif&lt;/code> を利用します。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">number&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;number is 100.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># number が100だったときに処理&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;number is not 100.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># number が100以外のときに処理&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">number&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;number is 100.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># number が100だったときに処理&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">elif&lt;/span> &lt;span class="n">number&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">120&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;number is 120.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># number が120だったときに処理&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>本資料では解説しませんが、更に複雑な条件分岐に関しては、 &lt;code>match&lt;/code> 文を利用します。
+これは、他の言語に当たる &lt;code>switch-case&lt;/code> 文のようなものです。&lt;/p>
+&lt;hr>
+&lt;p>Last Code Checked 2024/7/12 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>講義 - Python を基礎から</title><link>https://takasaki-physics.github.io/p/20240419-python/</link><pubDate>Fri, 19 Apr 2024 00:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240419-python/</guid><description>&lt;p>&lt;a class="link" href="../tutorial-python-000" >Python を基礎から - Google Colaboratory を使ったプログラム基礎 - &lt;/a>シリーズの講義を行いました。&lt;/p>
+&lt;p>基本講義は私 &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> が、補助を&lt;a class="link" href="https://github.com/nAgI314" target="_blank" rel="noopener"
+>部長&lt;/a>が行ってくれました。&lt;/p>
+&lt;h2 id="内容">内容
+&lt;/h2>&lt;p>新1年生に Google Colaboratory を利用した Python の環境構築とプログラムの基礎を解説しました。
+現在は000-005まで作成していますが、これから作成予定の006-008の部分の解説も行っています。
+これは、高崎高校では必修の&lt;strong>情報I&lt;/strong>のプログラムの部分(3学期後半に学ぶ部分)を一通り踏襲した形になります。
+(関数 &lt;code>def&lt;/code> の解説を除く&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>)&lt;/p>
+&lt;p>今後の開発で役に立つと思うので、忘れたときはぜひ資料をご覧ください。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>内容的にはそれほど難しくないのですが、時間があまりなかったので省きました。あと、 &amp;ldquo;Python を基礎から&amp;rdquo; の資料作成予定に入っていなかったので、忘れていました。&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Python を基礎から 5 - 入力を受け取ろう</title><link>https://takasaki-physics.github.io/p/tutorial-python-005/</link><pubDate>Thu, 18 Apr 2024 22:05:05 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-005/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>ユーザーからの入力を受け取ります。&lt;/p>
+&lt;p>これで、コード内で定義していない数値を扱うことができます。&lt;/p>
+&lt;h2 id="入力">入力
+&lt;/h2>&lt;p>&lt;code>input()&lt;/code> を利用します。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">text&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">input&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;文字列を入力してください: &amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 文字列を入力してください: &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># (&amp;#34;りんご&amp;#34; と入力する)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;文字: &amp;#34;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">text&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 文字: りんご&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="電卓を作ろう">電卓を作ろう
+&lt;/h2>&lt;p>前回の記事と組み合わせることで、電卓を作ることができます。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number_1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">input&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;1つめの数を入力してください: &amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">number_2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">input&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;2つめの数を入力してください: &amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 入力した文字を数字に変換して計算&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># (入力時に文字を入れるとエラーになります)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">number_1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">number_2&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Last Code Checked: 2024/4/17 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>Python を基礎から 4 - 四則演算</title><link>https://takasaki-physics.github.io/p/tutorial-python-004/</link><pubDate>Thu, 18 Apr 2024 22:05:04 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-004/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>簡単な計算を行います。&lt;/p>
+&lt;h2 id="四則演算">四則演算
+&lt;/h2>&lt;h3 id="振り返り">振り返り
+&lt;/h3>&lt;p>数値の扱いには前回のページで紹介した int 型を利用します。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 30&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="演算">演算
+&lt;/h3>&lt;ul>
+&lt;li>足し算: &lt;code>+&lt;/code>&lt;/li>
+&lt;li>引き算: &lt;code>-&lt;/code>&lt;/li>
+&lt;li>掛け算: &lt;code>*&lt;/code> (注意!)&lt;/li>
+&lt;li>割り算: &lt;code>/&lt;/code>&lt;/li>
+&lt;li>割り算(余り): &lt;code>%&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>を利用します。&lt;/p>
+&lt;p>以下が例です。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 足し算 (320 + 430)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">320&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">430&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 750&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 引き算 (320 - 430)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">320&lt;/span> &lt;span class="o">-&lt;/span> &lt;span class="mi">430&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; -110&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 掛け算 (320 x 430)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">320&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="mi">430&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 137600&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 割り算 (20 ÷ 10)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">20&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 2.0&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 割り算(余り) (24 ÷ 10)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">24&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 4&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>+&lt;/code> では文字列の結合ができます。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;30&amp;#34;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s2">&amp;#34;円&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 30円&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>当然変数も利用できます。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 数値の定義&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">number_1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">24&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">number_2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">number_1&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">number_2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 54&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Last Code Checked: 2024/4/17 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>Python を基礎から 3 - 変数について</title><link>https://takasaki-physics.github.io/p/tutorial-python-003/</link><pubDate>Thu, 18 Apr 2024 22:05:03 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-003/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>変数の使い方と種類についての簡単な説明です。&lt;/p>
+&lt;h2 id="変数">変数
+&lt;/h2>&lt;h3 id="変数とは">変数とは
+&lt;/h3>&lt;p>変数とは、名前の通り値を変更できる文字のことを表します。
+数学で言うと &lt;code>x&lt;/code> や &lt;code>y&lt;/code> ですね。
+計算を行うときに利用するため、プログラムには必須の概念となっています。&lt;/p>
+&lt;h3 id="箱を使った説明">箱を使った説明
+&lt;/h3>&lt;p>変数はよく&lt;strong>箱&lt;/strong>として説明されます。
+ここでも、その例を用いて説明します。&lt;/p>
+&lt;p>数値や文字などの変数を利用するためには、箱 (実際には型) を利用します。
+しかし、初期状態ではその箱はないため、自分で定義する必要があります。&lt;/p>
+&lt;p>このように宣言します。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 数値の宣言&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">number&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 文字の宣言&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">text&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;apple&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-003/001.svg"
+loading="lazy"
+alt="001"
+>&lt;/p>
+&lt;p>数値 (int 型) と文字 (string 型) は、扱いが異なります。&lt;/p>
+&lt;p>次の資料で詳しく紹介しますが、
+数値は &lt;code>+&lt;/code> をしたときに計算されます。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number_1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">20&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">number_2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">number_1&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">number_2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 50&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>文字は数値とは異なり、結合されます。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">text_1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;20&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">text_2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;30&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">text_1&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">text_2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 2030&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>このように、数値と文字は扱いが異なっています。
+これは、&lt;/p>
+&lt;ul>
+&lt;li>int 型&lt;br />
+数値だけが入れられる箱&lt;/li>
+&lt;li>string 型&lt;br />
+文字が入れられる箱&lt;/li>
+&lt;/ul>
+&lt;p>に分けられています。&lt;/p>
+&lt;p>Python や Ruby では自動的に処理されるため (型推論) 、型を指定する必要はありませんが、 C や C# はそれぞれ宣言する必要があります。&lt;/p>
+&lt;details>
+&lt;summary>C# の例&lt;/summary>
+&lt;p>int 型の使用例&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cs" data-lang="cs">&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="n">number&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="m">200&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">WriteLine&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 出力&amp;gt; 200&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>(int 型に文字列を入れるとエラーになります。)&lt;/p>
+&lt;/details>&lt;br />
+&lt;p>以上です。&lt;/p>
+&lt;hr>
+&lt;p>Last Code Checked: 2024/4/18 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>Python を基礎から 2 - Hello World!</title><link>https://takasaki-physics.github.io/p/tutorial-python-002/</link><pubDate>Thu, 18 Apr 2024 22:05:02 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-002/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>文字の出力方法を解説します。
+今後、プログラムを動かすときに正常に動作しているかどうかを確認するなど、利用の機会が多いコマンドです。&lt;/p>
+&lt;p>文字の出力では &lt;code>print()&lt;/code> という関数を利用します。&lt;/p>
+&lt;h2 id="hello-world">Hello World!
+&lt;/h2>&lt;h3 id="文字列の出力">文字列の出力
+&lt;/h3>&lt;p>&lt;code>Hello World!&lt;/code> を出力します。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Hello World!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; Hello World!&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="変数の出力">変数の出力
+&lt;/h3>&lt;p>変数を利用した出力方法を紹介します。
+(変数の扱い方は別の文章で詳しく解説します。)&lt;/p>
+&lt;p>数値の出力例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">number&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">200&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">number&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; 200&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>文字の出力例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">text&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;Apple&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">text&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 出力&amp;gt; Apple&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Last Code Checked: 2024/4/17 by &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>&lt;/p></description></item><item><title>Python を基礎から 1 - 環境構築</title><link>https://takasaki-physics.github.io/p/tutorial-python-001/</link><pubDate>Thu, 18 Apr 2024 22:05:01 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-001/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>Python の環境構築を解説します。
+ここでは基本無料で、簡単に Python を動かすことができる Google Colaboratory を利用します。&lt;/p>
+&lt;h2 id="環境構築">環境構築
+&lt;/h2>&lt;h3 id="場所">場所
+&lt;/h3>&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-001/1.png"
+width="881"
+height="716"
+srcset="https://takasaki-physics.github.io/p/tutorial-python-001/1_hu_af49e21fee76812f.png 480w, https://takasaki-physics.github.io/p/tutorial-python-001/1_hu_63be9c8aa8d365fb.png 1024w"
+loading="lazy"
+alt="Search"
+class="gallery-image"
+data-flex-grow="123"
+data-flex-basis="295px"
+>&lt;/p>
+&lt;p>初めに、 &lt;a class="link" href="https://colab.research.google.com" target="_blank" rel="noopener"
+>https://colab.research.google.com&lt;/a> にアクセスします。
+(よく使うので、ブックマークで保存すると便利だと思います。)&lt;/p>
+&lt;p>Google アカウントでログインします。&lt;/p>
+&lt;h3 id="開始">開始
+&lt;/h3>&lt;p>ノートブック(作業ファイル)を作成します。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-001/2.png"
+width="1366"
+height="719"
+srcset="https://takasaki-physics.github.io/p/tutorial-python-001/2_hu_a2ce74ea45b05c4c.png 480w, https://takasaki-physics.github.io/p/tutorial-python-001/2_hu_8b2103b9b85f61b3.png 1024w"
+loading="lazy"
+alt="Make a new notebook"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>&lt;/p>
+&lt;p>これで下のように、コードを書くことができます。
+コードの左のボタンで動作できます。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-001/3.png"
+width="1366"
+height="719"
+srcset="https://takasaki-physics.github.io/p/tutorial-python-001/3_hu_4f7af8f61e9ceeb5.png 480w, https://takasaki-physics.github.io/p/tutorial-python-001/3_hu_be700ff048b00f1a.png 1024w"
+loading="lazy"
+alt="Write and move your code"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>&lt;/p>
+&lt;h3 id="作業の保存">作業の保存
+&lt;/h3>&lt;p>下の図のように行うことで、セーブできます。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-001/4.png"
+width="1366"
+height="719"
+srcset="https://takasaki-physics.github.io/p/tutorial-python-001/4_hu_714900ced6a6024d.png 480w, https://takasaki-physics.github.io/p/tutorial-python-001/4_hu_4210ad115a0593e1.png 1024w"
+loading="lazy"
+alt="Save"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>&lt;/p>
+&lt;p>または、 &lt;kbd>Ctrl&lt;/kbd> + &lt;kbd>S&lt;/kbd> で保存できます。&lt;/p></description></item><item><title>Python を基礎から 0 - 説明</title><link>https://takasaki-physics.github.io/p/tutorial-python-000/</link><pubDate>Thu, 18 Apr 2024 22:05:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-000/</guid><description>&lt;p>本シリーズ (Python を基礎から - Google Colaboratory を使ったプログラム基礎 - ) は、新1年生を対象とした基礎プログラムの解説資料になっています。&lt;/p>
+&lt;h2 id="一覧">一覧
+&lt;/h2>&lt;p>Category: &lt;a class="link" href="https://takasaki-physics.github.io/categories/python%e5%9f%ba%e7%a4%8e/" target="_blank" rel="noopener"
+>Python基礎&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>&lt;a class="link" href="../tutorial-python-001" >環境構築&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-002" >Hello World!&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-003" >変数について - int, string&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-004" >四則演算&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-005" >入力を受け取ろう&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-006" >条件分岐 - if 文&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-007" >繰り返し - for 文&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-python-008" >配列 (list)&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="編集について">編集について
+&lt;/h2>&lt;p>誤字訂正、追記、新資料の寄稿など大歓迎です。
+是非 &lt;a class="link" href="https://github.com/takasaki-physics/takasaki-physics.github.io/pulls" target="_blank" rel="noopener"
+>PR&lt;/a> を…&lt;/p>
+&lt;p>第124期 &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint&lt;/a> (2024年度 3年)&lt;/p></description></item><item><title>EnglishLens in イオンモール高崎</title><link>https://takasaki-physics.github.io/p/20240320-incubation/</link><pubDate>Wed, 20 Mar 2024 22:20:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240320-incubation/</guid><description>&lt;p>こんにちは。 &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> です。&lt;/p>
+&lt;p>今日はイオンモール高崎にて始動人Jr.インキュベーション2023の成果発表会がありました。&lt;/p>
+&lt;h2 id="概要">概要
+&lt;/h2>&lt;p>&lt;a class="link" href="https://shidojin.jp/incubation.html" target="_blank" rel="noopener"
+>始動人Jr.インキュベーション | 上毛新聞社&lt;/a> を読んでください。&lt;/p>
+&lt;h2 id="感想">感想
+&lt;/h2>&lt;p>どのグループも前回よりも格段にクオリティーを挙げてきていました。&lt;/p>
+&lt;p>個人的には前橋東高校のはかなり大きな転換をしていましたが、すでに実用的な段階まで動いており、開発の速度に驚きました。&lt;br />
+(関係ないですが、インキュベーションの前に発表していたデジチャレの高崎工業高校美術部の作品が素敵だ…と感じました。&lt;br />
+自分はイラストとかデザインとかの美術系が好きなので、今でもそっちの方向を追いかけてしまいます。)&lt;br />
+(あと、司会のお二人、会話とか場のつなげ方がレベルが高すぎます!!自分も教わりたいくらいでした。)&lt;/p>
+&lt;h2 id="最後に">最後に
+&lt;/h2>&lt;p>上毛新聞社をはじめとした関係者の皆様、このような素晴らしい機会を用意していただき、誠にありがとうございました。&lt;/p>
+&lt;p>また、支援していただいた糸井商事様に特別な敬意を表し、これからも EnglishLens の展開を進めていくことを誓います。
+我々高校生にこのような高度な開発環境や経験を与えてくださる大人の皆様は本当に素敵だと思います!!(ありがとうございます。)&lt;/p>
+&lt;p>余談ですが、ついにサーバーが到着しました。
+ドメインを契約次第、利用可能になるらしいので、そろそろ開発が進行できそうですね。&lt;/p></description></item><item><title>課題研究合同発表会 (in Gメッセ群馬)</title><link>https://takasaki-physics.github.io/p/20240313-ssh/</link><pubDate>Wed, 13 Mar 2024 23:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240313-ssh/</guid><description>&lt;p>こんにちは。 &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> です。
+今日は高崎女子高校と合同で課題研究合同発表会 (in Gメッセ群馬)が開催されました。&lt;/p>
+&lt;h2 id="概要">概要
+&lt;/h2>&lt;p>Gメッセ群馬にて課題研究合同発表会が実施されました。&lt;/p>
+&lt;blockquote>
+&lt;p>同世代の仲間たちと「対話」を通じて、研究内容･発表法について相互の情報交換を行い、研究レベルの向上を図ることを目的とした合同発表会です。
+前半は1グループ6人の発表班でプレゼン、後半は自由移動形式のポスターセッションでした。&lt;br />
+(高崎高校内部サイト(リンク公開していいのかわからない)より引用)&lt;/p>
+&lt;/blockquote>
+&lt;p>詳細は以下のページを御覧ください。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://takasaki-hs.gsn.ed.jp/blogs/blog_entries/view/197/6adc88f93323f69c2f0cc2fafe54db5c" target="_blank" rel="noopener"
+>高崎高校×高崎女子高校「課題研究合同発表会」 | 高崎高校ホームページ&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://www3.nhk.or.jp/lnews/maebashi/20240314/1060016553.html" target="_blank" rel="noopener"
+>合同発表会 | NHK&lt;/a>&lt;br />
+EnglishLens が紹介されていますね。すごい!!&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>※ちなみに URL とタグに &lt;code>ssh&lt;/code> が入っていますが、高崎女子高校は SSH 指定校ではありません。&lt;br />
+また、そのため SSH 合同発表会ではなく、課題研究合同発表会という名前となっています。&lt;/p>
+&lt;/blockquote>
+&lt;p>参加&lt;/p>
+&lt;ul>
+&lt;li>高崎女子高校 (1年全員/2年20人(課題研究部))&lt;br />
+2年がほとんどいない (謎)&lt;/li>
+&lt;li>高崎高校 (1年全員/2年全員)&lt;/li>
+&lt;/ul>
+&lt;h2 id="内容">内容
+&lt;/h2>&lt;ol>
+&lt;li>ゲストの2人からの話&lt;/li>
+&lt;li>グループで交流&lt;br />
+自分の得意なことや好きなこと、社会課題に思っていることなどをもとにそれぞれ交流を行いました。&lt;/li>
+&lt;li>(昼食)&lt;br />
+暇すぎてこのブログの記事を書いたりしてました(笑)&lt;/li>
+&lt;li>高崎女子高校メンバーが参加&lt;br />
+午前のグループに高崎女子高校の生徒が参加し、お互いに発表と質疑応答を行いました。&lt;/li>
+&lt;li>各自発表&lt;br />
+自分のところには男女両方とも結構来てくださったので、嬉しかったです。
+やはり AR グラスは人気ありますね。&lt;/li>
+&lt;/ol>
+&lt;p>予想よりも盛り上がりましたね。特に最後の各自の発表が。&lt;/p>
+&lt;h2 id="最後に">最後に
+&lt;/h2>&lt;p>今回は合同発表会を開催できてとてもよかったです。
+ぜひまた来年も…
+(私は卒業時期なので参加できませんが、ぜひ現1年生と、新1年生には体験してもらいたいですね。)&lt;/p>
+&lt;blockquote>
+&lt;p>来年も開催されるかな。&lt;br />
+(高崎高校内部サイトより引用)&lt;/p>
+&lt;/blockquote>
+&lt;p>という言葉があるので、開催される可能性は高そうですね。&lt;/p>
+&lt;p>そういえば、私の聴覚障がい者に向けた研究の発表はこれで最後となりますね。
+(あの企業が興味を持ってくださるかもしれませんが…(フラグ建設))
+まあ、おそらくこれ以上研究は進めないと思います。&lt;/p></description></item><item><title>エムズ英会話 x EnglishLens</title><link>https://takasaki-physics.github.io/p/20240307-englishlens/</link><pubDate>Thu, 07 Mar 2024 23:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240307-englishlens/</guid><description>&lt;p>こんにちは。 &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> です。&lt;br />
+今日は&lt;a class="link" href="https://emzsys.com/info-wp/" target="_blank" rel="noopener"
+>エムズ英会話&lt;/a>(高崎本部校)にて EnglishLens を実際に使ってもらいました。&lt;br />
+ご招待いただき誠にありがとうございました。&lt;/p>
+&lt;h2 id="概要">概要
+&lt;/h2>&lt;p>英会話教室にて EnglishLens の説明を行い、実際に利用してもらいました。&lt;br />
+EnglishLens の実証(ユーザーテスト)では学童、小学校に次ぐ3回目となります。&lt;br />
+(とはいっても、学童は&lt;a class="link" href="https://github.com/nAgI314" target="_blank" rel="noopener"
+>部長&lt;/a>のみ参加、小学校のときは自分のクラスが学級閉鎖で参加できなかったため、私は今回のユーザーテストで初参加でした。)&lt;/p>
+&lt;h2 id="全体流れ">全体流れ
+&lt;/h2>&lt;p>今回は1時間の時間をいただき、前回の小学校の時と同様に進めました。&lt;/p>
+&lt;p>初めに別室で動作テストや英会話塾の先生と打ち合わせを行いました。&lt;/p>
+&lt;ol>
+&lt;li>簡単な使い方説明&lt;br />
+初めに簡単に利用方法を説明しました。&lt;br />
+とはいっても、最近の子供たちはデジタルに慣れているようで、ほとんど説明していないうちでもすでによく使えていました。(すごい)&lt;br />
+撮影しても応答が遅いという問題があったので、この辺の安定性に関しては今後改良をしていく予定です。&lt;br />
+(実際にフレームワークを変更した最新版を現在作成途中です。SSHなど他の活動の影響もあってあまり進んでいないのですが…)&lt;/li>
+&lt;li>実際に使ってもらう&lt;br />
+今回は8人が対象のため、2人で1グループとして、様々な場所で写真を撮ってもらいました。&lt;br />
+今回は外も許可が出たので、珍しい単語も見つけられたのではないかと思います。&lt;br />
+単語に関しては後日解析を行います。&lt;/li>
+&lt;li>単語テストをグループでだしあう&lt;br />
+見つけた単語の中から4グループでお互い単語テストを出し合いました。&lt;br />
+盛り上がっていたのでよかったです。&lt;/li>
+&lt;li>アンケート&lt;br />
+授業についてアンケートを行いました。&lt;/li>
+&lt;/ol>
+&lt;p>これで授業は終了し、この後先生方からご意見をいただきました。&lt;br />
+ここでは詳細は伏せますが、とても参考になる意見や、自分たちでは到底思いつかないアイデアなどをたくさんいただけたため、これらをこれからの開発に生かしていきます!!&lt;/p>
+&lt;h2 id="最後に">最後に
+&lt;/h2>&lt;p>初めは&amp;quot;英語だけの授業&amp;quot;や&amp;quot;学年が違う&amp;quot;など心配要素はありましたが、 &lt;a class="link" href="https://github.com/ssadokafy" target="_blank" rel="noopener"
+>ssadokafy&lt;/a> (メンバーの1人)の素晴らしい英語力とお互い仲の良い英会話塾の生徒たちに救われました。&lt;br />
+自分は英会話塾には行ったことがなかったのですが、話を聞く感じでは、様々なカリキュラムを導入しており、なかなかおもしろそうでした。&lt;br />
+(いつもあの人数なのかはわかりませんが、指導する先生がとても多いのが驚きでした。)&lt;/p>
+&lt;p>再度となりますが、今日は招待いただき、また授業での様々なサポートや貴重なご意見誠にありがとうございました。&lt;/p></description></item><item><title>Git インストール後に必ずすること</title><link>https://takasaki-physics.github.io/p/20240219-git-setting/</link><pubDate>Mon, 19 Feb 2024 16:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240219-git-setting/</guid><description>&lt;img src="https://takasaki-physics.github.io/p/20240219-git-setting/git-bash.png" alt="Featured image of post Git インストール後に必ずすること" />&lt;p>こんにちは。
+&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> です。&lt;/p>
+&lt;p>今回は Git インストール後に必ず必要な設定に関して記述していきます。
+(先週金曜日の Git 設定の時に忘れていたやつ。)&lt;/p>
+&lt;h2 id="方法">方法
+&lt;/h2>&lt;p>ユーザー名とメールアドレスの設定をします。&lt;/p>
+&lt;ol>
+&lt;li>Git Bash を起動&lt;br />
+初めに Git Bash を起動します。&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/20240219-git-setting/git-bash.png"
+width="1200"
+height="1197"
+srcset="https://takasaki-physics.github.io/p/20240219-git-setting/git-bash_hu_6b422266fc819767.png 480w, https://takasaki-physics.github.io/p/20240219-git-setting/git-bash_hu_5f0a7b4697ef371c.png 1024w"
+loading="lazy"
+alt="Git Bash"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+>&lt;/p>
+&lt;p>Windows の場合は上のように起動できます。
+VSCode の Git Bash を利用しても構いません。&lt;/p>
+&lt;ol>
+&lt;li>設定する
+Git Bash で以下のコマンドを実行します。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ git config --global user.name &lt;span class="o">[&lt;/span>ユーザー名&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ git config --global user.email &lt;span class="o">[&lt;/span>メールアドレス&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 例&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ git config --global user.name &lt;span class="s2">&amp;#34;mint73&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ git config --global user.email example@example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ユーザー名もメールアドレスも GitHub と同じものがよいでしょう。&lt;/p>
+&lt;ol>
+&lt;li>確認する
+Git Bash で以下のコマンドを実行することで正常に設定できているか確認できます。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ git config --global --list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">user.name&lt;span class="o">=&lt;/span>mint73
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">user.email&lt;span class="o">=&lt;/span>example@example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>以上です。&lt;/p>
+&lt;h2 id="参考">参考
+&lt;/h2>&lt;ul>
+&lt;li>&lt;a class="link" href="https://reasonable-code.com/git-init-setting/" target="_blank" rel="noopener"
+>https://reasonable-code.com/git-init-setting/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>情報共有しましょう!</title><link>https://takasaki-physics.github.io/p/20240219-discuss/</link><pubDate>Mon, 19 Feb 2024 12:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240219-discuss/</guid><description>&lt;img src="https://takasaki-physics.github.io/p/20240219-discuss/discussions.png" alt="Featured image of post 情報共有しましょう!" />&lt;p>こんにちは。
+&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> です。&lt;/p>
+&lt;p>こちらは、主に物理部の部員や開発者向けの資料となっています。&lt;/p>
+&lt;h2 id="github-discussions">GitHub Discussions
+&lt;/h2>&lt;p>物理部の Discussions は&lt;a class="link" href="https://github.com/orgs/takasaki-physics/discussions" target="_blank" rel="noopener"
+>こちら&lt;/a>!!&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/20240219-discuss/discussions.png"
+width="1365"
+height="564"
+srcset="https://takasaki-physics.github.io/p/20240219-discuss/discussions_hu_f3a0e1e07e204d41.png 480w, https://takasaki-physics.github.io/p/20240219-discuss/discussions_hu_3461e2b819100aa7.png 1024w"
+loading="lazy"
+alt="GitHub Discussions"
+class="gallery-image"
+data-flex-grow="242"
+data-flex-basis="580px"
+>&lt;/p>
+&lt;p>GitHub には Discussions という機能があります。
+一般的にはレポジトリの Discussions がプログラムの新機能に関するアイデア出しやプログラムへの質問などで利用されます。
+Organization でも同様の機能が利用可能で、物理部では一般的な会話に利用するつもりです。(まあ、基本的な会話は物理部の Slack でも良いのですが、履歴が残らないので、私的にはこちらを利用したいと考えています。)&lt;/p>
+&lt;p>(GitHub アカウントを持っている人なら)誰でもこちらに質問可能なので、ぜひぜひご利用ください。&lt;/p></description></item><item><title>パソコンの整備</title><link>https://takasaki-physics.github.io/p/20240216-pc/</link><pubDate>Fri, 16 Feb 2024 15:30:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240216-pc/</guid><description>&lt;p>こんにちは。&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>です。&lt;br />
+先日のサーバー贈呈式の際に、糸井さんから個人のパソコンをいただきました。&lt;br />
+(パソコンの話は書いてよいのかわからなかかったのですが、上毛新聞のサーバー贈呈式の記事にてパソコンについても書いてあったので、物理部 Blog でも本記事にて記載することにしました。)&lt;/p>
+&lt;p>経緯に関しては、サーバー贈呈式の記事を参考にしてください。&lt;/p>
+&lt;p>(自分は学級閉鎖とテスト前の部活停止期間によって、他のメンバーと比べて2週間遅れで受け取りました。)&lt;/p>
+&lt;h2 id="整備内容">整備内容
+&lt;/h2>&lt;ul>
+&lt;li>Git&lt;br />
+開発に必須な Git を入れました。
+ついでに GitHub の設定も行ったので、ついに物理部の GitHub に EnglishLens (2年生)のフルメンバーが揃いました。&lt;/li>
+&lt;li>VSCode&lt;br />
+日本語の設定などを行いました。
+Flutter の環境整備はまた今度行います。&lt;/li>
+&lt;/ul></description></item><item><title>物理部にサーバーを提供していただきました</title><link>https://takasaki-physics.github.io/p/20240202-server/</link><pubDate>Fri, 02 Feb 2024 22:30:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240202-server/</guid><description>&lt;p>こんにちは。&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>です。&lt;br />
+今日は物理部のサーバー贈呈式が行われました。&lt;br />
+ありがとうございます!!&lt;br />
+物理部で様々な用途で役立てていきます。&lt;br />
+(実際に利用できるのはまだのようです。設定などが済んだあとに利用できると思います。&lt;br />
+もしかしたら私達は時期的にあまり使えないかもしれませんが、後輩たちがうまく使ってくれるでしょう。)&lt;br />&lt;/p>
+&lt;h2 id="概要">概要
+&lt;/h2>&lt;p>上毛新聞社が開催する&lt;a class="link" href="https://shidojin.jp/incubation.html" target="_blank" rel="noopener"
+>&lt;strong>指導陣Jr.インキュベーション&lt;/strong>&lt;/a>という、高校生の研究とそれに興味を持った企業様を結びつける発表会がありました。&lt;br />
+その際に、私達はEnglishLensの発表を行い、&lt;a class="link" href="https://www.itoi-shoji.co.jp/company/itoi-holdings/" target="_blank" rel="noopener"
+>&lt;strong>糸井ホールディングス&lt;/strong>&lt;/a>の&lt;strong>社長様&lt;/strong>(高崎高校のOB)から支援していただけることが決まり、サーバー(など)を支援していただけることになりました。&lt;/p>
+&lt;h2 id="内容">内容
+&lt;/h2>&lt;p>本当だったら、私もこのサーバー譲渡の会に行くはずだったのですが、まさかの学級閉鎖により、私は行けませんでした…&lt;br />
+(感謝の言葉を直接伝えたかったです…)&lt;/p>
+&lt;p>というか、EnglishLensを小学校で使ってもらう際に次ぐ2回目なんですが…(白目)&lt;br />
+2回のイベントに学級閉鎖(自分は元気)で参加できないとはなんとも無念です…&lt;/p>
+&lt;p>ということで、私は&lt;strong>何が行われたのかはわかりません&lt;/strong>。(ぽんこつ)&lt;/p>
+&lt;h2 id="最後に">最後に
+&lt;/h2>&lt;p>繰り返しとなりますが、サーバーを購入していただいた糸井様、そしてその機会を作ってくださった上毛新聞社様、並びにここまで協力してくださった先生やメンバーの3人、そしてその他の協力者の皆様、本当にありがとうございました。&lt;br />
+これからもEnglishLensチームや高崎高校 物理部は精進して参ります。&lt;/p></description></item><item><title>群馬県庁で発表してきました</title><link>https://takasaki-physics.github.io/p/20240131-ssh/</link><pubDate>Wed, 31 Jan 2024 23:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240131-ssh/</guid><description>&lt;p>こんにちは。&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>です。&lt;br />
+今日は群馬県庁32階でSSH発表をさせてもらいました。&lt;br />
+参加させていただき誠にありがとうございます!!&lt;br />
+(この内容は物理部の活動ではなく、2年SSHとしての活動です。&lt;br />
+そのため、物理部以外の人も、SSHクラス以外の人も多く参加しています。)&lt;/p>
+&lt;h2 id="概要">概要
+&lt;/h2>&lt;p>今回の発表は、校内で行ったSSH発表の代表として9グループが参加しました。&lt;br />
+部長は皆さんご存知のEnglishLensで登場!!&lt;br />
+私は別の研究で発表を行いました。(実は私はUI以外にも色々とできるのです!!)&lt;/p>
+&lt;h2 id="講評">講評
+&lt;/h2>&lt;p>代表グループということで、どれもとても興味深い研究だと思いました。&lt;br />
+個人的には文系勢のアイデアはなかなか思いつかなかったので面白かったですね!!&lt;br />
+(今回は珍しく、自分がEnglishLensの発表を聞く側だったので自分(たち)が作ったスライドを他の人の発表で見るというなんとも不思議な光景に思いました。(笑))&lt;/p>
+&lt;h2 id="結果">結果
+&lt;/h2>&lt;p>一応、最優秀賞1グループと優秀賞2グループが選ばれました。&lt;br />
+最優秀賞はEnglishLens(部長/2-1)、優秀賞は聴覚障がい者向けデバイス(私/2-3)と外食のアレルギーに関してのアプリケーション(2-3)でした。&lt;br />
+どれも素晴らしい内容で、これから研究を進めていくことでより良いものになっていくと思います。&lt;br />
+(自分は聴覚障がい者向けデバイスとEnglishLens(発表は自分ではないけど)で実質2冠でした。やったー!!&lt;br />
+一般理系(SSHクラスではない)からのこの結果なので、今後の非SSHクラス勢の希望の星となれたのではないでしょうか。)&lt;/p>
+&lt;h2 id="今後の予定">今後の予定
+&lt;/h2>&lt;p>上記の話とはあまり関係ないのですが、今後の予定について記述していきます。&lt;/p>
+&lt;p>私は、県庁発表という大仕事が終了したため、EnglishLensなどの開発に戻ります。&lt;br />
+が、Gメッセでの高崎女子高校と合同発表会が3月に予定されているため、SSHの研究もまだまだ続けていきます。&lt;br />
+今日まではSSHにかなり注力していましたが、今後は&lt;/p>
+&lt;ul>
+&lt;li>SSH(聴覚障がい者向けデバイス)&lt;/li>
+&lt;li>EnglishLens&lt;/li>
+&lt;li>翠巒祭 会計システム&lt;/li>
+&lt;/ul>
+&lt;p>の3つの開発を同時並行して進めていきます。&lt;br />
+幸いなことに2月はほとんど発表がないので、ゆったり…とは行きませんが、開発に専念できそうです。&lt;/p>
+&lt;p>他のメンバーは週末にロボ大会が控えているようで忙しいようですね…&lt;br />
+頑張ってください!!&lt;/p>
+&lt;p>部長も2月にもいくつか発表があるようなので忙しそうです。&lt;br />
+EnglishLensの開発はしばらく1人になるかもしれませんね。&lt;/p></description></item><item><title>前橋女子高校 SSH公開検討会に参加しました</title><link>https://takasaki-physics.github.io/p/20240120-ssh/</link><pubDate>Sat, 20 Jan 2024 17:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240120-ssh/</guid><description>&lt;p>こんにちは。 &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> です。&lt;br />
+今日は前橋女子高校 SSH 公開検討会に参加させてもらいました。&lt;br />
+ご招待いただき誠にありがとうございます!!&lt;/p>
+&lt;h2 id="概要">概要
+&lt;/h2>&lt;p>詳しい内容に関しては、おそらく前橋女子高校の公式サイトに記載されると思うので、ここではあまり細かくは触れません。&lt;br />
+(追記: 特に記載されなかったですね…)&lt;/p>
+&lt;p>今回の参加校は以下の4校です。(すべてSSH指定校)&lt;/p>
+&lt;ul>
+&lt;li>前橋女子高校&lt;/li>
+&lt;li>桐生高校&lt;/li>
+&lt;li>前橋高校&lt;/li>
+&lt;li>高崎高校&lt;/li>
+&lt;/ul>
+&lt;p>高崎高校からは、私たち物理部(EnglishLens)と、地学部(恐竜に関する研究)の2グループ(合計5人)が参加しました。&lt;/p>
+&lt;h2 id="最後に">最後に
+&lt;/h2>&lt;p>二度目となりますが、今回はご招待いただき誠にありがとうございます。&lt;br />
+自分は思いつかないようなおもしろい発想や斬新な発想をたくさん見ることができました。&lt;br />
+同じSSHとして、切磋琢磨してきましょう!!&lt;/p>
+&lt;p>駅から近いのいいなぁ…&lt;/p></description></item><item><title>翠巒祭実行の物置の掃除</title><link>https://takasaki-physics.github.io/p/2023-end/</link><pubDate>Fri, 22 Dec 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/2023-end/</guid><description>&lt;p>こんにちは!&lt;/p>
+&lt;p>&lt;del>今年最後の記事です。&lt;/del> &lt;br />
+&lt;del>(追記: この記事の投稿後に、翠巒祭向けのアプリケーションに関する資料を作ったので、そちらが今年最後に記事になりました。)&lt;/del> &lt;br />
+(さらに追記: その記事は新設した翠巒祭のBlogに移動したので、結局は物理部Blogの今年最後の記事はこちらとなりました。)&lt;/p>
+&lt;h2 id="概要">概要
+&lt;/h2>&lt;p>物理部に翠巒祭実行委員長がいるので、手伝いに行きました。
+(物理部の活動とは全く関係ないです。)&lt;/p>
+&lt;ul>
+&lt;li>Before&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/2023-end/before_1.jpg"
+width="1479"
+height="1109"
+srcset="https://takasaki-physics.github.io/p/2023-end/before_1_hu_d2e368b0f6945b8a.jpg 480w, https://takasaki-physics.github.io/p/2023-end/before_1_hu_74e43522c5bce80a.jpg 1024w"
+loading="lazy"
+alt="Before"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/2023-end/before_2.jpg"
+width="1479"
+height="1109"
+srcset="https://takasaki-physics.github.io/p/2023-end/before_2_hu_3786f57755d31168.jpg 480w, https://takasaki-physics.github.io/p/2023-end/before_2_hu_bf362bdbe97a4df.jpg 1024w"
+loading="lazy"
+alt="Before"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;ul>
+&lt;li>After&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/2023-end/after_1.jpg"
+width="1109"
+height="1479"
+srcset="https://takasaki-physics.github.io/p/2023-end/after_1_hu_85006854382719f3.jpg 480w, https://takasaki-physics.github.io/p/2023-end/after_1_hu_8ddb5d1d4096905a.jpg 1024w"
+loading="lazy"
+alt="After"
+class="gallery-image"
+data-flex-grow="74"
+data-flex-basis="179px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/2023-end/after_2.jpg"
+width="1479"
+height="1109"
+srcset="https://takasaki-physics.github.io/p/2023-end/after_2_hu_e7cc68f282b2d9ce.jpg 480w, https://takasaki-physics.github.io/p/2023-end/after_2_hu_e185b4b23d6cf268.jpg 1024w"
+loading="lazy"
+alt="After"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+>&lt;/p>
+&lt;p>※ゴミ袋があってあまりきれいに見えませんが、実際は結構きれいに見えます。&lt;/p>
+&lt;p>実行委員長や実行のメンバー(数人)、グッズ課?のチーフと自分の5~6人くらいで時間は2時間半くらいやったのでだいぶ良くなりました。&lt;/p></description></item><item><title>パソコン整備</title><link>https://takasaki-physics.github.io/p/pc-mente/</link><pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/pc-mente/</guid><description>&lt;p>本資料では、 2023/10/31 までに行ったパソコン整備の内容について記録します。&lt;/p>
+&lt;h2 id="tddr">TD;DR
+&lt;/h2>&lt;ul>
+&lt;li>場所移動&lt;/li>
+&lt;li>バージョンアップ&lt;/li>
+&lt;li>VSCode とか&lt;/li>
+&lt;/ul>
+&lt;h2 id="環境">環境
+&lt;/h2>&lt;p>(タワー型PC)&lt;/p>
+&lt;ul>
+&lt;li>OS: Windows10 21H2 (当時)&lt;/li>
+&lt;li>CPU: Intel core i シリーズ (詳細は忘れました)&lt;/li>
+&lt;li>GPU: Radeon RX 570&lt;/li>
+&lt;li>RAM: 8GB x 2 枚&lt;/li>
+&lt;li>SSD: 256GB 程度? (Intel製)&lt;/li>
+&lt;li>HDD: 400GB 程度? (サムスン製)&lt;/li>
+&lt;/ul>
+&lt;h2 id="整備内容">整備内容
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>OS 再インストール&lt;br />
+先述ではWindows10 21H2と書いたのですが、サーバー化計画(失敗)にて現在はKDE Neonを入れているので、OSをまるごと入れ直しました。&lt;br />
+(LinuxのDEとPCのGPUのRadeonと相性が悪く、GNOMEでもKDEでも少し使っていると画面が乱れるため、まともに使えませんでした。ドライバは頑張ったのですが、諦めました。)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>場所移動&lt;br />
+現在の設置場所(講義室後ろ)はWi-Fiが途切れ途切れなので、前側(Wi-Fiのすぐ近く)に移動しました。&lt;br />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>基本ソフトウェアインストール&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>VSCode&lt;br />
+なぜかMicrosoft Storeになかったので、公式サイトからインストールしました。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Git&lt;br />
+バージョン管理システム界隈の最高傑作&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Flutter開発環境&lt;br />
+今回の本来の目的です。&lt;br />
+エディタは先述のVSCodeを使います。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>今後予定&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>.NET SDKのインストール&lt;br />
+C#を推している人物として後で入れておきます。&lt;br />
+&lt;del>Visual Studioは重いので入れません。&lt;/del> (追記: 課題研究で使うので入れました。)&lt;br />
+&lt;del>VSCodeにC# Devとかの拡張機能を入れておくので、それを使ってください&lt;/del> (追記: SDK入れてないのでそのままでは使えません。)。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>旧データ整理&lt;br />
+パソコン内のHDDには古いデータが残っているので、今後整備予定です。&lt;br />
+引き継ぎ資料も含まれていたため、内容が現代でも通じるものに関してはこちらのサイトに追加したいと考えています。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>投稿しよう!</title><link>https://takasaki-physics.github.io/p/how-to-post/</link><pubDate>Thu, 19 Oct 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/how-to-post/</guid><description>&lt;h1 id="記事の投稿方法について">記事の投稿方法について
+&lt;/h1>&lt;h2 id="前提条件">前提条件
+&lt;/h2>&lt;ul>
+&lt;li>GitHub アカウントを保持している&lt;/li>
+&lt;li>Git の使い方がなんとなくわかる&lt;/li>
+&lt;li>Markdown の書き方がわかる&lt;/li>
+&lt;/ul>
+&lt;h2 id="tl-dr">TL; DR
+&lt;/h2>&lt;ol>
+&lt;li>&lt;a class="link" href="https://github.com/takasaki-physics/takasaki-physics.github.io" target="_blank" rel="noopener"
+>本サイトのレポジトリ&lt;/a>をフォークします。&lt;/li>
+&lt;li>&lt;em>content/post/&lt;/em> ディレクトリ内に適当な名前のディレクトリを配置し、その中に &lt;em>index.md&lt;/em> を作成します。&lt;/li>
+&lt;li>記事の内容を Markdown 形式で記述します。&lt;br />
+(このとき、ページタイトルなどの情報を追加してください。)&lt;/li>
+&lt;/ol>
+&lt;h2 id="投稿方法">投稿方法
+&lt;/h2>&lt;h3 id="レポジトリをフォークする">レポジトリをフォークする
+&lt;/h3>&lt;ol>
+&lt;li>GitHub アカウントにログインします。&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/takasaki-physics/takasaki-physics.github.io" target="_blank" rel="noopener"
+>GitHub-高崎高校物理部&lt;/a>にアクセスします。&lt;/li>
+&lt;li>レポジトリをフォークします。&lt;/li>
+&lt;/ol>
+&lt;details>
+&lt;summary>参考画像&lt;/summary>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/how-to-post/1.png"
+width="1366"
+height="720"
+srcset="https://takasaki-physics.github.io/p/how-to-post/1_hu_f5e0f51fbbae155b.png 480w, https://takasaki-physics.github.io/p/how-to-post/1_hu_ef88078e5d26a989.png 1024w"
+loading="lazy"
+alt="Image 1"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/how-to-post/2.png"
+width="1366"
+height="720"
+srcset="https://takasaki-physics.github.io/p/how-to-post/2_hu_620a0c808ac89b53.png 480w, https://takasaki-physics.github.io/p/how-to-post/2_hu_40571aef15d041bb.png 1024w"
+loading="lazy"
+alt="Image 2"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>&lt;/p>
+&lt;/details>
+&lt;h3 id="vscodeの起動">VSCodeの起動
+&lt;/h3>&lt;p>ここからは、 VSCode を使って作業します。&lt;br />
+VSCode の起動には3つの方法があります。&lt;br />
+自分のお好きなものを選択してください。&lt;br />
+(ちなみに私はローカルで作業しています。)&lt;br />&lt;/p>
+&lt;ul>
+&lt;li>github.dev (ブラウザ)を使う&lt;/li>
+&lt;li>GitHub Codespaces (クラウド)を使う&lt;/li>
+&lt;li>ローカルにインストールした VSCode を使う&lt;/li>
+&lt;/ul>
+&lt;p>それぞれの方法を解説します。&lt;br />&lt;/p>
+&lt;h4 id="githubdev-の起動">github.dev の起動
+&lt;/h4>&lt;p>こちらはレポジトリを開いた状態(下の画像の状態)でキーボードの &lt;kbd>.&lt;/kbd> を押すことで起動できます。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/how-to-post/3.png"
+width="1366"
+height="720"
+srcset="https://takasaki-physics.github.io/p/how-to-post/3_hu_9e3aacacabd8b985.png 480w, https://takasaki-physics.github.io/p/how-to-post/3_hu_ad9e81ec214f5157.png 1024w"
+loading="lazy"
+alt="github.dev"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>&lt;/p>
+&lt;h4 id="codespaces-の起動">Codespaces の起動
+&lt;/h4>&lt;p>起動方法は下の画像を参考にしてください。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/how-to-post/4.png"
+width="1366"
+height="720"
+srcset="https://takasaki-physics.github.io/p/how-to-post/4_hu_5b719b4f8c281a0.png 480w, https://takasaki-physics.github.io/p/how-to-post/4_hu_5c932171507f776d.png 1024w"
+loading="lazy"
+alt="Codespaces"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>&lt;/p>
+&lt;p>高機能ですが起動に時間がかかります…&lt;br />&lt;/p>
+&lt;h4 id="ローカル環境で作業する">ローカル環境で作業する
+&lt;/h4>&lt;p>前提条件として、ローカル環境に Git がインストールされている必要があります。&lt;br />&lt;/p>
+&lt;ul>
+&lt;li>VSCode を起動し、 &lt;kbd>Ctrl&lt;/kbd> + &lt;kbd>Shift&lt;/kbd> + &lt;kbd>P&lt;/kbd> を押してコマンドパレットを開きます。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/how-to-post/command_palette.png"
+width="696"
+height="364"
+srcset="https://takasaki-physics.github.io/p/how-to-post/command_palette_hu_44cbc05f3ecab697.png 480w, https://takasaki-physics.github.io/p/how-to-post/command_palette_hu_6f416c1fae1f7551.png 1024w"
+loading="lazy"
+alt="コマンドパレット"
+class="gallery-image"
+data-flex-grow="191"
+data-flex-basis="458px"
+>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Git Clone&lt;/strong> と入力します。&lt;/li>
+&lt;li>GitHub から先程フォークした当サイトのレポジトリをクローンします。&lt;/li>
+&lt;/ul>
+&lt;p>以上です。&lt;br />
+もしかしたら Git の拡張機能や GitHub との連携の設定などが必要かもしれません。&lt;br />&lt;/p>
+&lt;h3 id="投稿記事を作成">投稿記事を作成
+&lt;/h3>&lt;p>ついに、投稿記事が作成できるようになりました!&lt;br />
+記事は &lt;em>content/post/&lt;/em> ディレクトリ内に作成します。&lt;br />&lt;/p>
+&lt;ol>
+&lt;li>&lt;em>content/post/&lt;/em> ディレクトリを開く&lt;/li>
+&lt;li>新しいディレクトリを作成する
+&lt;br />(ディレクトリ名は英語がよいです)&lt;/li>
+&lt;li>新規作成したディレクトリに移動する&lt;/li>
+&lt;li>&lt;em>index.md&lt;/em> を作成する&lt;/li>
+&lt;/ol>
+&lt;p>この &lt;em>index.md&lt;/em> 内に記事を書いていくこととなります。&lt;br />
+ただし、ページ上部に以下の記入をする必要があります。&lt;br />
+(日本語の部分は各自書き換えてください。)&lt;br />&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">---
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">title: タイトルを記入
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">description: 説明を記入
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">slug: タイトルを英語で記入(記号は&amp;#34;-&amp;#34;以外基本的に禁止)(これはURLにつかわれます。)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">img: 同ディレクトリ内に存在する画層ファイル名を記入(なくてもいい)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">date: 日付を記入(例: 2023-09-21 00:00:00+0000)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">categories:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - カテゴリーを記入(なくてもいい)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tags:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - タグを記入(なくてもいい)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">---
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>他の記事の記述方法を真似すると良いです。&lt;br />
+(&lt;em>&lt;a class="link" href="https://github.com/takasaki-physics/takasaki-physics.github.io/blob/main/content/post/markdown-syntax/index.md" target="_blank" rel="noopener"
+>content/post/markdown-syntax/index.md&lt;/a>&lt;/em> など)&lt;br />&lt;/p>
+&lt;p>この記述のあとに通常の Markdown 形式で記述を進めてください。&lt;br />&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">&lt;span class="gh"># タイトル
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gh">&lt;/span>内容を記入
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Markdown 記法や画像の使い方などに関しては他の記事でまとめられているので、そちらを参照してください。&lt;br />&lt;/p>
+&lt;p>現時点で作成されたこちらのサイト内の資料&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://takasaki-physics.github.io/p/markdown-syntax" target="_blank" rel="noopener"
+>Markdown 構文&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://takasaki-physics.github.io/p/image-gallery" target="_blank" rel="noopener"
+>イメージギャラリー&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://takasaki-physics.github.io/p/math-typesetting" target="_blank" rel="noopener"
+>数式記述&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://takasaki-physics.github.io/p/shortcodes" target="_blank" rel="noopener"
+>ショートコード&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Hugo Stack 本家資料&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://stack.jimmycai.com/" target="_blank" rel="noopener"
+>本家資料&lt;/a> (英文)&lt;/li>
+&lt;/ul>
+&lt;h3 id="コミットプッシュ">コミット、プッシュ
+&lt;/h3>&lt;p>資料の作成が終わり次第、コミットとプッシュを行います。&lt;br />&lt;/p>
+&lt;ol>
+&lt;li>作成または更新した資料をステージします。&lt;br />
+(写真通り &lt;strong>+&lt;/strong> を押すだけでOKです。)&lt;/li>
+&lt;li>メッセージを追加します。&lt;br />
+(無いとエラーになるので&amp;quot;資料追加&amp;quot;とかで良いので適当に入力してください。)&lt;/li>
+&lt;li>コミットしてプッシュをクリックします。&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/how-to-post/git_1.png"
+width="1366"
+height="721"
+srcset="https://takasaki-physics.github.io/p/how-to-post/git_1_hu_47820581f8cbcc15.png 480w, https://takasaki-physics.github.io/p/how-to-post/git_1_hu_6a67651606e71f37.png 1024w"
+loading="lazy"
+alt="Git 操作"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="454px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/how-to-post/git_2.png"
+width="1366"
+height="721"
+srcset="https://takasaki-physics.github.io/p/how-to-post/git_2_hu_12295e265b2b194d.png 480w, https://takasaki-physics.github.io/p/how-to-post/git_2_hu_69a426b04ea88ca.png 1024w"
+loading="lazy"
+alt="Git 操作"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="454px"
+>&lt;/p>
+&lt;h3 id="マージリクエストを送る">マージリクエストを送る
+&lt;/h3>&lt;p>コミットとプッシュが終わったら、 GitHub 側でマージリクエストを作成し、反映を待ってください。&lt;br />
+(部長か誰かがマージを承認してくれると思います。)&lt;br />&lt;/p>
+&lt;p>マージリクエスト受諾後には自動的に GitHub Actions が動作して、サイトに新しいページが追加されます。&lt;br />
+反映まで多少時間がかかる可能性があるので、数分お待ち下さい。&lt;br />
+(数分立っても反映されない場合は、ブラウザのキャッシュが邪魔している可能性があります。&lt;br />
+その際は、 &lt;kbd>Ctrl&lt;/kbd> + &lt;kbd>F5&lt;/kbd> (スーパーリロード)を行ってください。)&lt;br />&lt;/p>
+&lt;h2 id="おまけ">おまけ
+&lt;/h2>&lt;p>余談ですが、 Codespaces を使う場合やローカルで Hugo をインストールしている場合では、 &lt;code>hugo server&lt;/code> コマンドによってデプロイする前にどのような見た目になるかを見ることができます。&lt;br />&lt;/p>
+&lt;h2 id="終了">終了
+&lt;/h2>&lt;p>お疲れ様でした。&lt;br />
+初期設定は面倒ですが、2回目以降はフォークなどの作業が不要なので、比較的更新は楽になると思います。&lt;br />&lt;/p>
+&lt;p>マージや、 &lt;code>hugo server&lt;/code> コマンドに関しては、後日詳しい内容や方法を追記するかも知れません。&lt;br />&lt;/p></description></item><item><title>Linux環境設定</title><link>https://takasaki-physics.github.io/p/linux-setting/</link><pubDate>Wed, 11 Oct 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/linux-setting/</guid><description>&lt;p>こんにちは。&lt;br />
+今回は私的Linux環境の準備方法を説明します。&lt;br />&lt;/p>
+&lt;h2 id="ソフト開発関係">ソフト開発関係
+&lt;/h2>&lt;h3 id="vscode">VSCode
+&lt;/h3>&lt;p>テキストエディタです。&lt;br />&lt;/p>
+&lt;p>VimとかKateとかもありますけど、私はVSCodeが最推しですね。&lt;br />
+比較的軽量で、拡張機能によって豊富な機能を搭載でき、なおかつシンプルなため、初心者から神まで御用達のツールとなっています。&lt;br />
+本職のプログラマーやWebデザイナーなどにも人気です。&lt;br />
+(皆さんは個人開発だと思うのであまり関係ありませんが、商用利用の際もライセンスが軽いので使いやすいです。)&lt;br />&lt;/p>
+&lt;p>さて、VSCodeはLinux(Debian系)だと様々な方法でインストールできますが、いちばん簡単な方法だと、&lt;code>apt&lt;/code>を使った方法になります。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://qiita.com/yoshiyasu1111/items/e21a77ed68b52cb5f7c8" target="_blank" rel="noopener"
+>Qiita - UbuntuにVSCodeをインストールする3つの方法&lt;/a>&lt;br />&lt;/p>
+&lt;h4 id="インストール">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># curlのインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install curl
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># curlでMicrosoftのキーをダウンロード&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl https://packages.microsoft.com/keys/microsoft.asc &lt;span class="p">|&lt;/span> gpg --dearmor &amp;gt; microsoft.gpg
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># レポジトリを登録する&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo install -o root -g root -m &lt;span class="m">644&lt;/span> microsoft.gpg /etc/apt/trusted.gpg.d/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo sh -c &lt;span class="s1">&amp;#39;echo &amp;#34;deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main&amp;#34; &amp;gt; /etc/apt/sources.list.d/vscode.list&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># インストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install apt-transport-https
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt list code
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt list -a code
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install code
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">code
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="opera">Opera
+&lt;/h3>&lt;p>ブラウザです。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://tutorialcrawler.com/ubuntu-debian/ubuntu-20-04%E3%81%ABopera%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener"
+>UbuntuにOperaをインストールする方法&lt;/a>&lt;br />&lt;/p>
+&lt;h4 id="インストール-1">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># キーのダウンロード&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wget -qO- https://deb.opera.com/archive.key &lt;span class="p">|&lt;/span> sudo apt-key add -
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> deb https://deb.opera.com/opera-stable/ stable non-free &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/opera.list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># インストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install opera-stable
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-1">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">opera --lang&lt;span class="o">=&lt;/span>ja
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="言語設定推奨">言語設定(推奨)
+&lt;/h4>&lt;p>ちなみに、初期状態でデスクトップアイコンから起動しても英語なので、.desktopファイルを少しいじる必要があります。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://forums.opera.com/topic/58114/can-t-change-ui-language-no-option-display-opera-in-that-language/4" target="_blank" rel="noopener"
+>Opera Forums - UIの言語を変える方法&lt;/a>(英文)&lt;br />&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">cat /usr/share/applications/opera.desktop
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># [Desktop Entry]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Version=1.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Name=Opera&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># GenericName=Web browser&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Comment=Fast and secure web browser&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># TryExec=opera&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Exec=opera %U&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Terminal=false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Icon=opera&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># この&amp;#34;Exec=opera %U&amp;#34;の部分を&amp;#34;Exec=opera --lang=ja %U&amp;#34;にvimなどで変える&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo vim /usr/share/applications/opera.desktop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="グラフィック系">グラフィック系
+&lt;/h2>&lt;h3 id="krita">Krita
+&lt;/h3>&lt;p>イラスト系最高傑作ソフトです。&lt;br />
+開発者の皆様はあまり使わないかも知れませんが、私はイラストを描くことが好きなので、紹介させていただきます。&lt;br />&lt;/p>
+&lt;p>&lt;code>apt&lt;/code>版はバージョンがかなり古いので、公式からインストールしましょう。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://docs.krita.org/ja/user_manual/getting_started/installation.html#linux" target="_blank" rel="noopener"
+>Krita Docs - Kritaのインストール方法&lt;/a>&lt;/p>
+&lt;h4 id="インストール-2">インストール
+&lt;/h4>&lt;ol>
+&lt;li>&lt;a class="link" href="https://krita.org/jp/download-jp/krita-desktop-jp/" target="_blank" rel="noopener"
+>Krita公式サイトのダウンロードページ&lt;/a>からappimageをダウンロードします。&lt;/li>
+&lt;li>krita.appimageが入っているディレクトリ内で以下のコマンドを打ちます。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">chmod a+x ./krita.appimage
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-2">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">./krita.appimage
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>エラーが起こる場合はそれをインストールしましょう。&lt;br />
+.desktopファイルを作っておくとGUIからも起動できるので楽です。&lt;br />&lt;/p>
+&lt;h2 id="コンソール系">コンソール系
+&lt;/h2>&lt;h3 id="net-sdk">.NET SDK
+&lt;/h3>&lt;p>C#やVB.NET、F#を動作させるのに必要なSDKです。&lt;br />
+今回はDebian12のインストール方法を記載します。&lt;br />
+それ以外のOSの場合は下のURLを参考にしてください。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://learn.microsoft.com/ja-jp/dotnet/core/install/" target="_blank" rel="noopener"
+>Microsoft - .NETをインストールする&lt;/a>&lt;br />&lt;/p>
+&lt;h4 id="インストール-3">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># キーのインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dpkg -i packages-microsoft-prod.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rm packages-microsoft-prod.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># SDKのインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sudo apt-get install -y dotnet-sdk-7.0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ランタイムのインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sudo apt-get install -y aspnetcore-runtime-7.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="新しいコンソールプロジェクトの作成">新しいコンソールプロジェクトの作成
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">dotnet new console -o プロジェクト名
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="新しいblazor-wasmプロジェクトの作成">新しいBlazor wasmプロジェクトの作成
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">dotnet new blazorwasm -o プロジェクト名 --pwa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="プロジェクトの起動">プロジェクトの起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">dotnet watch run
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="neofetch">neofetch
+&lt;/h3>&lt;p>端末情報が見れるソフトです。&lt;br />
+メモリ使用量とかも見れるので便利です。&lt;br />&lt;/p>
+&lt;h4 id="インストール-4">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install neofetch -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-3">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">neofetch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="tint">tint
+&lt;/h3>&lt;p>テトリスです。&lt;br />&lt;/p>
+&lt;h4 id="インストール-5">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install tint -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-4">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">tint
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="sl">sl
+&lt;/h3>&lt;p>電車が走るコマンドです。&lt;br />
+中断できないので&lt;code>ls&lt;/code>コマンドと間違えたときに邪魔なコマンドです。&lt;br />&lt;/p>
+&lt;h4 id="インストール-6">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install sl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-5">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>sl -l&lt;/code>にすると長くなります。&lt;br />
+&lt;kbd>Ctrl&lt;/kbd> + &lt;kbd>C&lt;/kbd> でも中断できないという謎仕様です。&lt;br />&lt;/p>
+&lt;h3 id="cmatrix">cmatrix
+&lt;/h3>&lt;p>コマンドライン上でマトリックスできるコマンドです。&lt;br />
+人気コマンド。&lt;br />&lt;/p>
+&lt;h4 id="インストール-7">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install cmatrix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-6">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">cmatrix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>cmatrix -C red&lt;/code>のように色を変えることもできます。&lt;br />&lt;/p></description></item><item><title>Fusion360 を使った基板の作り方</title><link>https://takasaki-physics.github.io/p/fusion360/</link><pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/fusion360/</guid><description>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image1.png" alt="Featured image of post Fusion360 を使った基板の作り方" />&lt;h2 id="編集者から">編集者から
+&lt;/h2>&lt;p>こちらは、&lt;a class="link" href="https://github.com/koji1027" target="_blank" rel="noopener"
+>先輩&lt;/a>が作成したWord文章をこちらのサイト向けに書き直したものです。&lt;br />
+忙しい中、このような素晴らしい記事を書いてくださった先輩に、感謝の意を表します。&lt;br />&lt;/p>
+&lt;h2 id="環境準備など">環境準備など
+&lt;/h2>&lt;h3 id="インストールするもの">インストールするもの
+&lt;/h3>&lt;ul>
+&lt;li>Fusion360 (&lt;strong>教育版&lt;/strong>)&lt;/li>
+&lt;/ul>
+&lt;p>Autodesk のホームページからアカウントを教育版にしてください。&lt;br />&lt;/p>
+&lt;ul>
+&lt;li>Eagle&lt;/li>
+&lt;/ul>
+&lt;p>Fusion360 に統合された基板設計ソフトです。&lt;br />
+教育版のアカウントがあれば無料でインストールできます。&lt;br />
+入れておくと助かるときがあるので一応入れておいてください。&lt;br />&lt;/p>
+&lt;h3 id="使うサイト">使うサイト
+&lt;/h3>&lt;ul>
+&lt;li>&lt;a class="link" href="https://www.ultralibrarian.com/" target="_blank" rel="noopener"
+>Ultralibration&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>回路設計に必要な部品のライブラリの多くが無料で配布されています。&lt;br />
+ここにあれば自分でライブラリを作らずに済むのでとても楽になります。&lt;br />&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://jlcpcb.com/" target="_blank" rel="noopener"
+>JLCPCB&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>中国の基板製作サービスです。&lt;br />&lt;/p>
+&lt;h2 id="回路設計を開始する">回路設計を開始する
+&lt;/h2>&lt;p>まずは、&lt;kbd>新規電子デザイン&lt;/kbd>で作成します。&lt;br />
+忘れずに名前を付けて保存をしてください。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image11.png"
+width="1123"
+height="566"
+srcset="https://takasaki-physics.github.io/p/fusion360/image11_hu_e36b787eff8f0709.png 480w, https://takasaki-physics.github.io/p/fusion360/image11_hu_c316b4d52abad8b2.png 1024w"
+loading="lazy"
+alt="Image 11"
+class="gallery-image"
+data-flex-grow="198"
+data-flex-basis="476px"
+>&lt;/p>
+&lt;p>次に、&lt;kbd>新しい回路図&lt;/kbd>を押して回路図を作ります。&lt;br />
+もちろん、名前を忘れずに。&lt;br />
+回路図の作り方は、以下の画像に詳しく書き込んでおいたので、そちらを参照してください。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image2.jpg"
+width="1296"
+height="729"
+srcset="https://takasaki-physics.github.io/p/fusion360/image2_hu_b92e2f7ef25f6682.jpg 480w, https://takasaki-physics.github.io/p/fusion360/image2_hu_fafaacfce0572cfa.jpg 1024w"
+loading="lazy"
+alt="Image 2"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="426px"
+>&lt;/p>
+&lt;p>今回はIRセンサを1つ作る基板を例とします。&lt;br />
+IRセンサ &lt;strong>TSSP58038&lt;/strong> は残念ながら Ultralibration にないので、 SnapEDA からダウンロードします。&lt;br />
+(&amp;quot;(部品名) footprint&amp;quot; と検索すると Ultralibration や SnapEDA 、公式サイト等が出てくると思います。)&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image10.png"
+width="1297"
+height="732"
+srcset="https://takasaki-physics.github.io/p/fusion360/image10_hu_49df1094bf7a139b.png 480w, https://takasaki-physics.github.io/p/fusion360/image10_hu_24856e5326fb28e.png 1024w"
+loading="lazy"
+alt="Image 10"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="425px"
+>&lt;/p>
+&lt;p>ダウンロードの際は、 &lt;strong>Fusion360&lt;/strong> を選択します。&lt;br />
+(Fusion360 がない場合は Eagle を選択してください。互換性があるので問題なく利用できます。今回の SnapEDA もそうです。)&lt;br />
+誤って Altium などの違うソフトを選択しないようにしてください。&lt;br />&lt;/p>
+&lt;p>ダウンロードができたら、拡張子が .&lt;strong>lbr&lt;/strong> のものを探します。&lt;br />
+これが Autodesk 社の回路のライブラリです。&lt;br />
+ファイル名には部品の名前を付けておくとわかりやすいのでおすすめです。&lt;br />
+これを Fusion360 に読み込みます。&lt;br />&lt;/p>
+&lt;p>回路設計の画面を開いて、写真に示すボタンを押してください。&lt;br />
+まず、下の写真のように押します。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image12.png"
+width="1299"
+height="784"
+srcset="https://takasaki-physics.github.io/p/fusion360/image12_hu_cd7eb035deb8b79b.png 480w, https://takasaki-physics.github.io/p/fusion360/image12_hu_e62a245263aa4247.png 1024w"
+loading="lazy"
+alt="Image 12"
+class="gallery-image"
+data-flex-grow="165"
+data-flex-basis="397px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/fusion360/image3.png"
+width="1299"
+height="717"
+srcset="https://takasaki-physics.github.io/p/fusion360/image3_hu_39ae7f99aafde8cb.png 480w, https://takasaki-physics.github.io/p/fusion360/image3_hu_b73d1c8e0bda14fc.png 1024w"
+loading="lazy"
+alt="Image 3"
+class="gallery-image"
+data-flex-grow="181"
+data-flex-basis="434px"
+>&lt;/p>
+&lt;p>次に、上のところを押します。&lt;br />
+すると、4つ選択肢が出てくるので、 &lt;strong>Import from local disk&lt;/strong> を選択してください。&lt;br />
+すると、ファイルを選ぶ画面が出てきます。&lt;br />
+開いたときに出てくるフォルダの中に、別でエクスプローラーを開いてさっきダウンロードしたファイルを移動(コピー)します。&lt;br />
+移動できたらそのファイルを選択して、読み込んでください。
+これで完了です。&lt;br />
+あとは、回路設計に戻って検索ボックスに &lt;strong>TSSP&lt;/strong> と入れれば出てきます。&lt;br />&lt;/p>
+&lt;p>いろいろな部品を使用して配線を行います。&lt;br />
+基本的な部品の検索の仕方はネットに載っていると思うので、調べてみてください。&lt;br />&lt;/p>
+&lt;p>以下は、回路が完成した様子となっています。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image8.jpg"
+width="1300"
+height="746"
+srcset="https://takasaki-physics.github.io/p/fusion360/image8_hu_62ea3de30f63249.jpg 480w, https://takasaki-physics.github.io/p/fusion360/image8_hu_5822adcfa0b34ad5.jpg 1024w"
+loading="lazy"
+alt="Image 8"
+class="gallery-image"
+data-flex-grow="174"
+data-flex-basis="418px"
+>&lt;/p>
+&lt;h2 id="基板外形を設計する">基板外形を設計する
+&lt;/h2>&lt;p>まず、いつも通りに設計します。&lt;br />
+作りたい基板の形を平面上に作ってください。&lt;br />
+板の厚みは 1.2mm もしくは 1.6mm が無難です。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image5.png"
+width="1297"
+height="732"
+srcset="https://takasaki-physics.github.io/p/fusion360/image5_hu_82b46b5536c766b7.png 480w, https://takasaki-physics.github.io/p/fusion360/image5_hu_b803b972cf9c7f99.png 1024w"
+loading="lazy"
+alt="Image 5"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="425px"
+>&lt;/p>
+&lt;p>設計する際には、ねじ穴などをあけることを忘れないようにしてくださいね!&lt;br />
+角が直角だと基板にしたときに結構刺さるので丸くしておくといいかもしれません。&lt;br />
+意外と曲線を多用した基板でもちゃんと作ってくれるのでそこは心配しなくて大丈夫です。&lt;br />
+ロボットに合わせた形にしましょう。&lt;br />
+基板の設計ができたら、上の写真のようにボタンを押してください。&lt;br />
+すると、選択する画面が出てくるので、基板の平面の部分をクリックします。&lt;br />
+そして、 &lt;kbd>OK&lt;/kbd> を押せば新しいタブに移ります。&lt;br />
+これもまた保存を忘れないようにしてください。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image1.png"
+width="1297"
+height="732"
+srcset="https://takasaki-physics.github.io/p/fusion360/image1_hu_8182d116cd3e6fad.png 480w, https://takasaki-physics.github.io/p/fusion360/image1_hu_fa7c0932ddb93cc2.png 1024w"
+loading="lazy"
+alt="Image 1"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="425px"
+>&lt;/p>
+&lt;p>次に、 &lt;kbd>2D PCB にプッシュ&lt;/kbd>というボタンを押します。&lt;br />
+すると、平面に基板の外形が映し出された画面に移ります。
+必ず保存してくださいね。&lt;br />
+保存したらいったん以下の画面に戻ります。&lt;br />
+戻ったら、 &lt;kbd>PCB ドキュメントへの参照&lt;/kbd>を押してください。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image7.png"
+width="1297"
+height="732"
+srcset="https://takasaki-physics.github.io/p/fusion360/image7_hu_63ecefc2792d3106.png 480w, https://takasaki-physics.github.io/p/fusion360/image7_hu_b8938fa55fe234fa.png 1024w"
+loading="lazy"
+alt="Image 7"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="425px"
+>&lt;/p>
+&lt;p>どのファイルをリンクするか聞かれるのでさっき保存したものを選んでください。&lt;br />
+保存してから少し時間が出てこないと選択画面に出てこないので注意してください。&lt;br />
+参照が完了すると、設計した回路図の部品がPCB製作画面に基板外形とともに出てくるので、自分でいい感じに基板上に配置してください。&lt;br />
+部品を移動するときには、部品のところに &lt;kbd>+&lt;/kbd> であらわされたマークがあるのでそれをマウスで長押ししながら移動させると動かすことができます。&lt;br />
+部品を細かく動かしたいときには、キーボードの &lt;kbd>Alt&lt;/kbd>を押しながら動かすと細かく調整できます。&lt;br />
+また、グリッドの調整をすることで、動かす細かさなども変えることができます。&lt;br />&lt;/p>
+&lt;p>部品の配置ができたら配線をします。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image6.png"
+width="1299"
+height="589"
+srcset="https://takasaki-physics.github.io/p/fusion360/image6_hu_48dea758ef6ad40.png 480w, https://takasaki-physics.github.io/p/fusion360/image6_hu_c185ae5edee15710.png 1024w"
+loading="lazy"
+alt="Image 6"
+class="gallery-image"
+data-flex-grow="220"
+data-flex-basis="529px"
+>&lt;/p>
+&lt;p>配線は、手動と自動の2種類の方法があります。&lt;br />
+配線が高密度になる時は、自動ではなく手動をお勧めします。&lt;br />
+配線を適当にやると、ノイズの影響で I2C などの通信ができないからです。&lt;br />
+上のツールから&lt;kbd>配線&lt;/kbd>もしくは、&lt;kbd>クイックルート&lt;/kbd>-&lt;kbd>オートルータ&lt;/kbd>を選ぶことで手動、自動配線ができます。&lt;br />
+基本的に基板は表と裏の2層基板なので配線も赤色と青色の2種類があります。&lt;br />
+配線をしている途中にホイールをクリックすると、ビアを通して配線の表と裏を行き来できます。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image4.png"
+width="866"
+height="807"
+srcset="https://takasaki-physics.github.io/p/fusion360/image4_hu_ade52b268f30b159.png 480w, https://takasaki-physics.github.io/p/fusion360/image4_hu_d6d7d3dc91df1fd1.png 1024w"
+loading="lazy"
+alt="Image 4"
+class="gallery-image"
+data-flex-grow="107"
+data-flex-basis="257px"
+> &lt;img src="https://takasaki-physics.github.io/p/fusion360/image9.png"
+width="744"
+height="712"
+srcset="https://takasaki-physics.github.io/p/fusion360/image9_hu_96be1eeb39486cb0.png 480w, https://takasaki-physics.github.io/p/fusion360/image9_hu_51dc6984db0f1ade.png 1024w"
+loading="lazy"
+alt="Image 9"
+class="gallery-image"
+data-flex-grow="104"
+data-flex-basis="250px"
+>&lt;/p>
+&lt;p>右の写真は配線が終わった様子です。&lt;br />
+(GND ベタを塗ったりエラーチェックなどのやることが残っているが今回は割愛します。)&lt;br />&lt;/p>
+&lt;h2 id="データを出力して注文">データを出力して注文
+&lt;/h2>&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image13.png"
+width="1297"
+height="732"
+srcset="https://takasaki-physics.github.io/p/fusion360/image13_hu_cd58d914cbccd5cc.png 480w, https://takasaki-physics.github.io/p/fusion360/image13_hu_984abbc793230e2.png 1024w"
+loading="lazy"
+alt="Image 13"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="425px"
+>&lt;/p>
+&lt;p>Fusion360 で製作した基板データを出力します。&lt;br />
+上のようにボタンを押して、OKです。&lt;br />
+出力先を求められるので適当に場所を指定すると出力完了です!&lt;br />
+(ファイル名は英語だけにしたほうが注文時にいいかもしれません。)&lt;br />&lt;/p>
+&lt;p>あとは、これを JLCPCB に送って注文すればいいです。&lt;br />
+注文の仕方はネットでいろいろ紹介されています。&lt;br />
+配送先については、 DHL が早くて安心できます。&lt;br />&lt;/p></description></item><item><title>Markdown 構文ガイド</title><link>https://takasaki-physics.github.io/p/markdown-syntax/</link><pubDate>Wed, 20 Sep 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/markdown-syntax/</guid><description>&lt;p>この記事では Hugo ファイルで使うことのできる一般的な Markdown 構文のサンプルを CSS で装飾された一般的な HTML 要素と一緒に紹介します。&lt;/p>
+&lt;h2 id="見出し">見出し
+&lt;/h2>&lt;p>こちらは HTML の &lt;code>&amp;lt;h1&amp;gt;&lt;/code>—&lt;code>&amp;lt;h6&amp;gt;&lt;/code> 要素に相当する6種類の見出しを使用できます。 &lt;code>&amp;lt;h1&amp;gt;&lt;/code> が最大の見出しで、 &lt;code>&amp;lt;h6&amp;gt;&lt;/code> に近づくほど小さくなっていきます。&lt;/p>
+&lt;h1 id="h1">H1
+&lt;/h1>&lt;h2 id="h2">H2
+&lt;/h2>&lt;h3 id="h3">H3
+&lt;/h3>&lt;h4 id="h4">H4
+&lt;/h4>&lt;h5 id="h5">H5
+&lt;/h5>&lt;h6 id="h6">H6
+&lt;/h6>&lt;h2 id="段落">段落
+&lt;/h2>&lt;p>Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.&lt;/p>
+&lt;p>Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.&lt;/p>
+&lt;h2 id="ブロック引用">ブロック引用
+&lt;/h2>&lt;p>ブロック引用要素は、他の情報元から引用された内容を表します。 &lt;code>footer&lt;/code> または &lt;code>cite&lt;/code> 要素を使った引用や、注釈や省略形などの変更を伴うことも可能です。&lt;/p>
+&lt;h3 id="出典なしのブロック引用">出典なしのブロック引用
+&lt;/h3>&lt;blockquote>
+&lt;p>Tiam, ad mint andaepu dandae nostion secatur sequo quae.
+&lt;strong>ノート&lt;/strong> ブロック構文では、 &lt;em>Markdown 構文&lt;/em> を利用可能です。&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="出典ありのブロック引用">出典ありのブロック引用
+&lt;/h3>&lt;blockquote>
+&lt;p>Don&amp;rsquo;t communicate by sharing memory, share memory by communicating.&lt;br>
+— &lt;cite>Rob Pike&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/cite>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="テーブル">テーブル
+&lt;/h2>&lt;p>テーブルは Markdown の仕様は含まれていません。しかし、 Hugo が テーブルをすぐに使えるようにサポートしています。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>名前&lt;/th>
+&lt;th>年齢&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Bob&lt;/td>
+&lt;td>27&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alice&lt;/td>
+&lt;td>23&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="テーブル内のインライン-markdown">テーブル内のインライン Markdown
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>斜字&lt;/th>
+&lt;th>太字&lt;/th>
+&lt;th>コード&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;em>斜字&lt;/em>&lt;/td>
+&lt;td>&lt;strong>太字&lt;/strong>&lt;/td>
+&lt;td>&lt;code>コード&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>A&lt;/th>
+&lt;th>B&lt;/th>
+&lt;th>C&lt;/th>
+&lt;th>D&lt;/th>
+&lt;th>E&lt;/th>
+&lt;th>F&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/td>
+&lt;td>Phasellus ultricies, sapien non euismod aliquam, dui ligula tincidunt odio, at accumsan nulla sapien eget ex.&lt;/td>
+&lt;td>Proin eleifend dictum ipsum, non euismod ipsum pulvinar et. Vivamus sollicitudin, quam in pulvinar aliquam, metus elit pretium purus&lt;/td>
+&lt;td>Proin sit amet velit nec enim imperdiet vehicula.&lt;/td>
+&lt;td>Ut bibendum vestibulum quam, eu egestas turpis gravida nec&lt;/td>
+&lt;td>Sed scelerisque nec turpis vel viverra. Vivamus vitae pretium sapien&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="コードブロック">コードブロック
+&lt;/h2>&lt;h3 id="バックチックによるコードブロック">バックチックによるコードブロック
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;ja&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>HTML5 資料例&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>テスト&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="4スペースのインデントによるコードブロック">4スペースのインデントによるコードブロック
+&lt;/h3>&lt;pre>&lt;code>&amp;lt;!doctype html&amp;gt;
+&amp;lt;html lang=&amp;quot;ja&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+&amp;lt;title&amp;gt;HTML5 資料例&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;p&amp;gt;テスト&amp;lt;/p&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code>&lt;/pre>
+&lt;h3 id="コードブロックで差分表示">コードブロックで差分表示
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-diff" data-lang="diff">&lt;span class="line">&lt;span class="cl">[dependencies.bevy]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git = &amp;#34;https://github.com/bevyengine/bevy&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rev = &amp;#34;11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gd">- features = [&amp;#34;dynamic&amp;#34;]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gd">&lt;/span>&lt;span class="gi">+ features = [&amp;#34;jpeg&amp;#34;, &amp;#34;dynamic&amp;#34;]
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="1行コードブロック">1行コードブロック
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>段落&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="リスト形式">リスト形式
+&lt;/h2>&lt;h3 id="順序のあるリスト">順序のあるリスト
+&lt;/h3>&lt;ol>
+&lt;li>1つ目のアイテム&lt;/li>
+&lt;li>2つ目のアイテム&lt;/li>
+&lt;li>3つ目のアイテム&lt;/li>
+&lt;/ol>
+&lt;h3 id="順序がないリスト">順序がないリスト
+&lt;/h3>&lt;ul>
+&lt;li>リストアイテム&lt;/li>
+&lt;li>他のアイテム&lt;/li>
+&lt;li>他のアイテム&lt;/li>
+&lt;/ul>
+&lt;h3 id="入れ子型リスト">入れ子型リスト
+&lt;/h3>&lt;ul>
+&lt;li>果物
+&lt;ul>
+&lt;li>りんご&lt;/li>
+&lt;li>オレンジ&lt;/li>
+&lt;li>バナナ&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>乳製品
+&lt;ul>
+&lt;li>牛乳&lt;/li>
+&lt;li>チーズ&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="その他の要素--abbr-sub-sup-kbd-mark">その他の要素 — abbr, sub, sup, kbd, mark
+&lt;/h2>&lt;p>&lt;abbr title="Graphics Interchange Format">GIF&lt;/abbr> はビットマップ画像形式です。&lt;/p>
+&lt;p>H&lt;sub>2&lt;/sub>O&lt;/p>
+&lt;p>X&lt;sup>n&lt;/sup> + Y&lt;sup>n&lt;/sup> = Z&lt;sup>n&lt;/sup>&lt;/p>
+&lt;p>&lt;kbd>CTRL&lt;/kbd> + &lt;kbd>ALT&lt;/kbd> + &lt;kbd>Delete&lt;/kbd> を押すことでセッションを終了できます。&lt;/p>
+&lt;p>多くの&lt;mark>サラマンダー&lt;/mark>は夜行性で、昆虫やミミズ、その他の生物を狩ります。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>上記の引用は、2015年11月18日に開催された Gopherfest での Rob Pike&amp;rsquo;s の &lt;a class="link" href="https://www.youtube.com/watch?v=PAAkCSZUG1c" target="_blank" rel="noopener"
+>講演&lt;/a> からの抜粋です。&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>ショートコード</title><link>https://takasaki-physics.github.io/p/shortcodes/</link><pubDate>Wed, 20 Sep 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/shortcodes/</guid><description>&lt;img src="https://takasaki-physics.github.io/p/shortcodes/cover.jpg" alt="Featured image of post ショートコード" />&lt;p>詳細については、&lt;a class="link" href="https://stack.jimmycai.com/writing/shortcodes" target="_blank" rel="noopener"
+>資料&lt;/a>を御覧ください。&lt;/p>
+&lt;h2 id="bilibili-動画">Bilibili 動画
+&lt;/h2>
+&lt;div class="video-wrapper">
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1d4411N7zD"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="tencent-動画">Tencent 動画
+&lt;/h2>
+&lt;div class="video-wrapper">
+&lt;iframe src="https://v.qq.com/txp/iframe/player.html?vid=g0014r3khdw&amp;auto=0"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="youtube-動画">YouTube 動画
+&lt;/h2>&lt;div class="video-wrapper">
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/0qwALOOvUik"
+allowfullscreen
+title="YouTube Video"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="一般的な動画ファイル">一般的な動画ファイル
+&lt;/h2>&lt;div class="video-wrapper">
+&lt;video
+controls
+src="https://www.w3schools.com/tags/movie.mp4"
+>
+&lt;p>
+Your browser doesn't support HTML5 video. Here is a
+&lt;a href="https://www.w3schools.com/tags/movie.mp4">link to the video&lt;/a> instead.
+&lt;/p>
+&lt;/video>
+&lt;/div>
+&lt;h2 id="gist">Gist
+&lt;/h2>&lt;script src="https://gist.github.com/CaiJimmy/e2751a943de10b2a5b3a8a6c2120cb86.js">&lt;/script>
+&lt;h2 id="gitlab">GitLab
+&lt;/h2>&lt;script
+type="application/javascript"
+src="https://gitlab.com/-/snippets/2589724.js"
+>&lt;/script>
+&lt;h2 id="引用">引用
+&lt;/h2>&lt;blockquote>
+&lt;p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p>&lt;span class="cite">&lt;span>― &lt;/span>&lt;span>A famous person, &lt;/span>&lt;a href="https://en.wikipedia.org/wiki/Book">&lt;cite>The book they wrote&lt;/cite>&lt;/a>&lt;/span>&lt;/blockquote>
+&lt;hr>
+&lt;blockquote>
+&lt;p>こちらは &lt;a class="link" href="https://unsplash.com/photos/WDSN62Qdxuk" target="_blank" rel="noopener"
+>Unsplash&lt;/a> 上でアップロードされている &lt;a class="link" href="https://unsplash.com/@codioful" target="_blank" rel="noopener"
+>Codioful&lt;/a> さんの画像を利用しました。&lt;/p>
+&lt;/blockquote></description></item><item><title>イメージギャラリー</title><link>https://takasaki-physics.github.io/p/image-gallery/</link><pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/image-gallery/</guid><description>&lt;img src="https://takasaki-physics.github.io/p/image-gallery/2.jpg" alt="Featured image of post イメージギャラリー" />&lt;p>この Hugo の Stack テーマは Markdown を利用することで美しいイメージギャラリーを作成することができます。これは、 &lt;a class="link" href="https://photoswipe.com/" target="_blank" rel="noopener"
+>PhotoSwipe&lt;/a> を採用し、構文は &lt;a class="link" href="https://typlog.com/" target="_blank" rel="noopener"
+>Typlog&lt;/a> から影響を受けています。&lt;/p>
+&lt;p>この機能を利用するには、 Markdown ファイルと同一のディレクトリ内に画像を入れる必要があります。 Hugo のページバンドル機能を利用して、画像の寸法を読み取るためです。&lt;strong>外部の画像はサポートされていません。&lt;/strong>&lt;/p>
+&lt;h2 id="構文">構文
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">![&lt;span class="nt">Image 1&lt;/span>](&lt;span class="na">1.jpg&lt;/span>) ![&lt;span class="nt">Image 2&lt;/span>](&lt;span class="na">2.jpg&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="結果">結果
+&lt;/h2>&lt;p>&lt;img src="https://takasaki-physics.github.io/p/image-gallery/1.jpg"
+width="2000"
+height="1400"
+srcset="https://takasaki-physics.github.io/p/image-gallery/1_hu_811b671457ffff1f.jpg 480w, https://takasaki-physics.github.io/p/image-gallery/1_hu_c74af69dd7c1dcda.jpg 1024w"
+loading="lazy"
+alt="Image 1"
+class="gallery-image"
+data-flex-grow="142"
+data-flex-basis="342px"
+> &lt;img src="https://takasaki-physics.github.io/p/image-gallery/2.jpg"
+width="1500"
+height="2250"
+srcset="https://takasaki-physics.github.io/p/image-gallery/2_hu_42f6436cb1637265.jpg 480w, https://takasaki-physics.github.io/p/image-gallery/2_hu_27862a49608da0d9.jpg 1024w"
+loading="lazy"
+alt="Image 2"
+class="gallery-image"
+data-flex-grow="66"
+data-flex-basis="160px"
+>&lt;/p>
+&lt;blockquote>
+&lt;p>こちらは &lt;a class="link" href="https://unsplash.com/" target="_blank" rel="noopener"
+>Unsplash&lt;/a> 上でアップロードされている &lt;a class="link" href="https://unsplash.com/@mymind" target="_blank" rel="noopener"
+>mymind&lt;/a> さんと &lt;a class="link" href="https://unsplash.com/@lukechesser" target="_blank" rel="noopener"
+>Luke Chesser&lt;/a> さんの画像を利用しました。&lt;/p>
+&lt;/blockquote></description></item><item><title>数式の書き方</title><link>https://takasaki-physics.github.io/p/math-typesetting/</link><pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/math-typesetting/</guid><description>&lt;p>こちら Stack は &lt;a class="link" href="https://katex.org/" target="_blank" rel="noopener"
+>KaTeX&lt;/a> を利用した数式の記述をサポートしています。&lt;/p>
+&lt;p>&lt;strong>ですが、この機能は標準で使用できるわけではありません。&lt;/strong> しかし posts の冒頭部の記述に &lt;code>math: true&lt;/code> を追加するだけで利用可能になります。または、プロジェクト内の &lt;code>config.toml&lt;/code> に &lt;code>math = true&lt;/code> を追加することで常に利用可能になります。&lt;/p>
+&lt;h2 id="インライン数式">インライン数式
+&lt;/h2>&lt;p>こちらはインライン数式の例です: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">$\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="ブロック数式">ブロック数式
+&lt;/h2>&lt;p>$$
+\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+$$&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">$$
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$$
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>$$
+f(x) = \int_{-\infty}^\infty\hat f(\xi),e^{2 \pi i \xi x},d\xi
+$$&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">$$
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$$
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>ロボットの設計のやり方3 ～EAGLE編～</title><link>https://takasaki-physics.github.io/p/2019-robo3/</link><pubDate>Mon, 26 Aug 2019 00:06:24 +0900</pubDate><guid>https://takasaki-physics.github.io/p/2019-robo3/</guid><description>&lt;h2 id="編集者から">編集者から
+&lt;/h2>&lt;p>こちらは、先輩が作成したtxt文章を物理部パソコンから発見し、こちらのサイト向けに書き直したものです。&lt;br />
+忙しい中、このような素晴らしい記事を書いてくださった先輩に、感謝の意を表します。&lt;br />&lt;/p>
+&lt;h2 id="eagleについて">EAGLEについて
+&lt;/h2>&lt;p>使うセンサーとかが決まったら、いよいよ基板を描く作業が始まります。ここが一番時間がかかる部分です。&lt;br />
+物理部ではEAGLEというソフトを使っています。&lt;br />
+このソフトは海外製で英語なのですが、回路図と基板図を同時に作成でき、便利なので使っています。&lt;br />
+その使い方についてはそこそこ詳しく解説しているサイトがあったので、URLを貼っておきます。&lt;br />&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="http://akiracing.com/2017/05/27/eagle_tutorial" target="_blank" rel="noopener"
+>http://akiracing.com/2017/05/27/eagle_tutorial&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>というわけで、ここの解説をパk…参考にしつつ、足りないところや自分が使ってみて感じたことなどを書くことにしました。&lt;/p>
+&lt;p>(編集者より: 現在の物理部ではfusion360が主流?です。)&lt;/p>
+&lt;h2 id="アカウントおよびライセンス">アカウントおよびライセンス
+&lt;/h2>&lt;p>EAGLEには無料版と有料版、および学生向けがあります。&lt;br />
+無料版は機能がいくつか制限されており、このままでは150×100mmの基板を設計できません。&lt;br />
+有料版ならできるのですが、やはりお金がかかります…。&lt;br />
+そこで、学生向けのを使うことをお勧めします。学生なら有料版と同じのが3年間無料で使えるのです。&lt;br />
+そのためには学生としてアカウントを登録する必要があります。&lt;br />
+(方法は自身で検索してみてください。)&lt;br />
+あるいは有料版を買っても良いです。とにかく無料版ではできません。&lt;/p>
+&lt;h2 id="一連の流れ">一連の流れ
+&lt;/h2>&lt;p>さて、EAGLEを使っての設計の手順というか、流れみたいなのは以下の通りです。&lt;/p>
+&lt;ol>
+&lt;li>使う部品とその配置レイアウトをだいたい決める&lt;/li>
+&lt;li>+5vとGNDをとりあえずいい感じに配線する&lt;/li>
+&lt;li>モータードライバのモーター側と電源関係を、下基板(以下、下)の穴まで持っていく&lt;/li>
+&lt;li>モータードライバのマイコン側とボールセンサを、上基板(以下、上)と下をつなぐとこまで引っ張る&lt;br />
+そして、上のマイコンとつなげる&lt;/li>
+&lt;li>他の部品を同様につなげる&lt;/li>
+&lt;li>このあたりで、配線が通せなかったりする箇所が出で来るので、いろいろいじくって何とかする&lt;/li>
+&lt;li>GNDをベタ塗りして、ベタ同士をジャンパでつなげる&lt;/li>
+&lt;li>手直しして設計完了。基板製作に移る
+&lt;br />&lt;br />&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>基板製作(感光基板の場合)&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>基板データを専用のフィルムに印刷&lt;/li>
+&lt;li>以下、暗室で行う&lt;/li>
+&lt;li>感光基板を袋から取り出す&lt;/li>
+&lt;li>感光基板の金属面側を上にし、フィルムを重ね、光を決められた時間当てる&lt;/li>
+&lt;li>基板を現像液に浸す&lt;/li>
+&lt;li>基板をエッチング液に浸す&lt;/li>
+&lt;li>基板をスチールウールとかでごしごしする&lt;/li>
+&lt;li>(サビ防止液も塗る)&lt;/li>
+&lt;li>後は穴あけ→はんだ付けをする&lt;/li>
+&lt;/ol>
+&lt;p>詳しい手順はエッチング液の説明書に書いてあります。&lt;br />
+バットやバケツ、コンクリやお酢などを用意してくださいね。&lt;/p>
+&lt;h2 id="アドバイス">アドバイス
+&lt;/h2>&lt;p>(本当はこの後操作方法などをいろいろ説明する予定だったのですが、夏休み中にこれをやる時間が全然なかったので)&lt;br />
+これだけは伝えたほうがいいと思ったものを書き残しておきます。&lt;br />
+後は上記のサイトなどを参考にしてください。&lt;/p>
+&lt;ul>
+&lt;li>最初の画面(コントロールパネル)の&lt;em>Libraries&lt;/em>のところで、●を緑にしないと部品が読み込めないので、緑にしておく。(写真1、2を参照)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/2019-robo3/image1.jpg"
+width="305"
+height="459"
+srcset="https://takasaki-physics.github.io/p/2019-robo3/image1_hu_b8dd3a26ec71fd0d.jpg 480w, https://takasaki-physics.github.io/p/2019-robo3/image1_hu_11016fe72d425d6c.jpg 1024w"
+loading="lazy"
+alt="画像1"
+class="gallery-image"
+data-flex-grow="66"
+data-flex-basis="159px"
+>&lt;img src="https://takasaki-physics.github.io/p/2019-robo3/image2.jpg"
+width="251"
+height="655"
+srcset="https://takasaki-physics.github.io/p/2019-robo3/image2_hu_a7da2242c68b8756.jpg 480w, https://takasaki-physics.github.io/p/2019-robo3/image2_hu_ba030b20e889222d.jpg 1024w"
+loading="lazy"
+alt="画像2"
+class="gallery-image"
+data-flex-grow="38"
+data-flex-basis="91px"
+>&lt;/p>
+&lt;ul>
+&lt;li>GridのDisplayをOnにしないと、背景の格子が出ない(写真3)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/2019-robo3/image3.jpg"
+width="221"
+height="201"
+srcset="https://takasaki-physics.github.io/p/2019-robo3/image3_hu_de24ca21a8ed568c.jpg 480w, https://takasaki-physics.github.io/p/2019-robo3/image3_hu_76a2090c2bba4818.jpg 1024w"
+loading="lazy"
+alt="画像3"
+class="gallery-image"
+data-flex-grow="109"
+data-flex-basis="263px"
+>&lt;/p>
+&lt;ul>
+&lt;li>BRDで、線を直角に曲げたかったり、穴を迂回させたくないときは、写真4のあたりをいじるとよい&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/2019-robo3/image4.jpg"
+width="314"
+height="141"
+srcset="https://takasaki-physics.github.io/p/2019-robo3/image4_hu_ecc55ee920b9a5d6.jpg 480w, https://takasaki-physics.github.io/p/2019-robo3/image4_hu_b5c6de0615ad6695.jpg 1024w"
+loading="lazy"
+alt="画像4"
+class="gallery-image"
+data-flex-grow="222"
+data-flex-basis="534px"
+>&lt;/p>
+&lt;ul>
+&lt;li>部品とかは実はmmじゃなくてinch単位だったりするので、正確にやりたければそっちでやるのもあり&lt;/li>
+&lt;li>ピンヘッダは「pin」で検索してでる、こいつ(写真5)を使うとよい&lt;br />
+ジャンパ線に使えたりするので、接続部以外にも使うことになる。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/2019-robo3/image5.jpg"
+width="818"
+height="600"
+srcset="https://takasaki-physics.github.io/p/2019-robo3/image5_hu_3856b367137e81ff.jpg 480w, https://takasaki-physics.github.io/p/2019-robo3/image5_hu_bf42c205956f5513.jpg 1024w"
+loading="lazy"
+alt="画像5"
+class="gallery-image"
+data-flex-grow="136"
+data-flex-basis="327px"
+>&lt;/p>
+&lt;ul>
+&lt;li>BRDでICの電源につなげられない時がある。そのときは一度SCHを閉じ、BRDで配線を行えばよい&lt;/li>
+&lt;/ul>
+&lt;p>こんなところでしょうか&lt;/p>
+&lt;p>アドバイスは必要に応じて追記・修正して問題ありません&lt;/p>
+&lt;h2 id="おわりに">おわりに
+&lt;/h2>&lt;p>僕は果たして良い先輩、良い部長だったのでしょうか?
+今でも疑問が残ります。全国も61/64位でしたし。
+しかし、後輩がいろいろと修正して、今後はもっと良くなっていくでしょう。
+というわけで、最後に一言だけ&lt;/p>
+&lt;p>&lt;strong>幸運を。去りゆく者より敬礼を。&lt;/strong>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;p>部長でした。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a class="link" href="https://dic.pixiv.net/a/SCP-1983#h2_1" target="_blank" rel="noopener"
+>https://dic.pixiv.net/a/SCP-1983#h2_1&lt;/a> 「幸運を。死にゆく者より敬礼を。」 (SCP 界隈屈指の名言)&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>ロボットの設計のやり方2 ～部品編～</title><link>https://takasaki-physics.github.io/p/2019-robo2/</link><pubDate>Thu, 01 Aug 2019 17:36:14 +0900</pubDate><guid>https://takasaki-physics.github.io/p/2019-robo2/</guid><description>&lt;h2 id="編集者から">編集者から
+&lt;/h2>&lt;p>こちらは、先輩が作成したtxt文章を物理部パソコンから発見し、こちらのサイト向けに書き直したものです。&lt;br />
+忙しい中、このような素晴らしい記事を書いてくださった先輩に、感謝の意を表します。&lt;br />&lt;/p>
+&lt;h2 id="はじめに">はじめに
+&lt;/h2>&lt;p>機体の仕様も決まったところで、次に決めるのは、「何の部品(パーツ)を載せるのか」です。&lt;br />
+基本的な部品から、あったら強くなれるかもしれないものまで、
+知っているのを挙げておきます。&lt;/p>
+&lt;h2 id="必需品">必需品
+&lt;/h2>&lt;p>まずは、これがなかったら始まらないものから説明します。&lt;/p>
+&lt;h3 id="マイコン">マイコン
+&lt;/h3>&lt;p>マイクロコンピューターの略。今のパソコンはこれの超上位互換です。&lt;br />
+物理部ではArduinoというものを使っています。&lt;br />
+大会で使うArduino MEGAは、15のアナログピン(いらない)、50のデジタルピン(いる)を備え、うち11のPWMピン、6の割り込みピンがあります。&lt;br />
+(PWMというのは、簡単に言えば、波を出力できるピンのことです)&lt;/p>
+&lt;p>ちなみに、Arduino以外にも、PICやラズベリーパイ(ラズパイ)というのもあります。&lt;br />
+前者は昔から使われてきたもので、後者は一応ガチのパソコンです。用途に合わせて使い分けましょう。&lt;/p>
+&lt;h3 id="モーターとモータードライバ">モーターとモータードライバ
+&lt;/h3>&lt;p>モーターに関しては説明する必要はないでしょう。片方に+、もう片方に-をつなげば回転し、逆につなげば逆回転します。&lt;br />
+それでは+と-をどこにつなげばいいでしょうか?&lt;br />
+マイコンで制御するのでマイコンにつなぎたいところですが、マイコンは大電流を流すことができないのです。(というか壊れます)&lt;br />
+そこでモータードライバを使います。一方の組をマイコンにつなぐと、それに対応するもう一方の組に大電流を流してくれる部品です。&lt;br />
+これがないと話にならない、地味に重要な部品です。&lt;br />
+物理部では東芝の&lt;em>TA8429HQ&lt;/em>を使っているが、生産停止になっています。まだ6個くらいはあったはずです。&lt;/p>
+&lt;p>(編集者より: この文章はやや古い文章なので、現在の物理部にはない可能性が高いです。)&lt;/p>
+&lt;h3 id="赤外線センサー">赤外線センサー
+&lt;/h3>&lt;p>ライトウェイトのボールは赤外線を出すボールなので、ボールを「見る」ためには赤外線センサーが必要となります。&lt;br />
+物理部では&lt;em>PL-IRM2121&lt;/em>というのを使っている…のですが、このセンサー、アクティブロー出力(感知すると出力がLOWになる)で、しかもつけっぱなしにしてると感度が低下するのです。&lt;br />
+そこで、高速でオンオフを繰り返していて、そのスイッチににトランジスタを使っています。(理由は不明)&lt;br />
+なお、設計・はんだ付け時は向きに気を付けてください(６敗)&lt;/p>
+&lt;h3 id="ledとフォトトランジスタ">LEDとフォトトランジスタ
+&lt;/h3>&lt;p>フォトトランジスタは当たる光の大きさによって抵抗が変わる抵抗です。(大きいほど小さくなります。)&lt;br />
+そこでLEDの光が床に反射してフォトトランジスタに入ってくるようにすると、床の色によって反射の仕方が変わります。これによってラインセンサーを作っています。&lt;br />
+LEDに大電流を流すと壊れます。また、明るいとそれだけ電力を使うので気を付けてくださいね。&lt;br />
+はんだ付け時にはアノード・カソードにも気を付けてください。&lt;br />
+さらに、ラインセンサーは壊れやすいので、いくつか予備を作っておきましょう。&lt;/p>
+&lt;h3 id="地磁気センサー">地磁気センサー
+&lt;/h3>&lt;p>文字通り地磁気を読みとるセンサー。(別名: コンパス)&lt;br />
+無くても動きますが、これがないと「前」が分からなくなるので、準必需品です。&lt;br />
+情報のやり取りにはシリアル通信というのを使います。(詳しくは自身で調べてみてください)&lt;br />
+3軸なので、水平を保たないと調整がずれます。また、回路から影響をうけるので少し離すとよいでしょう。&lt;br />
+これもよく故障するので、予備を買っておきましょう。&lt;/p>
+&lt;h2 id="あると便利なもの">あると便利なもの
+&lt;/h2>&lt;p>あると便利なものを書いておきます。もちろん、これ以外にも便利な部品は存在します。&lt;/p>
+&lt;h3 id="コンパレータとorゲート可変抵抗">コンパレータとORゲート、可変抵抗
+&lt;/h3>&lt;p>これらはラインセンサーに使っている部品です。&lt;br />
+コンパレータは2つの入力(AとBとしよう)の電圧を比較し、A &amp;gt; Bなら&lt;kbd>HIGH&lt;/kbd>、A &amp;lt; Bなら&lt;kbd>LOW&lt;/kbd>を出力する回路部品です。&lt;br />
+つまり、Bを基準にしてAと比較した結果を出力します。&lt;br />
+これを利用することで、アナログピンが不要になります。&lt;br />
+また、基準電圧を変えるのに可変抵抗を使います。&lt;br />
+オームの法則 &lt;em>V=RI&lt;/em> に従って、抵抗を通過した電流は電圧降下するので、うまくやると電圧を変えることができます。(分圧といいます。詳しくはメモを参照してください。)&lt;br />
+ORゲートはAとBのどちらかが&lt;kbd>HIGH&lt;/kbd>なら&lt;kbd>HIGH&lt;/kbd>を出力する回路部品です。&lt;br />
+これを使うことで、フォトトランジスタを複数搭載できます。&lt;br />
+コンパレータとORゲートは精密部品なので、+-を逆にしたり、はんだ付け時に暖めすぎると壊れるので、ICソケットを使うのが良いでしょう。&lt;br />
+また、コンパレータは出力ピンをプルアップする必要があります。忘れないようにしてくださいね。&lt;/p>
+&lt;h3 id="hc-sr04超音波センサ">&lt;em>HC-SR04&lt;/em>(超音波センサ)
+&lt;/h3>&lt;p>2つの筒がついているセンサーで、片方が超音波を出し、反射したのをもう片方が受け取ります。&lt;br />
+それによって壁までの距離をはかるセンサーです。&lt;br />
+電源以外に&lt;em>Echo&lt;/em>と&lt;em>Trig&lt;/em>のピンがあり、&lt;em>Trig&lt;/em>に&lt;kbd>HIGH&lt;/kbd>を流すと波が出て、&lt;em>Echo&lt;/em>で受信します。&lt;br />
+PWMを使うのか使わないのかよくわからないのと、取得するまでの間プログラムが止まるらしいのとで、結局実用化できませんでした。&lt;br />
+(マイコンを2台搭載してみましたが、シリアル通信だとコンパスと同時に使えないっぽいことに今更気づきました。&lt;br />
+他のチームを参考にしてみてください。)&lt;/p>
+&lt;h3 id="ジャイロセンサと加速度センサ">ジャイロセンサと加速度センサ
+&lt;/h3>&lt;p>文字通り回転や加速度を検知するセンサです。&lt;br />
+これらを使うことで、コンパスセンサがなくても向きを判断できたり、&lt;br />
+「前進しているのに加速度が変わらない→動いてない＝ぶつかっている」みたいなことができたりします。&lt;br />
+また、コンパス、ジャイロ、加速度を同時に測れる9軸センサというのもあります。&lt;br />
+これをつければ戦略の幅が広がること間違いないです。もっとも、使いこなせればの話ですが…。&lt;br />&lt;/p>
+&lt;h3 id="ソレノイドキッカーと昇圧回路">ソレノイド(キッカー)と昇圧回路
+&lt;/h3>&lt;p>ソレノイドとはコイルのことです。&lt;br />
+電流を流すと内部に磁場が生じ、それによって、棒を押しだす部品です。&lt;br />
+これを付けると、ボールを「蹴る」ことができるようになり、遠くからボールを相手のゴールにシュートできます。&lt;br />
+また、一気に大きな電流を流すと、蹴りがより強くなります。&lt;br />
+というわけで大電流を流したいのですが…さっき書いた通り、マイコンにそんな力はないです。&lt;br />
+そこで昇圧回路を使います。&lt;br />
+簡単に言うと、まずコンデンサに電気をちょっとずつ貯めておき、必要になったらそれを一気に放出する、というものです。&lt;br />
+ボールを保持していることの判断がちょっと大変だったり、パワーに制限があって調整する必要だったり、&lt;br />
+ソレノイド自身がそこそこ重かったりします。&lt;br />
+これを搭載したロボットを作るのが目標なのですが、出来上がるのはいつになるのでしょうか…&lt;br />&lt;/p>
+&lt;h2 id="ちょっとしたやつ">ちょっとしたやつ
+&lt;/h2>&lt;p>上で挙げたもの以外のちょっとしたものを一応説明しておきます。&lt;br />&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>コンデンサ: 電気をちょっと貯められる。&lt;br />
+電池だけだとたまに「足りなくなる」ときがあるので、それに備えるためにあったりする。&lt;br />
+電解コンデンサには+-の向きがあるので注意。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>ヒューズ: 保護装置。&lt;br />
+大電流が流れたとき、これが物理的に切れる。&lt;br />
+Li-ion電池を使うなら必ずつけること。&lt;br />
+(過充電・過放電の対策も必ずすること。)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>XAコネクタ: 今使っているコネクタ。&lt;br />
+実は穴(?)の間隔はピンヘッダと同じである。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>ターミナルブロック: ねじで導線をつなぐやつ。&lt;br />
+モーターや電池と基板との接続に使っている。&lt;br />
+でもコネクタのほうが便利?&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>鈴メッキ線: 基板の表面の配線(ジャンパ線)に使っている。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>ピンヘッダ: ――■- ←みたいなやつ。オスとメスがある。&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>ロボットの設計のやり方1 ～仕様決定編～</title><link>https://takasaki-physics.github.io/p/2019-robo1/</link><pubDate>Thu, 01 Aug 2019 17:33:30 +0900</pubDate><guid>https://takasaki-physics.github.io/p/2019-robo1/</guid><description>&lt;h2 id="編集者から">編集者から
+&lt;/h2>&lt;p>こちらは、先輩が作成したtxt文章を物理部パソコンから発見し、こちらのサイト向けに書き直したものです。&lt;br />
+忙しい中、このような素晴らしい記事を書いてくださった先輩に、感謝の意を表します。&lt;br />&lt;/p>
+&lt;h2 id="優先順位">優先順位
+&lt;/h2>&lt;p>ロボットを設計するにあたって、まずどんなロボットを
+作るのかを決める必要があります。&lt;/p>
+&lt;p>その際、最も優先すべきことは「ちゃんとロボットが動くこと」です。&lt;br />
+次に丈夫であることです。性能などはその次に考えましょう。どんなに性能が良くてもまともに動かなければ意味がありません。&lt;br />
+またいろんな種類のパーツをつけると、それだけソフト担当に負担がかかります。(要は器用貧乏になる可能性があります。)&lt;/p>
+&lt;p>あとは整備のしやすさも重要です。電池交換や修理のしやすさはそのまま稼働率に影響します。&lt;/p>
+&lt;p>以上の通り、優先順位をつけると&lt;br />
+規定&amp;raquo;(越えられない壁)&amp;raquo;安定性&amp;gt;=耐久性&amp;raquo;整備性&amp;gt;=性能&amp;gt;機能&amp;gt;(その他)&lt;br />
+となります。&lt;/p>
+&lt;h2 id="機体の仕様">機体の仕様
+&lt;/h2>&lt;p>次に、機体の仕様を決めます。ここで決めるのはモーター、ホイール、板、電池の4つです。&lt;/p>
+&lt;h3 id="モーター">モーター
+&lt;/h3>&lt;p>モーターはロボットの機動力を左右する部分です。&lt;br />
+とは言っても、とりあえずダイセンギヤードモーターを使えばいいので、重要なのは数とギア比です。&lt;br />
+モーターの数は2～4つが多く使われます。&lt;/p>
+&lt;p>&lt;strong>2輪&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>軽い&lt;/li>
+&lt;li>制御が楽&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>方向転換に旋回が必要&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>3輪&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>斜めに移動可能&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>制御がやや難しい&lt;/li>
+&lt;li>前後左右がやや面倒&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>4輪&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>制御がやや楽&lt;/li>
+&lt;li>前後左右の概念がある&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>重い&lt;/li>
+&lt;li>物理部では作成経験無し&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>とりあえず3輪を採用することにしていますが、十分に技術が発達したら2輪や4輪をやってみてもいいかもしれません。&lt;/p>
+&lt;p>また、ギア比については、15:1か30:1を使えば良いです。&lt;br />
+15:1は速度は出ますが力が弱く、逆に30:1は力がありますが速度が遅いです。&lt;br />
+15:1でろくに動かなかったら30:1を採用すればいいでしょう。&lt;/p>
+&lt;h3 id="ホイール">ホイール
+&lt;/h3>&lt;p>2輪の場合は普通のホイールでもいいのですが、3輪や4輪ではオムニホイールというものを使う必要があります。&lt;br />
+(むしろオムニホイールが3輪や4輪を可能にしているのですが…)&lt;br />
+直径とか重さとかも考える必要があります。(とりあえず45mmくらいでいいと思います)&lt;br />
+あと、モーターの軸に合ったものを買いましょう。&lt;/p>
+&lt;p>メカナムホイール…? 知らない子ですね…。&lt;/p>
+&lt;h3 id="板">板
+&lt;/h3>&lt;p>板もまた重要な部分です。ここではいくつかの素材とその特徴を書いておきます。&lt;/p>
+&lt;p>&lt;strong>アクリル&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>軽い&lt;/li>
+&lt;li>安い&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>やや割れやすい&lt;/li>
+&lt;li>加工がやや大変&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>アルミ&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>加工がやや楽&lt;/li>
+&lt;li>割れない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>やや重い&lt;/li>
+&lt;li>曲がる&lt;/li>
+&lt;li>つや消しする必要がある&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>FRP&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>軽い&lt;/li>
+&lt;li>割れにくい&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>加工が大変&lt;/li>
+&lt;li>使ったことがない&lt;/li>
+&lt;li>高い&lt;/li>
+&lt;li>衝撃に弱いらしい&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>他にも色々あると思うので、良いのが見つかったら試してみましょう。&lt;/p>
+&lt;p>モーターと板(と基板)の配置についてはいくつかのパターンがあります。&lt;/p>
+&lt;p>&lt;strong>２枚、モーターが上&lt;/strong>&lt;br />
+下から板、モーター、板、基板となる配置。物理部でメインで使っている配置です。&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>板の間に物を置けるので&lt;/li>
+&lt;li>壊れにくい&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>ごちゃごちゃする&lt;/li>
+&lt;li>整備が面倒&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>２枚、モーターが下&lt;/strong>&lt;br />
+下からモーター、板、板、基板となる配置。&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>板の間のスペースが広い&lt;/li>
+&lt;li>整備が楽&lt;/li>
+&lt;li>小さいホイールが使える&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>板の下にセンサをつけると、干渉とかが面倒&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>１枚&lt;/strong>&lt;br />
+下からモーター、板、基板となる配置。かつての先輩はこの配置を採用したらしいです。&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>板が１枚なので軽い&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>板の上がごちゃごちゃしそう&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>後は、基板の上に板をつける配置もあります。最適なものを選びましょう。&lt;/p>
+&lt;h3 id="電源バッテリー">電源(バッテリー)
+&lt;/h3>&lt;p>当たり前ですが、電源がなければロボットは動きません。&lt;br />
+Arduinoだけならちょっとした電池で足りるのですが、モーターを長時間動かし続けるとなると、大容量の電池が必要となります。&lt;br />
+そこで電池の種類と特徴を書いておきます。&lt;/p>
+&lt;p>&lt;strong>普通の乾電池&lt;/strong>&lt;br />
+いつもの使い捨てタイプのやつです&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>ほぼない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>使い捨てのため、コストがクッソかかる&lt;/li>
+&lt;li>現状、9V角型のをarduinoなどの電源に使っているが、もしかしたらモーター用電源から引っ張ってきた方がいいかもしれない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>NiCd(ニカド)電池&lt;/strong>&lt;br />
+昔主流だった充電池。今はほとんど使われない。&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>かなり安い&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>カドミウムが有害&lt;/li>
+&lt;li>メモリー効果がある&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>NiMH(ニッケル水素)電池&lt;/strong>&lt;br />
+ニカド電池の代わりに使われるようになった充電池。乾電池型のものもある(エネループとか)&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>安い&lt;/li>
+&lt;li>大容量のものもある&lt;/li>
+&lt;li>安全&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>メモリー効果がある&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>とりあえず迷ったらこれでいいんじゃないかな。&lt;/p>
+&lt;p>&lt;strong>Li-ion(リチウムイオン)電池&lt;/strong>&lt;br />
+現在主流の充電池。容量が大きいが、危険性も高い(爆発する可能性あり)&lt;br />
+そのため、ロボカップジュニアジャパンでは使用が制限されている。&lt;br />
+使うときはレギュレーションをちゃんと読んで、必要な書類を提出しなければならない。(一敗)&lt;br />&lt;/p>
+&lt;p>&lt;strong>LiPo(リチウムポリマー)電池&lt;/strong>&lt;br />
+スマホのバッテリーにも使われるやつ&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>大容量&lt;/li>
+&lt;li>電圧が高い&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>取り扱いを間違えると爆発する危険性がある&lt;br />
+(一応安全な方らしいのだが…)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>そんなわけでお勧めできない。&lt;/p>
+&lt;p>&lt;strong>LiFe(リチウムフェライト)電池&lt;/strong>&lt;br />
+LiPoに代わって広まりつつある電池。ラジコンにも使われたりする&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>容量がやや大きい&lt;/li>
+&lt;li>電圧も高い&lt;/li>
+&lt;li>LiPoより安全(釘刺しても燃えない)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>初期費用が高い&lt;/li>
+&lt;li>LiPoよりは性能が劣る(でも十分かも？)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>もし使うならこっちをおすすめする。&lt;/p>
+&lt;h2 id="設計思想">設計思想
+&lt;/h2>&lt;p>結構長くなりましたが、これでだいたい機体の仕様は決まるはずです。&lt;br />
+…それでも、どんなロボットを作ろうか迷っているかもしれません。&lt;br />
+そこで、いくつかの戦闘機の設計思想を書いておきます。&lt;br />
+「え、何で戦闘機？しかも唐突に」と、思っているかもしれませんが、&lt;br />
+戦闘機は兵器ゆえ、ちゃんと動作し、(自分たちに)安全で、故障しにくく、運用しやすく…&lt;br />
+と、ロボットの開発と共通する部分が多いのです。(もちろん、戦車など他の兵器にも同じことが言えます)&lt;br />
+というわけで、&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>零式艦上戦闘機&lt;br />
+&lt;strong>要求:&lt;/strong> 貧弱なエンジンで最強の戦闘機作って&lt;br />
+&lt;strong>結果:&lt;/strong> 装甲を捨て、旋回性能と航続距離に特化&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>流星艦上攻撃機&lt;br />
+&lt;strong>経緯:&lt;/strong> 艦上攻撃機(重い、敵艦撃沈目的)と艦上爆撃機(軽い、急降下爆撃専門)が段々要求性能が似てきた&lt;br />
+&lt;strong>結果:&lt;/strong> 急降下爆撃、水平爆撃、雷撃、全部できるやつを作ろう&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>震電&lt;br />
+&lt;strong>経緯:&lt;/strong> B-29迎撃する必要がある&lt;br />
+&lt;strong>結果:&lt;/strong> 高速化のためエンジンとプロペラを後ろに配置、尾翼が前にある機体に&lt;br />
+(なお、開発中に終戦)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>A-4 スカイホーク&lt;br />
+&lt;strong>経緯:&lt;/strong> 核爆弾を搭載可能なまともな機体がない、あってもでかい…&lt;br />
+&lt;strong>要求:&lt;/strong> 小型で安価で核爆弾積めるやつ作って&lt;br />
+&lt;strong>結果:&lt;/strong> 機体をシンプル、軽量、小型化したら積載量が4tに、しかも機動力、整備性も良くなった&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>A-10 サンダーボルトII&lt;br />
+&lt;strong>要求:&lt;/strong> 長時間の空中待機、低速での運動性能、強力な機関砲、卓越した生存性を備え、ローコストな航空支援用の機体を作って&lt;br />
+&lt;strong>結果:&lt;/strong> 悪条件下でも運用可能、多くの部品が左右共通など整備性も良い、加えて異常な耐久力を備え、湾岸戦争で大活躍した&lt;br />
+これみたいなロボットが僕の理想でした。できなかったのですが。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>他にもF-14 F-15 F-16 F/A-18 F-35とかいろいろあるので調べてみてください&lt;/p></description></item><item><title>ロボットの設計のやり方0 〜説明〜</title><link>https://takasaki-physics.github.io/p/2019-robo0/</link><pubDate>Mon, 01 Jul 2019 13:09:18 +0900</pubDate><guid>https://takasaki-physics.github.io/p/2019-robo0/</guid><description>&lt;h2 id="編集者から">編集者から
+&lt;/h2>&lt;p>こちらは、先輩が作成したtxt文章を物理部パソコンから発見し、こちらのサイト向けに書き直したものです。&lt;br />
+忙しい中、このような素晴らしい記事を書いてくださった先輩に、感謝の意を表します。&lt;br />&lt;/p>
+&lt;p>本文章(シリーズ)に関しては、この文章を記述した先輩が&lt;strong>アドバイスは必要に応じて追記・修正してかまわない&lt;/strong>という記載をしているため、文章の編集を歓迎します。&lt;br />&lt;/p>
+&lt;h2 id="概要">概要
+&lt;/h2>&lt;p>このメモは、自分がコミュ障であり、また技術の習得に時間がかかるため、&lt;br />
+おそらく引退までに技術継承が間に合わないであろうと思ったので、&lt;br />
+(そして今後技術継承がうまくいかなかったときのために)&lt;br />
+残すことにしました。&lt;/p>
+&lt;p>自分の持っている知識とかを詰め込んでおくので参考にしてほしいです。&lt;/p>
+&lt;p>第119期? 部長兼ハード担当　○○○○&lt;/p>
+&lt;p>(編集者より: 名前は個人情報保護のために隠しておきます。&lt;br />
+物理部のパソコンを調べたところ、この方は2019年度の部長(3学年)らしいです。)&lt;/p></description></item></channel></rss>

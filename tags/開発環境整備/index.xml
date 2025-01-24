@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>開発環境整備 on 高崎高校 物理部/SSH</title><link>https://takasaki-physics.github.io/tags/%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E6%95%B4%E5%82%99/</link><description>Recent content in 開発環境整備 on 高崎高校 物理部/SSH</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Thu, 18 Jul 2024 12:07:00 +0900</lastBuildDate><atom:link href="https://takasaki-physics.github.io/tags/%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E6%95%B4%E5%82%99/index.xml" rel="self" type="application/rss+xml"/><item><title>CSS 基礎 1 - 環境構築/準備</title><link>https://takasaki-physics.github.io/p/tutorial-css-001/</link><pubDate>Thu, 18 Jul 2024 12:07:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-css-001/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>CSS の利用方法を解説します。&lt;/p>
+&lt;h2 id="環境構築">環境構築
+&lt;/h2>&lt;h3 id="css-とは">CSS とは
+&lt;/h3>&lt;p>そもそも、CSS (Cascading Style Sheets) は HTML の装飾に利用されます。&lt;/p>
+&lt;p>詳細は Mozilla が作成する &lt;a class="link" href="https://developer.mozilla.org/ja/docs/Learn/Getting_started_with_the_web/CSS_basics" target="_blank" rel="noopener"
+>CSS の基本&lt;/a>を御覧ください。&lt;/p>
+&lt;h3 id="準備">準備
+&lt;/h3>&lt;p>HTML ファイルは &lt;code>index.html&lt;/code> とします。&lt;/p>
+&lt;p>&lt;code>index.html&lt;/code> 内の &lt;code>&amp;lt;head&amp;gt;&lt;/code> 要素内に &lt;code>&amp;lt;link href=&amp;quot;style.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot;&amp;gt;&lt;/code> を追加してください。 (もしかしたら最初からあるかも)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-index.html" data-lang="index.html">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;ja&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;lt;!-- 略 --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;style.css&amp;#34;&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;stylesheet&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;lt;!-- 略 --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>続いて、CSS ファイルを &lt;code>style.css&lt;/code> として作成します。
+場所は &lt;code>index.html&lt;/code> と同じにするのが楽です。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">./
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└style.css
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>これですぐに CSS が利用できます。&lt;/p>
+&lt;h3 id="動作確認">動作確認
+&lt;/h3>&lt;p>では、CSS がしっかりと動作するか見てみましょう。&lt;/p>
+&lt;p>まずは、この HTML 要素の色を変えてみましょう。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.html" data-lang=".html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>りんご&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>style.css&lt;/code> を以下のようにしてください。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-style.css" data-lang="style.css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">p&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>これで、文字の色が赤色に変化することがわかると思います。
+この時点で色が変更していない場合は、環境構築がうまくいっていない可能性があるので、やり直してみてください。&lt;/p>
+&lt;h3 id="指定方法">指定方法
+&lt;/h3>&lt;h4 id="基本指定">基本指定
+&lt;/h4>&lt;p>先ほど、サラッと紹介しましたが、CSS は以下の方法で指定します。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">要素&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">変更:&lt;/span> &lt;span class="err">内容&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>要素は、&lt;code>p&lt;/code> や &lt;code>body&lt;/code>、全体を指定する &lt;code>:root&lt;/code> などがあります。&lt;/p>
+&lt;h4 id="id-class-指定">ID, Class 指定
+&lt;/h4>&lt;p>また、&lt;code>&amp;lt;p id=&amp;quot;apple&amp;quot; class=&amp;quot;fruits&amp;quot;&amp;gt;りんご&amp;lt;/p&amp;gt;&lt;/code>
+このような ID は &lt;code>#apple&lt;/code>。Class は &lt;code>.fruits&lt;/code> のように指定できます。&lt;/p>
+&lt;p>また、&lt;code>&amp;lt;p style=&amp;quot;color: blue&amp;quot;&amp;gt;青色&amp;lt;p&amp;gt;&lt;/code> のように直接指定することも可能です。&lt;/p>
+&lt;p>複数指定する場合は &lt;code>,&lt;/code> で区切ります。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">p&lt;/span>&lt;span class="o">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">#&lt;/span>&lt;span class="nn">apple&lt;/span>&lt;span class="o">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">fruits&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">background-color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">blue&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="子要素指定">子要素指定
+&lt;/h4>&lt;p>連続して指定すると、子要素だけに CSS を適応できます。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">p&lt;/span> &lt;span class="nt">a&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">yellow&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.html" data-lang=".html">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;lt;!-- &amp;lt;a&amp;gt; 要素が &amp;lt;p&amp;gt; 要素の中にあるときだけ黄色になる --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>黄色&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;lt;!-- &amp;lt;a&amp;gt; 要素が &amp;lt;p&amp;gt; 要素の中にないときは黄色にならない --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>黄色じゃない&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>黄色じゃない&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>黄色じゃない&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Python を基礎から 1 - 環境構築</title><link>https://takasaki-physics.github.io/p/tutorial-python-001/</link><pubDate>Thu, 18 Apr 2024 22:05:01 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-python-001/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>Python の環境構築を解説します。
+ここでは基本無料で、簡単に Python を動かすことができる Google Colaboratory を利用します。&lt;/p>
+&lt;h2 id="環境構築">環境構築
+&lt;/h2>&lt;h3 id="場所">場所
+&lt;/h3>&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-001/1.png"
+width="881"
+height="716"
+srcset="https://takasaki-physics.github.io/p/tutorial-python-001/1_hu_af49e21fee76812f.png 480w, https://takasaki-physics.github.io/p/tutorial-python-001/1_hu_63be9c8aa8d365fb.png 1024w"
+loading="lazy"
+alt="Search"
+class="gallery-image"
+data-flex-grow="123"
+data-flex-basis="295px"
+>&lt;/p>
+&lt;p>初めに、 &lt;a class="link" href="https://colab.research.google.com" target="_blank" rel="noopener"
+>https://colab.research.google.com&lt;/a> にアクセスします。
+(よく使うので、ブックマークで保存すると便利だと思います。)&lt;/p>
+&lt;p>Google アカウントでログインします。&lt;/p>
+&lt;h3 id="開始">開始
+&lt;/h3>&lt;p>ノートブック(作業ファイル)を作成します。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-001/2.png"
+width="1366"
+height="719"
+srcset="https://takasaki-physics.github.io/p/tutorial-python-001/2_hu_a2ce74ea45b05c4c.png 480w, https://takasaki-physics.github.io/p/tutorial-python-001/2_hu_8b2103b9b85f61b3.png 1024w"
+loading="lazy"
+alt="Make a new notebook"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>&lt;/p>
+&lt;p>これで下のように、コードを書くことができます。
+コードの左のボタンで動作できます。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-001/3.png"
+width="1366"
+height="719"
+srcset="https://takasaki-physics.github.io/p/tutorial-python-001/3_hu_4f7af8f61e9ceeb5.png 480w, https://takasaki-physics.github.io/p/tutorial-python-001/3_hu_be700ff048b00f1a.png 1024w"
+loading="lazy"
+alt="Write and move your code"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>&lt;/p>
+&lt;h3 id="作業の保存">作業の保存
+&lt;/h3>&lt;p>下の図のように行うことで、セーブできます。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-python-001/4.png"
+width="1366"
+height="719"
+srcset="https://takasaki-physics.github.io/p/tutorial-python-001/4_hu_714900ced6a6024d.png 480w, https://takasaki-physics.github.io/p/tutorial-python-001/4_hu_4210ad115a0593e1.png 1024w"
+loading="lazy"
+alt="Save"
+class="gallery-image"
+data-flex-grow="189"
+data-flex-basis="455px"
+>&lt;/p>
+&lt;p>または、 &lt;kbd>Ctrl&lt;/kbd> + &lt;kbd>S&lt;/kbd> で保存できます。&lt;/p></description></item><item><title>パソコン整備</title><link>https://takasaki-physics.github.io/p/pc-mente/</link><pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/pc-mente/</guid><description>&lt;p>本資料では、 2023/10/31 までに行ったパソコン整備の内容について記録します。&lt;/p>
+&lt;h2 id="tddr">TD;DR
+&lt;/h2>&lt;ul>
+&lt;li>場所移動&lt;/li>
+&lt;li>バージョンアップ&lt;/li>
+&lt;li>VSCode とか&lt;/li>
+&lt;/ul>
+&lt;h2 id="環境">環境
+&lt;/h2>&lt;p>(タワー型PC)&lt;/p>
+&lt;ul>
+&lt;li>OS: Windows10 21H2 (当時)&lt;/li>
+&lt;li>CPU: Intel core i シリーズ (詳細は忘れました)&lt;/li>
+&lt;li>GPU: Radeon RX 570&lt;/li>
+&lt;li>RAM: 8GB x 2 枚&lt;/li>
+&lt;li>SSD: 256GB 程度? (Intel製)&lt;/li>
+&lt;li>HDD: 400GB 程度? (サムスン製)&lt;/li>
+&lt;/ul>
+&lt;h2 id="整備内容">整備内容
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>OS 再インストール&lt;br />
+先述ではWindows10 21H2と書いたのですが、サーバー化計画(失敗)にて現在はKDE Neonを入れているので、OSをまるごと入れ直しました。&lt;br />
+(LinuxのDEとPCのGPUのRadeonと相性が悪く、GNOMEでもKDEでも少し使っていると画面が乱れるため、まともに使えませんでした。ドライバは頑張ったのですが、諦めました。)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>場所移動&lt;br />
+現在の設置場所(講義室後ろ)はWi-Fiが途切れ途切れなので、前側(Wi-Fiのすぐ近く)に移動しました。&lt;br />&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>基本ソフトウェアインストール&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>VSCode&lt;br />
+なぜかMicrosoft Storeになかったので、公式サイトからインストールしました。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Git&lt;br />
+バージョン管理システム界隈の最高傑作&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Flutter開発環境&lt;br />
+今回の本来の目的です。&lt;br />
+エディタは先述のVSCodeを使います。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>今後予定&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>.NET SDKのインストール&lt;br />
+C#を推している人物として後で入れておきます。&lt;br />
+&lt;del>Visual Studioは重いので入れません。&lt;/del> (追記: 課題研究で使うので入れました。)&lt;br />
+&lt;del>VSCodeにC# Devとかの拡張機能を入れておくので、それを使ってください&lt;/del> (追記: SDK入れてないのでそのままでは使えません。)。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>旧データ整理&lt;br />
+パソコン内のHDDには古いデータが残っているので、今後整備予定です。&lt;br />
+引き継ぎ資料も含まれていたため、内容が現代でも通じるものに関してはこちらのサイトに追加したいと考えています。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Linux環境設定</title><link>https://takasaki-physics.github.io/p/linux-setting/</link><pubDate>Wed, 11 Oct 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/linux-setting/</guid><description>&lt;p>こんにちは。&lt;br />
+今回は私的Linux環境の準備方法を説明します。&lt;br />&lt;/p>
+&lt;h2 id="ソフト開発関係">ソフト開発関係
+&lt;/h2>&lt;h3 id="vscode">VSCode
+&lt;/h3>&lt;p>テキストエディタです。&lt;br />&lt;/p>
+&lt;p>VimとかKateとかもありますけど、私はVSCodeが最推しですね。&lt;br />
+比較的軽量で、拡張機能によって豊富な機能を搭載でき、なおかつシンプルなため、初心者から神まで御用達のツールとなっています。&lt;br />
+本職のプログラマーやWebデザイナーなどにも人気です。&lt;br />
+(皆さんは個人開発だと思うのであまり関係ありませんが、商用利用の際もライセンスが軽いので使いやすいです。)&lt;br />&lt;/p>
+&lt;p>さて、VSCodeはLinux(Debian系)だと様々な方法でインストールできますが、いちばん簡単な方法だと、&lt;code>apt&lt;/code>を使った方法になります。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://qiita.com/yoshiyasu1111/items/e21a77ed68b52cb5f7c8" target="_blank" rel="noopener"
+>Qiita - UbuntuにVSCodeをインストールする3つの方法&lt;/a>&lt;br />&lt;/p>
+&lt;h4 id="インストール">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># curlのインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install curl
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># curlでMicrosoftのキーをダウンロード&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl https://packages.microsoft.com/keys/microsoft.asc &lt;span class="p">|&lt;/span> gpg --dearmor &amp;gt; microsoft.gpg
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># レポジトリを登録する&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo install -o root -g root -m &lt;span class="m">644&lt;/span> microsoft.gpg /etc/apt/trusted.gpg.d/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo sh -c &lt;span class="s1">&amp;#39;echo &amp;#34;deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main&amp;#34; &amp;gt; /etc/apt/sources.list.d/vscode.list&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># インストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install apt-transport-https
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt list code
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">apt list -a code
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install code
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">code
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="opera">Opera
+&lt;/h3>&lt;p>ブラウザです。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://tutorialcrawler.com/ubuntu-debian/ubuntu-20-04%E3%81%ABopera%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener"
+>UbuntuにOperaをインストールする方法&lt;/a>&lt;br />&lt;/p>
+&lt;h4 id="インストール-1">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># キーのダウンロード&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wget -qO- https://deb.opera.com/archive.key &lt;span class="p">|&lt;/span> sudo apt-key add -
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> deb https://deb.opera.com/opera-stable/ stable non-free &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/opera.list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># インストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install opera-stable
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-1">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">opera --lang&lt;span class="o">=&lt;/span>ja
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="言語設定推奨">言語設定(推奨)
+&lt;/h4>&lt;p>ちなみに、初期状態でデスクトップアイコンから起動しても英語なので、.desktopファイルを少しいじる必要があります。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://forums.opera.com/topic/58114/can-t-change-ui-language-no-option-display-opera-in-that-language/4" target="_blank" rel="noopener"
+>Opera Forums - UIの言語を変える方法&lt;/a>(英文)&lt;br />&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">cat /usr/share/applications/opera.desktop
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># [Desktop Entry]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Version=1.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Name=Opera&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># GenericName=Web browser&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Comment=Fast and secure web browser&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># TryExec=opera&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Exec=opera %U&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Terminal=false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Icon=opera&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># この&amp;#34;Exec=opera %U&amp;#34;の部分を&amp;#34;Exec=opera --lang=ja %U&amp;#34;にvimなどで変える&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo vim /usr/share/applications/opera.desktop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="グラフィック系">グラフィック系
+&lt;/h2>&lt;h3 id="krita">Krita
+&lt;/h3>&lt;p>イラスト系最高傑作ソフトです。&lt;br />
+開発者の皆様はあまり使わないかも知れませんが、私はイラストを描くことが好きなので、紹介させていただきます。&lt;br />&lt;/p>
+&lt;p>&lt;code>apt&lt;/code>版はバージョンがかなり古いので、公式からインストールしましょう。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://docs.krita.org/ja/user_manual/getting_started/installation.html#linux" target="_blank" rel="noopener"
+>Krita Docs - Kritaのインストール方法&lt;/a>&lt;/p>
+&lt;h4 id="インストール-2">インストール
+&lt;/h4>&lt;ol>
+&lt;li>&lt;a class="link" href="https://krita.org/jp/download-jp/krita-desktop-jp/" target="_blank" rel="noopener"
+>Krita公式サイトのダウンロードページ&lt;/a>からappimageをダウンロードします。&lt;/li>
+&lt;li>krita.appimageが入っているディレクトリ内で以下のコマンドを打ちます。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">chmod a+x ./krita.appimage
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-2">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">./krita.appimage
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>エラーが起こる場合はそれをインストールしましょう。&lt;br />
+.desktopファイルを作っておくとGUIからも起動できるので楽です。&lt;br />&lt;/p>
+&lt;h2 id="コンソール系">コンソール系
+&lt;/h2>&lt;h3 id="net-sdk">.NET SDK
+&lt;/h3>&lt;p>C#やVB.NET、F#を動作させるのに必要なSDKです。&lt;br />
+今回はDebian12のインストール方法を記載します。&lt;br />
+それ以外のOSの場合は下のURLを参考にしてください。&lt;br />&lt;/p>
+&lt;p>参考: &lt;a class="link" href="https://learn.microsoft.com/ja-jp/dotnet/core/install/" target="_blank" rel="noopener"
+>Microsoft - .NETをインストールする&lt;/a>&lt;br />&lt;/p>
+&lt;h4 id="インストール-3">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># キーのインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dpkg -i packages-microsoft-prod.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rm packages-microsoft-prod.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># SDKのインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sudo apt-get install -y dotnet-sdk-7.0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ランタイムのインストール&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sudo apt-get install -y aspnetcore-runtime-7.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="新しいコンソールプロジェクトの作成">新しいコンソールプロジェクトの作成
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">dotnet new console -o プロジェクト名
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="新しいblazor-wasmプロジェクトの作成">新しいBlazor wasmプロジェクトの作成
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">dotnet new blazorwasm -o プロジェクト名 --pwa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="プロジェクトの起動">プロジェクトの起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">dotnet watch run
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="neofetch">neofetch
+&lt;/h3>&lt;p>端末情報が見れるソフトです。&lt;br />
+メモリ使用量とかも見れるので便利です。&lt;br />&lt;/p>
+&lt;h4 id="インストール-4">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install neofetch -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-3">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">neofetch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="tint">tint
+&lt;/h3>&lt;p>テトリスです。&lt;br />&lt;/p>
+&lt;h4 id="インストール-5">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install tint -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-4">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">tint
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="sl">sl
+&lt;/h3>&lt;p>電車が走るコマンドです。&lt;br />
+中断できないので&lt;code>ls&lt;/code>コマンドと間違えたときに邪魔なコマンドです。&lt;br />&lt;/p>
+&lt;h4 id="インストール-6">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install sl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-5">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>sl -l&lt;/code>にすると長くなります。&lt;br />
+&lt;kbd>Ctrl&lt;/kbd> + &lt;kbd>C&lt;/kbd> でも中断できないという謎仕様です。&lt;br />&lt;/p>
+&lt;h3 id="cmatrix">cmatrix
+&lt;/h3>&lt;p>コマンドライン上でマトリックスできるコマンドです。&lt;br />
+人気コマンド。&lt;br />&lt;/p>
+&lt;h4 id="インストール-7">インストール
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">sudo apt install cmatrix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="起動-6">起動
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">cmatrix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>cmatrix -C red&lt;/code>のように色を変えることもできます。&lt;br />&lt;/p></description></item></channel></rss>

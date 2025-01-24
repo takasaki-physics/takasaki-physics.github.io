@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GitHub on 高崎高校 物理部/SSH</title><link>https://takasaki-physics.github.io/tags/github/</link><description>Recent content in GitHub on 高崎高校 物理部/SSH</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Fri, 22 Nov 2024 21:23:00 +0900</lastBuildDate><atom:link href="https://takasaki-physics.github.io/tags/github/index.xml" rel="self" type="application/rss+xml"/><item><title>GitHub CLI で GitHub と SSH 接続する</title><link>https://takasaki-physics.github.io/p/20241122-github/</link><pubDate>Fri, 22 Nov 2024 21:23:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20241122-github/</guid><description>&lt;p>お久しぶりです。&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> ですわ。&lt;/p>
+&lt;p>なぜか HTTPS 通信ができなくなったので、SSH 接続に切り替えたお話ですわ。&lt;/p>
+&lt;h2 id="インストール">インストール
+&lt;/h2>&lt;h3 id="windows">Windows
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">winget install --id GitHub.cli
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>このコマンドを打ったら、一度ターミナルを再起動してください。タブを消しただけではだめです、ウィンドウごと再起動してくださいね。&lt;/p>
+&lt;p>詳細: &lt;a class="link" href="https://github.com/cli/cli?tab=readme-ov-file#windows" target="_blank" rel="noopener"
+>https://github.com/cli/cli?tab=readme-ov-file#windows&lt;/a>&lt;/p>
+&lt;h3 id="macos">macOS
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">brew install gh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>詳細: &lt;a class="link" href="https://github.com/cli/cli?tab=readme-ov-file#macos" target="_blank" rel="noopener"
+>https://github.com/cli/cli?tab=readme-ov-file#macos&lt;/a>&lt;/p>
+&lt;h3 id="linux">Linux
+&lt;/h3>&lt;p>ディストリビューションごとに結構違うので、&lt;a class="link" href="https://github.com/cli/cli/blob/trunk/docs/install_linux.md" target="_blank" rel="noopener"
+>ドキュメント&lt;/a>を参考にしてください。&lt;/p>
+&lt;h2 id="アカウント連携">アカウント連携
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">gh auth login --web
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol>
+&lt;li>Git を操作するプロトコルを HTTPS にするか SSH にするか選べます。(今回は &lt;code>SSH&lt;/code>)&lt;/li>
+&lt;li>SSH 暗号を作るかどうか聞かれます。(初めて SSH する際は作ってください)&lt;/li>
+&lt;li>ブラウザが立ち上がるので、コマンドにあるワンタイムコードを入力してください。(例: &lt;code>3D41-8747&lt;/code> のような数字)&lt;/li>
+&lt;/ol>
+&lt;p>終わりです! :tada:&lt;/p>
+&lt;h2 id="おまけ-エディター設定">おまけ: エディター設定
+&lt;/h2>&lt;h3 id="vscode">VSCode
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">gh config &lt;span class="nb">set&lt;/span> editor &lt;span class="s2">&amp;#34;code --wait&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="vim">Vim
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">gh config &lt;span class="nb">set&lt;/span> editor &lt;span class="s2">&amp;#34;vim&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="おまけ-https-を-ssh-に切り替える方法">おまけ: HTTPS を SSH に切り替える方法
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">git remote set-url origin git@github.com:example/example.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 例: git remote set-url origin git@github.com:takasaki-physics/takasaki-physics.github.io.git&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="さいごに">さいごに
+&lt;/h2>&lt;p>SSH 接続が非常に簡単にできますね。&lt;/p>
+&lt;p>(スクリーンショットを撮るべきでした…)&lt;/p>
+&lt;hr>
+&lt;h3 id="参考文献">参考文献
+&lt;/h3>&lt;ul>
+&lt;li>&lt;a class="link" href="https://qiita.com/s_yasunaga/items/110d21828bd4f578850d" target="_blank" rel="noopener"
+>https://qiita.com/s_yasunaga/items/110d21828bd4f578850d&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://qiita.com/shirokuma89dev/items/da116405f40d50c9fc99" target="_blank" rel="noopener"
+>https://qiita.com/shirokuma89dev/items/da116405f40d50c9fc99&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/cli/cli" target="_blank" rel="noopener"
+>https://github.com/cli/cli&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://qiita.com/ryomoucmei/items/ec8c225603ef983fc318" target="_blank" rel="noopener"
+>https://qiita.com/ryomoucmei/items/ec8c225603ef983fc318&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>情報共有しましょう!</title><link>https://takasaki-physics.github.io/p/20240219-discuss/</link><pubDate>Mon, 19 Feb 2024 12:00:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240219-discuss/</guid><description>&lt;img src="https://takasaki-physics.github.io/p/20240219-discuss/discussions.png" alt="Featured image of post 情報共有しましょう!" />&lt;p>こんにちは。
+&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a> です。&lt;/p>
+&lt;p>こちらは、主に物理部の部員や開発者向けの資料となっています。&lt;/p>
+&lt;h2 id="github-discussions">GitHub Discussions
+&lt;/h2>&lt;p>物理部の Discussions は&lt;a class="link" href="https://github.com/orgs/takasaki-physics/discussions" target="_blank" rel="noopener"
+>こちら&lt;/a>!!&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/20240219-discuss/discussions.png"
+width="1365"
+height="564"
+srcset="https://takasaki-physics.github.io/p/20240219-discuss/discussions_hu_f3a0e1e07e204d41.png 480w, https://takasaki-physics.github.io/p/20240219-discuss/discussions_hu_3461e2b819100aa7.png 1024w"
+loading="lazy"
+alt="GitHub Discussions"
+class="gallery-image"
+data-flex-grow="242"
+data-flex-basis="580px"
+>&lt;/p>
+&lt;p>GitHub には Discussions という機能があります。
+一般的にはレポジトリの Discussions がプログラムの新機能に関するアイデア出しやプログラムへの質問などで利用されます。
+Organization でも同様の機能が利用可能で、物理部では一般的な会話に利用するつもりです。(まあ、基本的な会話は物理部の Slack でも良いのですが、履歴が残らないので、私的にはこちらを利用したいと考えています。)&lt;/p>
+&lt;p>(GitHub アカウントを持っている人なら)誰でもこちらに質問可能なので、ぜひぜひご利用ください。&lt;/p></description></item></channel></rss>

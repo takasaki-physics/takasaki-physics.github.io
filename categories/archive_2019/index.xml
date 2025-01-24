@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Archive_2019 on 高崎高校 物理部/SSH</title><link>https://takasaki-physics.github.io/categories/archive_2019/</link><description>Recent content in Archive_2019 on 高崎高校 物理部/SSH</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Mon, 26 Aug 2019 00:06:24 +0900</lastBuildDate><atom:link href="https://takasaki-physics.github.io/categories/archive_2019/index.xml" rel="self" type="application/rss+xml"/><item><title>ロボットの設計のやり方3 ～EAGLE編～</title><link>https://takasaki-physics.github.io/p/2019-robo3/</link><pubDate>Mon, 26 Aug 2019 00:06:24 +0900</pubDate><guid>https://takasaki-physics.github.io/p/2019-robo3/</guid><description>&lt;h2 id="編集者から">編集者から
+&lt;/h2>&lt;p>こちらは、先輩が作成したtxt文章を物理部パソコンから発見し、こちらのサイト向けに書き直したものです。&lt;br />
+忙しい中、このような素晴らしい記事を書いてくださった先輩に、感謝の意を表します。&lt;br />&lt;/p>
+&lt;h2 id="eagleについて">EAGLEについて
+&lt;/h2>&lt;p>使うセンサーとかが決まったら、いよいよ基板を描く作業が始まります。ここが一番時間がかかる部分です。&lt;br />
+物理部ではEAGLEというソフトを使っています。&lt;br />
+このソフトは海外製で英語なのですが、回路図と基板図を同時に作成でき、便利なので使っています。&lt;br />
+その使い方についてはそこそこ詳しく解説しているサイトがあったので、URLを貼っておきます。&lt;br />&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="http://akiracing.com/2017/05/27/eagle_tutorial" target="_blank" rel="noopener"
+>http://akiracing.com/2017/05/27/eagle_tutorial&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>というわけで、ここの解説をパk…参考にしつつ、足りないところや自分が使ってみて感じたことなどを書くことにしました。&lt;/p>
+&lt;p>(編集者より: 現在の物理部ではfusion360が主流?です。)&lt;/p>
+&lt;h2 id="アカウントおよびライセンス">アカウントおよびライセンス
+&lt;/h2>&lt;p>EAGLEには無料版と有料版、および学生向けがあります。&lt;br />
+無料版は機能がいくつか制限されており、このままでは150×100mmの基板を設計できません。&lt;br />
+有料版ならできるのですが、やはりお金がかかります…。&lt;br />
+そこで、学生向けのを使うことをお勧めします。学生なら有料版と同じのが3年間無料で使えるのです。&lt;br />
+そのためには学生としてアカウントを登録する必要があります。&lt;br />
+(方法は自身で検索してみてください。)&lt;br />
+あるいは有料版を買っても良いです。とにかく無料版ではできません。&lt;/p>
+&lt;h2 id="一連の流れ">一連の流れ
+&lt;/h2>&lt;p>さて、EAGLEを使っての設計の手順というか、流れみたいなのは以下の通りです。&lt;/p>
+&lt;ol>
+&lt;li>使う部品とその配置レイアウトをだいたい決める&lt;/li>
+&lt;li>+5vとGNDをとりあえずいい感じに配線する&lt;/li>
+&lt;li>モータードライバのモーター側と電源関係を、下基板(以下、下)の穴まで持っていく&lt;/li>
+&lt;li>モータードライバのマイコン側とボールセンサを、上基板(以下、上)と下をつなぐとこまで引っ張る&lt;br />
+そして、上のマイコンとつなげる&lt;/li>
+&lt;li>他の部品を同様につなげる&lt;/li>
+&lt;li>このあたりで、配線が通せなかったりする箇所が出で来るので、いろいろいじくって何とかする&lt;/li>
+&lt;li>GNDをベタ塗りして、ベタ同士をジャンパでつなげる&lt;/li>
+&lt;li>手直しして設計完了。基板製作に移る
+&lt;br />&lt;br />&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>基板製作(感光基板の場合)&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>基板データを専用のフィルムに印刷&lt;/li>
+&lt;li>以下、暗室で行う&lt;/li>
+&lt;li>感光基板を袋から取り出す&lt;/li>
+&lt;li>感光基板の金属面側を上にし、フィルムを重ね、光を決められた時間当てる&lt;/li>
+&lt;li>基板を現像液に浸す&lt;/li>
+&lt;li>基板をエッチング液に浸す&lt;/li>
+&lt;li>基板をスチールウールとかでごしごしする&lt;/li>
+&lt;li>(サビ防止液も塗る)&lt;/li>
+&lt;li>後は穴あけ→はんだ付けをする&lt;/li>
+&lt;/ol>
+&lt;p>詳しい手順はエッチング液の説明書に書いてあります。&lt;br />
+バットやバケツ、コンクリやお酢などを用意してくださいね。&lt;/p>
+&lt;h2 id="アドバイス">アドバイス
+&lt;/h2>&lt;p>(本当はこの後操作方法などをいろいろ説明する予定だったのですが、夏休み中にこれをやる時間が全然なかったので)&lt;br />
+これだけは伝えたほうがいいと思ったものを書き残しておきます。&lt;br />
+後は上記のサイトなどを参考にしてください。&lt;/p>
+&lt;ul>
+&lt;li>最初の画面(コントロールパネル)の&lt;em>Libraries&lt;/em>のところで、●を緑にしないと部品が読み込めないので、緑にしておく。(写真1、2を参照)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/2019-robo3/image1.jpg"
+width="305"
+height="459"
+srcset="https://takasaki-physics.github.io/p/2019-robo3/image1_hu_b8dd3a26ec71fd0d.jpg 480w, https://takasaki-physics.github.io/p/2019-robo3/image1_hu_11016fe72d425d6c.jpg 1024w"
+loading="lazy"
+alt="画像1"
+class="gallery-image"
+data-flex-grow="66"
+data-flex-basis="159px"
+>&lt;img src="https://takasaki-physics.github.io/p/2019-robo3/image2.jpg"
+width="251"
+height="655"
+srcset="https://takasaki-physics.github.io/p/2019-robo3/image2_hu_a7da2242c68b8756.jpg 480w, https://takasaki-physics.github.io/p/2019-robo3/image2_hu_ba030b20e889222d.jpg 1024w"
+loading="lazy"
+alt="画像2"
+class="gallery-image"
+data-flex-grow="38"
+data-flex-basis="91px"
+>&lt;/p>
+&lt;ul>
+&lt;li>GridのDisplayをOnにしないと、背景の格子が出ない(写真3)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/2019-robo3/image3.jpg"
+width="221"
+height="201"
+srcset="https://takasaki-physics.github.io/p/2019-robo3/image3_hu_de24ca21a8ed568c.jpg 480w, https://takasaki-physics.github.io/p/2019-robo3/image3_hu_76a2090c2bba4818.jpg 1024w"
+loading="lazy"
+alt="画像3"
+class="gallery-image"
+data-flex-grow="109"
+data-flex-basis="263px"
+>&lt;/p>
+&lt;ul>
+&lt;li>BRDで、線を直角に曲げたかったり、穴を迂回させたくないときは、写真4のあたりをいじるとよい&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/2019-robo3/image4.jpg"
+width="314"
+height="141"
+srcset="https://takasaki-physics.github.io/p/2019-robo3/image4_hu_ecc55ee920b9a5d6.jpg 480w, https://takasaki-physics.github.io/p/2019-robo3/image4_hu_b5c6de0615ad6695.jpg 1024w"
+loading="lazy"
+alt="画像4"
+class="gallery-image"
+data-flex-grow="222"
+data-flex-basis="534px"
+>&lt;/p>
+&lt;ul>
+&lt;li>部品とかは実はmmじゃなくてinch単位だったりするので、正確にやりたければそっちでやるのもあり&lt;/li>
+&lt;li>ピンヘッダは「pin」で検索してでる、こいつ(写真5)を使うとよい&lt;br />
+ジャンパ線に使えたりするので、接続部以外にも使うことになる。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/2019-robo3/image5.jpg"
+width="818"
+height="600"
+srcset="https://takasaki-physics.github.io/p/2019-robo3/image5_hu_3856b367137e81ff.jpg 480w, https://takasaki-physics.github.io/p/2019-robo3/image5_hu_bf42c205956f5513.jpg 1024w"
+loading="lazy"
+alt="画像5"
+class="gallery-image"
+data-flex-grow="136"
+data-flex-basis="327px"
+>&lt;/p>
+&lt;ul>
+&lt;li>BRDでICの電源につなげられない時がある。そのときは一度SCHを閉じ、BRDで配線を行えばよい&lt;/li>
+&lt;/ul>
+&lt;p>こんなところでしょうか&lt;/p>
+&lt;p>アドバイスは必要に応じて追記・修正して問題ありません&lt;/p>
+&lt;h2 id="おわりに">おわりに
+&lt;/h2>&lt;p>僕は果たして良い先輩、良い部長だったのでしょうか?
+今でも疑問が残ります。全国も61/64位でしたし。
+しかし、後輩がいろいろと修正して、今後はもっと良くなっていくでしょう。
+というわけで、最後に一言だけ&lt;/p>
+&lt;p>&lt;strong>幸運を。去りゆく者より敬礼を。&lt;/strong>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;p>部長でした。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a class="link" href="https://dic.pixiv.net/a/SCP-1983#h2_1" target="_blank" rel="noopener"
+>https://dic.pixiv.net/a/SCP-1983#h2_1&lt;/a> 「幸運を。死にゆく者より敬礼を。」 (SCP 界隈屈指の名言)&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>ロボットの設計のやり方2 ～部品編～</title><link>https://takasaki-physics.github.io/p/2019-robo2/</link><pubDate>Thu, 01 Aug 2019 17:36:14 +0900</pubDate><guid>https://takasaki-physics.github.io/p/2019-robo2/</guid><description>&lt;h2 id="編集者から">編集者から
+&lt;/h2>&lt;p>こちらは、先輩が作成したtxt文章を物理部パソコンから発見し、こちらのサイト向けに書き直したものです。&lt;br />
+忙しい中、このような素晴らしい記事を書いてくださった先輩に、感謝の意を表します。&lt;br />&lt;/p>
+&lt;h2 id="はじめに">はじめに
+&lt;/h2>&lt;p>機体の仕様も決まったところで、次に決めるのは、「何の部品(パーツ)を載せるのか」です。&lt;br />
+基本的な部品から、あったら強くなれるかもしれないものまで、
+知っているのを挙げておきます。&lt;/p>
+&lt;h2 id="必需品">必需品
+&lt;/h2>&lt;p>まずは、これがなかったら始まらないものから説明します。&lt;/p>
+&lt;h3 id="マイコン">マイコン
+&lt;/h3>&lt;p>マイクロコンピューターの略。今のパソコンはこれの超上位互換です。&lt;br />
+物理部ではArduinoというものを使っています。&lt;br />
+大会で使うArduino MEGAは、15のアナログピン(いらない)、50のデジタルピン(いる)を備え、うち11のPWMピン、6の割り込みピンがあります。&lt;br />
+(PWMというのは、簡単に言えば、波を出力できるピンのことです)&lt;/p>
+&lt;p>ちなみに、Arduino以外にも、PICやラズベリーパイ(ラズパイ)というのもあります。&lt;br />
+前者は昔から使われてきたもので、後者は一応ガチのパソコンです。用途に合わせて使い分けましょう。&lt;/p>
+&lt;h3 id="モーターとモータードライバ">モーターとモータードライバ
+&lt;/h3>&lt;p>モーターに関しては説明する必要はないでしょう。片方に+、もう片方に-をつなげば回転し、逆につなげば逆回転します。&lt;br />
+それでは+と-をどこにつなげばいいでしょうか?&lt;br />
+マイコンで制御するのでマイコンにつなぎたいところですが、マイコンは大電流を流すことができないのです。(というか壊れます)&lt;br />
+そこでモータードライバを使います。一方の組をマイコンにつなぐと、それに対応するもう一方の組に大電流を流してくれる部品です。&lt;br />
+これがないと話にならない、地味に重要な部品です。&lt;br />
+物理部では東芝の&lt;em>TA8429HQ&lt;/em>を使っているが、生産停止になっています。まだ6個くらいはあったはずです。&lt;/p>
+&lt;p>(編集者より: この文章はやや古い文章なので、現在の物理部にはない可能性が高いです。)&lt;/p>
+&lt;h3 id="赤外線センサー">赤外線センサー
+&lt;/h3>&lt;p>ライトウェイトのボールは赤外線を出すボールなので、ボールを「見る」ためには赤外線センサーが必要となります。&lt;br />
+物理部では&lt;em>PL-IRM2121&lt;/em>というのを使っている…のですが、このセンサー、アクティブロー出力(感知すると出力がLOWになる)で、しかもつけっぱなしにしてると感度が低下するのです。&lt;br />
+そこで、高速でオンオフを繰り返していて、そのスイッチににトランジスタを使っています。(理由は不明)&lt;br />
+なお、設計・はんだ付け時は向きに気を付けてください(６敗)&lt;/p>
+&lt;h3 id="ledとフォトトランジスタ">LEDとフォトトランジスタ
+&lt;/h3>&lt;p>フォトトランジスタは当たる光の大きさによって抵抗が変わる抵抗です。(大きいほど小さくなります。)&lt;br />
+そこでLEDの光が床に反射してフォトトランジスタに入ってくるようにすると、床の色によって反射の仕方が変わります。これによってラインセンサーを作っています。&lt;br />
+LEDに大電流を流すと壊れます。また、明るいとそれだけ電力を使うので気を付けてくださいね。&lt;br />
+はんだ付け時にはアノード・カソードにも気を付けてください。&lt;br />
+さらに、ラインセンサーは壊れやすいので、いくつか予備を作っておきましょう。&lt;/p>
+&lt;h3 id="地磁気センサー">地磁気センサー
+&lt;/h3>&lt;p>文字通り地磁気を読みとるセンサー。(別名: コンパス)&lt;br />
+無くても動きますが、これがないと「前」が分からなくなるので、準必需品です。&lt;br />
+情報のやり取りにはシリアル通信というのを使います。(詳しくは自身で調べてみてください)&lt;br />
+3軸なので、水平を保たないと調整がずれます。また、回路から影響をうけるので少し離すとよいでしょう。&lt;br />
+これもよく故障するので、予備を買っておきましょう。&lt;/p>
+&lt;h2 id="あると便利なもの">あると便利なもの
+&lt;/h2>&lt;p>あると便利なものを書いておきます。もちろん、これ以外にも便利な部品は存在します。&lt;/p>
+&lt;h3 id="コンパレータとorゲート可変抵抗">コンパレータとORゲート、可変抵抗
+&lt;/h3>&lt;p>これらはラインセンサーに使っている部品です。&lt;br />
+コンパレータは2つの入力(AとBとしよう)の電圧を比較し、A &amp;gt; Bなら&lt;kbd>HIGH&lt;/kbd>、A &amp;lt; Bなら&lt;kbd>LOW&lt;/kbd>を出力する回路部品です。&lt;br />
+つまり、Bを基準にしてAと比較した結果を出力します。&lt;br />
+これを利用することで、アナログピンが不要になります。&lt;br />
+また、基準電圧を変えるのに可変抵抗を使います。&lt;br />
+オームの法則 &lt;em>V=RI&lt;/em> に従って、抵抗を通過した電流は電圧降下するので、うまくやると電圧を変えることができます。(分圧といいます。詳しくはメモを参照してください。)&lt;br />
+ORゲートはAとBのどちらかが&lt;kbd>HIGH&lt;/kbd>なら&lt;kbd>HIGH&lt;/kbd>を出力する回路部品です。&lt;br />
+これを使うことで、フォトトランジスタを複数搭載できます。&lt;br />
+コンパレータとORゲートは精密部品なので、+-を逆にしたり、はんだ付け時に暖めすぎると壊れるので、ICソケットを使うのが良いでしょう。&lt;br />
+また、コンパレータは出力ピンをプルアップする必要があります。忘れないようにしてくださいね。&lt;/p>
+&lt;h3 id="hc-sr04超音波センサ">&lt;em>HC-SR04&lt;/em>(超音波センサ)
+&lt;/h3>&lt;p>2つの筒がついているセンサーで、片方が超音波を出し、反射したのをもう片方が受け取ります。&lt;br />
+それによって壁までの距離をはかるセンサーです。&lt;br />
+電源以外に&lt;em>Echo&lt;/em>と&lt;em>Trig&lt;/em>のピンがあり、&lt;em>Trig&lt;/em>に&lt;kbd>HIGH&lt;/kbd>を流すと波が出て、&lt;em>Echo&lt;/em>で受信します。&lt;br />
+PWMを使うのか使わないのかよくわからないのと、取得するまでの間プログラムが止まるらしいのとで、結局実用化できませんでした。&lt;br />
+(マイコンを2台搭載してみましたが、シリアル通信だとコンパスと同時に使えないっぽいことに今更気づきました。&lt;br />
+他のチームを参考にしてみてください。)&lt;/p>
+&lt;h3 id="ジャイロセンサと加速度センサ">ジャイロセンサと加速度センサ
+&lt;/h3>&lt;p>文字通り回転や加速度を検知するセンサです。&lt;br />
+これらを使うことで、コンパスセンサがなくても向きを判断できたり、&lt;br />
+「前進しているのに加速度が変わらない→動いてない＝ぶつかっている」みたいなことができたりします。&lt;br />
+また、コンパス、ジャイロ、加速度を同時に測れる9軸センサというのもあります。&lt;br />
+これをつければ戦略の幅が広がること間違いないです。もっとも、使いこなせればの話ですが…。&lt;br />&lt;/p>
+&lt;h3 id="ソレノイドキッカーと昇圧回路">ソレノイド(キッカー)と昇圧回路
+&lt;/h3>&lt;p>ソレノイドとはコイルのことです。&lt;br />
+電流を流すと内部に磁場が生じ、それによって、棒を押しだす部品です。&lt;br />
+これを付けると、ボールを「蹴る」ことができるようになり、遠くからボールを相手のゴールにシュートできます。&lt;br />
+また、一気に大きな電流を流すと、蹴りがより強くなります。&lt;br />
+というわけで大電流を流したいのですが…さっき書いた通り、マイコンにそんな力はないです。&lt;br />
+そこで昇圧回路を使います。&lt;br />
+簡単に言うと、まずコンデンサに電気をちょっとずつ貯めておき、必要になったらそれを一気に放出する、というものです。&lt;br />
+ボールを保持していることの判断がちょっと大変だったり、パワーに制限があって調整する必要だったり、&lt;br />
+ソレノイド自身がそこそこ重かったりします。&lt;br />
+これを搭載したロボットを作るのが目標なのですが、出来上がるのはいつになるのでしょうか…&lt;br />&lt;/p>
+&lt;h2 id="ちょっとしたやつ">ちょっとしたやつ
+&lt;/h2>&lt;p>上で挙げたもの以外のちょっとしたものを一応説明しておきます。&lt;br />&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>コンデンサ: 電気をちょっと貯められる。&lt;br />
+電池だけだとたまに「足りなくなる」ときがあるので、それに備えるためにあったりする。&lt;br />
+電解コンデンサには+-の向きがあるので注意。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>ヒューズ: 保護装置。&lt;br />
+大電流が流れたとき、これが物理的に切れる。&lt;br />
+Li-ion電池を使うなら必ずつけること。&lt;br />
+(過充電・過放電の対策も必ずすること。)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>XAコネクタ: 今使っているコネクタ。&lt;br />
+実は穴(?)の間隔はピンヘッダと同じである。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>ターミナルブロック: ねじで導線をつなぐやつ。&lt;br />
+モーターや電池と基板との接続に使っている。&lt;br />
+でもコネクタのほうが便利?&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>鈴メッキ線: 基板の表面の配線(ジャンパ線)に使っている。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>ピンヘッダ: ――■- ←みたいなやつ。オスとメスがある。&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>ロボットの設計のやり方1 ～仕様決定編～</title><link>https://takasaki-physics.github.io/p/2019-robo1/</link><pubDate>Thu, 01 Aug 2019 17:33:30 +0900</pubDate><guid>https://takasaki-physics.github.io/p/2019-robo1/</guid><description>&lt;h2 id="編集者から">編集者から
+&lt;/h2>&lt;p>こちらは、先輩が作成したtxt文章を物理部パソコンから発見し、こちらのサイト向けに書き直したものです。&lt;br />
+忙しい中、このような素晴らしい記事を書いてくださった先輩に、感謝の意を表します。&lt;br />&lt;/p>
+&lt;h2 id="優先順位">優先順位
+&lt;/h2>&lt;p>ロボットを設計するにあたって、まずどんなロボットを
+作るのかを決める必要があります。&lt;/p>
+&lt;p>その際、最も優先すべきことは「ちゃんとロボットが動くこと」です。&lt;br />
+次に丈夫であることです。性能などはその次に考えましょう。どんなに性能が良くてもまともに動かなければ意味がありません。&lt;br />
+またいろんな種類のパーツをつけると、それだけソフト担当に負担がかかります。(要は器用貧乏になる可能性があります。)&lt;/p>
+&lt;p>あとは整備のしやすさも重要です。電池交換や修理のしやすさはそのまま稼働率に影響します。&lt;/p>
+&lt;p>以上の通り、優先順位をつけると&lt;br />
+規定&amp;raquo;(越えられない壁)&amp;raquo;安定性&amp;gt;=耐久性&amp;raquo;整備性&amp;gt;=性能&amp;gt;機能&amp;gt;(その他)&lt;br />
+となります。&lt;/p>
+&lt;h2 id="機体の仕様">機体の仕様
+&lt;/h2>&lt;p>次に、機体の仕様を決めます。ここで決めるのはモーター、ホイール、板、電池の4つです。&lt;/p>
+&lt;h3 id="モーター">モーター
+&lt;/h3>&lt;p>モーターはロボットの機動力を左右する部分です。&lt;br />
+とは言っても、とりあえずダイセンギヤードモーターを使えばいいので、重要なのは数とギア比です。&lt;br />
+モーターの数は2～4つが多く使われます。&lt;/p>
+&lt;p>&lt;strong>2輪&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>軽い&lt;/li>
+&lt;li>制御が楽&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>方向転換に旋回が必要&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>3輪&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>斜めに移動可能&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>制御がやや難しい&lt;/li>
+&lt;li>前後左右がやや面倒&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>4輪&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>制御がやや楽&lt;/li>
+&lt;li>前後左右の概念がある&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>重い&lt;/li>
+&lt;li>物理部では作成経験無し&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>とりあえず3輪を採用することにしていますが、十分に技術が発達したら2輪や4輪をやってみてもいいかもしれません。&lt;/p>
+&lt;p>また、ギア比については、15:1か30:1を使えば良いです。&lt;br />
+15:1は速度は出ますが力が弱く、逆に30:1は力がありますが速度が遅いです。&lt;br />
+15:1でろくに動かなかったら30:1を採用すればいいでしょう。&lt;/p>
+&lt;h3 id="ホイール">ホイール
+&lt;/h3>&lt;p>2輪の場合は普通のホイールでもいいのですが、3輪や4輪ではオムニホイールというものを使う必要があります。&lt;br />
+(むしろオムニホイールが3輪や4輪を可能にしているのですが…)&lt;br />
+直径とか重さとかも考える必要があります。(とりあえず45mmくらいでいいと思います)&lt;br />
+あと、モーターの軸に合ったものを買いましょう。&lt;/p>
+&lt;p>メカナムホイール…? 知らない子ですね…。&lt;/p>
+&lt;h3 id="板">板
+&lt;/h3>&lt;p>板もまた重要な部分です。ここではいくつかの素材とその特徴を書いておきます。&lt;/p>
+&lt;p>&lt;strong>アクリル&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>軽い&lt;/li>
+&lt;li>安い&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>やや割れやすい&lt;/li>
+&lt;li>加工がやや大変&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>アルミ&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>加工がやや楽&lt;/li>
+&lt;li>割れない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>やや重い&lt;/li>
+&lt;li>曲がる&lt;/li>
+&lt;li>つや消しする必要がある&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>FRP&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>軽い&lt;/li>
+&lt;li>割れにくい&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>加工が大変&lt;/li>
+&lt;li>使ったことがない&lt;/li>
+&lt;li>高い&lt;/li>
+&lt;li>衝撃に弱いらしい&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>他にも色々あると思うので、良いのが見つかったら試してみましょう。&lt;/p>
+&lt;p>モーターと板(と基板)の配置についてはいくつかのパターンがあります。&lt;/p>
+&lt;p>&lt;strong>２枚、モーターが上&lt;/strong>&lt;br />
+下から板、モーター、板、基板となる配置。物理部でメインで使っている配置です。&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>板の間に物を置けるので&lt;/li>
+&lt;li>壊れにくい&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>ごちゃごちゃする&lt;/li>
+&lt;li>整備が面倒&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>２枚、モーターが下&lt;/strong>&lt;br />
+下からモーター、板、板、基板となる配置。&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>板の間のスペースが広い&lt;/li>
+&lt;li>整備が楽&lt;/li>
+&lt;li>小さいホイールが使える&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>板の下にセンサをつけると、干渉とかが面倒&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>１枚&lt;/strong>&lt;br />
+下からモーター、板、基板となる配置。かつての先輩はこの配置を採用したらしいです。&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>板が１枚なので軽い&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>板の上がごちゃごちゃしそう&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>後は、基板の上に板をつける配置もあります。最適なものを選びましょう。&lt;/p>
+&lt;h3 id="電源バッテリー">電源(バッテリー)
+&lt;/h3>&lt;p>当たり前ですが、電源がなければロボットは動きません。&lt;br />
+Arduinoだけならちょっとした電池で足りるのですが、モーターを長時間動かし続けるとなると、大容量の電池が必要となります。&lt;br />
+そこで電池の種類と特徴を書いておきます。&lt;/p>
+&lt;p>&lt;strong>普通の乾電池&lt;/strong>&lt;br />
+いつもの使い捨てタイプのやつです&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>ほぼない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>使い捨てのため、コストがクッソかかる&lt;/li>
+&lt;li>現状、9V角型のをarduinoなどの電源に使っているが、もしかしたらモーター用電源から引っ張ってきた方がいいかもしれない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>NiCd(ニカド)電池&lt;/strong>&lt;br />
+昔主流だった充電池。今はほとんど使われない。&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>かなり安い&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>カドミウムが有害&lt;/li>
+&lt;li>メモリー効果がある&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>NiMH(ニッケル水素)電池&lt;/strong>&lt;br />
+ニカド電池の代わりに使われるようになった充電池。乾電池型のものもある(エネループとか)&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>安い&lt;/li>
+&lt;li>大容量のものもある&lt;/li>
+&lt;li>安全&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>メモリー効果がある&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>とりあえず迷ったらこれでいいんじゃないかな。&lt;/p>
+&lt;p>&lt;strong>Li-ion(リチウムイオン)電池&lt;/strong>&lt;br />
+現在主流の充電池。容量が大きいが、危険性も高い(爆発する可能性あり)&lt;br />
+そのため、ロボカップジュニアジャパンでは使用が制限されている。&lt;br />
+使うときはレギュレーションをちゃんと読んで、必要な書類を提出しなければならない。(一敗)&lt;br />&lt;/p>
+&lt;p>&lt;strong>LiPo(リチウムポリマー)電池&lt;/strong>&lt;br />
+スマホのバッテリーにも使われるやつ&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>大容量&lt;/li>
+&lt;li>電圧が高い&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>取り扱いを間違えると爆発する危険性がある&lt;br />
+(一応安全な方らしいのだが…)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>そんなわけでお勧めできない。&lt;/p>
+&lt;p>&lt;strong>LiFe(リチウムフェライト)電池&lt;/strong>&lt;br />
+LiPoに代わって広まりつつある電池。ラジコンにも使われたりする&lt;/p>
+&lt;ul>
+&lt;li>メリット
+&lt;ul>
+&lt;li>容量がやや大きい&lt;/li>
+&lt;li>電圧も高い&lt;/li>
+&lt;li>LiPoより安全(釘刺しても燃えない)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>デメリット
+&lt;ul>
+&lt;li>初期費用が高い&lt;/li>
+&lt;li>LiPoよりは性能が劣る(でも十分かも？)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>もし使うならこっちをおすすめする。&lt;/p>
+&lt;h2 id="設計思想">設計思想
+&lt;/h2>&lt;p>結構長くなりましたが、これでだいたい機体の仕様は決まるはずです。&lt;br />
+…それでも、どんなロボットを作ろうか迷っているかもしれません。&lt;br />
+そこで、いくつかの戦闘機の設計思想を書いておきます。&lt;br />
+「え、何で戦闘機？しかも唐突に」と、思っているかもしれませんが、&lt;br />
+戦闘機は兵器ゆえ、ちゃんと動作し、(自分たちに)安全で、故障しにくく、運用しやすく…&lt;br />
+と、ロボットの開発と共通する部分が多いのです。(もちろん、戦車など他の兵器にも同じことが言えます)&lt;br />
+というわけで、&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>零式艦上戦闘機&lt;br />
+&lt;strong>要求:&lt;/strong> 貧弱なエンジンで最強の戦闘機作って&lt;br />
+&lt;strong>結果:&lt;/strong> 装甲を捨て、旋回性能と航続距離に特化&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>流星艦上攻撃機&lt;br />
+&lt;strong>経緯:&lt;/strong> 艦上攻撃機(重い、敵艦撃沈目的)と艦上爆撃機(軽い、急降下爆撃専門)が段々要求性能が似てきた&lt;br />
+&lt;strong>結果:&lt;/strong> 急降下爆撃、水平爆撃、雷撃、全部できるやつを作ろう&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>震電&lt;br />
+&lt;strong>経緯:&lt;/strong> B-29迎撃する必要がある&lt;br />
+&lt;strong>結果:&lt;/strong> 高速化のためエンジンとプロペラを後ろに配置、尾翼が前にある機体に&lt;br />
+(なお、開発中に終戦)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>A-4 スカイホーク&lt;br />
+&lt;strong>経緯:&lt;/strong> 核爆弾を搭載可能なまともな機体がない、あってもでかい…&lt;br />
+&lt;strong>要求:&lt;/strong> 小型で安価で核爆弾積めるやつ作って&lt;br />
+&lt;strong>結果:&lt;/strong> 機体をシンプル、軽量、小型化したら積載量が4tに、しかも機動力、整備性も良くなった&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>A-10 サンダーボルトII&lt;br />
+&lt;strong>要求:&lt;/strong> 長時間の空中待機、低速での運動性能、強力な機関砲、卓越した生存性を備え、ローコストな航空支援用の機体を作って&lt;br />
+&lt;strong>結果:&lt;/strong> 悪条件下でも運用可能、多くの部品が左右共通など整備性も良い、加えて異常な耐久力を備え、湾岸戦争で大活躍した&lt;br />
+これみたいなロボットが僕の理想でした。できなかったのですが。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>他にもF-14 F-15 F-16 F/A-18 F-35とかいろいろあるので調べてみてください&lt;/p></description></item><item><title>ロボットの設計のやり方0 〜説明〜</title><link>https://takasaki-physics.github.io/p/2019-robo0/</link><pubDate>Mon, 01 Jul 2019 13:09:18 +0900</pubDate><guid>https://takasaki-physics.github.io/p/2019-robo0/</guid><description>&lt;h2 id="編集者から">編集者から
+&lt;/h2>&lt;p>こちらは、先輩が作成したtxt文章を物理部パソコンから発見し、こちらのサイト向けに書き直したものです。&lt;br />
+忙しい中、このような素晴らしい記事を書いてくださった先輩に、感謝の意を表します。&lt;br />&lt;/p>
+&lt;p>本文章(シリーズ)に関しては、この文章を記述した先輩が&lt;strong>アドバイスは必要に応じて追記・修正してかまわない&lt;/strong>という記載をしているため、文章の編集を歓迎します。&lt;br />&lt;/p>
+&lt;h2 id="概要">概要
+&lt;/h2>&lt;p>このメモは、自分がコミュ障であり、また技術の習得に時間がかかるため、&lt;br />
+おそらく引退までに技術継承が間に合わないであろうと思ったので、&lt;br />
+(そして今後技術継承がうまくいかなかったときのために)&lt;br />
+残すことにしました。&lt;/p>
+&lt;p>自分の持っている知識とかを詰め込んでおくので参考にしてほしいです。&lt;/p>
+&lt;p>第119期? 部長兼ハード担当　○○○○&lt;/p>
+&lt;p>(編集者より: 名前は個人情報保護のために隠しておきます。&lt;br />
+物理部のパソコンを調べたところ、この方は2019年度の部長(3学年)らしいです。)&lt;/p></description></item></channel></rss>

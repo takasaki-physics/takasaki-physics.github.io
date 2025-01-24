@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>広報 on 高崎高校 物理部/SSH</title><link>https://takasaki-physics.github.io/categories/%E5%BA%83%E5%A0%B1/</link><description>Recent content in 広報 on 高崎高校 物理部/SSH</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Fri, 12 Jul 2024 10:01:00 +0900</lastBuildDate><atom:link href="https://takasaki-physics.github.io/categories/%E5%BA%83%E5%A0%B1/index.xml" rel="self" type="application/rss+xml"/><item><title>広報活動について</title><link>https://takasaki-physics.github.io/p/20240712-public-relations/</link><pubDate>Fri, 12 Jul 2024 10:01:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/20240712-public-relations/</guid><description>&lt;h2 id="広報活動について">広報活動について
+&lt;/h2>&lt;p>主に物理部、一部翠巒祭&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>の広報についても記載します。&lt;/p>
+&lt;p>※もちろん皆さん忙しいと思うので、ここに記載している内容は完全に無視してもいいです。&lt;/p>
+&lt;h3 id="blog">Blog
+&lt;/h3>&lt;ul>
+&lt;li>物理部/SSH Blog - &lt;a class="link" href="https://takasaki-physics.github.io/" target="_blank" rel="noopener"
+>https://takasaki-physics.github.io/&lt;/a> (&lt;a class="link" href="https://github.com/takasaki-physics/takasaki-physics.github.io" target="_blank" rel="noopener"
+>GitHub&lt;/a>)&lt;/li>
+&lt;li>翠巒祭開発者 Blog - &lt;a class="link" href="https://blog.suiranfes.blue/" target="_blank" rel="noopener"
+>https://blog.suiranfes.blue/&lt;/a> (&lt;a class="link" href="https://github.com/suiranfes/blog.suiranfes.blue" target="_blank" rel="noopener"
+>GitHub&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;p>両方とも &lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
+>Hugo&lt;/a> という仕組みを利用し、GitHub で管理しています。&lt;/p>
+&lt;p>(GitHub アカウントは、学校のアカウントではなく個人のアカウントで作成することを強く推奨します)&lt;/p>
+&lt;p>物理部/SSH Blog は存続してほしいと考えています。
+投稿内容は Blog でも構いませんし、技術移行の資料やプログラムのガイドブック (内部向け資料) とかでもいいと思います。面倒だったら Qiita とかを使うのでも良いかもしれません。&lt;/p>
+&lt;p>翠巒祭開発者 Blog は任せます。どっちでもいいです。&lt;/p>
+&lt;h3 id="sns">SNS
+&lt;/h3>&lt;p>こちらが本題です。&lt;/p>
+&lt;p>Blog は外部の人にはあまり見られることがないと思うので、広報としては効果が低いと思います。
+そこで、SNS の利用を推奨します。&lt;/p>
+&lt;p>広報は高崎高校の活動を知ってもらうことや、他校の人と協力することなどにもつながるので良いと思います。&lt;br>
+具体的には、物理部はロボの高度技術に関しての協力、翠巒祭は来客の集客で役に立つと思います。&lt;br>
+(翠巒祭は各班課でも結構やっています)&lt;/p>
+&lt;p>私が中学生だった頃は、高崎高校がどのような活動をしているかというのは&lt;a class="link" href="https://takasaki-hs.gsn.ed.jp/" target="_blank" rel="noopener"
+>高崎高校のホームページ&lt;/a>からしか情報を仕入れられませんでした。(翠巒祭のウェブサイトの存在も知らなかった)
+なので、高崎高校を目指す中学生を初めとした多くの人に高崎高校の活動を知ってもらえるように広報をしてもらえたら嬉しいとおもいます。&lt;/p>
+&lt;h4 id="twitter-x">Twitter (X)
+&lt;/h4>&lt;p>&lt;a class="link" href="https://twitter.com/takataka_robo" target="_blank" rel="noopener"
+>物理部ロボ&lt;/a> / &lt;a class="link" href="https://twitter.com/suiranfes" target="_blank" rel="noopener"
+>翠巒祭&lt;/a>&lt;/p>
+&lt;h4 id="misskey">Misskey
+&lt;/h4>&lt;p>近年急速に成長を遂げている分散型 SNS です。&lt;/p>
+&lt;p>フォロワーが少なくても、リアクションがつきやすいので、続けるモチベーションになると思います。
+(Twitter (X) はいいねとかがつきにくいので、モチベーションがすぐになくなってしまう気がする)&lt;/p>
+&lt;p>我らが &lt;a class="link" href="https://p1.a9z.dev/@aqz" target="_blank" rel="noopener"
+>aqz&lt;/a> 大先輩も misskey の開発者なので、個人的には翠巒祭側で特に使ってほしいですね。&lt;/p>
+&lt;p>サーバー (インスタンス) は misskey.io を推奨します。
+(もし物理部のサーバーを使えるなら、独自のインスタンスを立ち上げてもいいけど、技術的にも学校の許可的にも厳しそう)&lt;/p>
+&lt;p>運用方法は &lt;a class="link" href="https://misskey.io/@kakkokari_gtyih" target="_blank" rel="noopener"
+>(仮)&lt;/a> さん (高校生のときから misskey を開発している偉人) の学校の&lt;a class="link" href="https://misskey.io/@natureofmad_" target="_blank" rel="noopener"
+>とんこう科学部&lt;/a>とか&lt;a class="link" href="https://misskey.io/@tonko_fes" target="_blank" rel="noopener"
+>とんこう文化祭&lt;/a>とかが参考になると思います。&lt;/p>
+&lt;h3 id="github">GitHub
+&lt;/h3>&lt;p>&lt;a class="link" href="https://github.com/takasaki-physics" target="_blank" rel="noopener"
+>物理部&lt;/a> / &lt;a class="link" href="https://github.com/suiranfes" target="_blank" rel="noopener"
+>翠巒祭&lt;/a>&lt;/p>
+&lt;p>管理方法を考え中なので、しばらくお待ち下さい。
+(Admin 権限をあげないと新しいメンバーの招待ができないけど、誤って歴代のレポジトリを消してしまわないかという心配がある)&lt;/p>
+&lt;p>卒業までには引き継げるように準備をする予定です。&lt;/p>
+&lt;p>ちなみに、物理部 GitHub は私 (&lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint73&lt;/a>) が、翠巒祭 GitHub は 65th の Web 課だった &lt;a class="link" href="https://github.com/tamaina" target="_blank" rel="noopener"
+>aqz&lt;/a> 大先輩が設立しました。&lt;/p>
+&lt;h3 id="その他">その他
+&lt;/h3>&lt;p>とくになし☆&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>現在の物理部2年生に翠巒祭重役が多いので&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item></channel></rss>

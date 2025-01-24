@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ウェブアプリ on 高崎高校 物理部/SSH</title><link>https://takasaki-physics.github.io/tags/%E3%82%A6%E3%82%A7%E3%83%96%E3%82%A2%E3%83%97%E3%83%AA/</link><description>Recent content in ウェブアプリ on 高崎高校 物理部/SSH</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Fri, 19 Jul 2024 12:37:00 +0900</lastBuildDate><atom:link href="https://takasaki-physics.github.io/tags/%E3%82%A6%E3%82%A7%E3%83%96%E3%82%A2%E3%83%97%E3%83%AA/index.xml" rel="self" type="application/rss+xml"/><item><title>CSS 基礎 3 - 色彩の薦め</title><link>https://takasaki-physics.github.io/p/tutorial-css-003/</link><pubDate>Fri, 19 Jul 2024 12:37:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-css-003/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>デザインにおける色の利用方法について解説します。&lt;/p>
+&lt;p>この資料は CSS とは関係なく、開発者に知ってもらいたいデザインに関する知識を乗せているので、ぜひ読んでみてください。&lt;/p>
+&lt;h2 id="tldr">TL;DR;
+&lt;/h2>&lt;p>似た色を使うのがいいです。&lt;/p>
+&lt;p>&lt;a class="link" href="https://mui.com/material-ui/customization/color/#color-palette" target="_blank" rel="noopener"
+>Color | Material UI&lt;/a> みたいな&lt;/p>
+&lt;h2 id="色彩学">色彩学
+&lt;/h2>&lt;h3 id="色の重要さ">色の重要さ
+&lt;/h3>&lt;blockquote>
+&lt;p>いろいろあるよね〜&lt;/p>
+&lt;p>(&lt;a class="link" href="https://github.com/ssadokafy" target="_blank" rel="noopener"
+>@ssadokafy&lt;/a> / &lt;a class="link" href="https://github.com/nAgI314" target="_blank" rel="noopener"
+>部長&lt;/a>)&lt;/p>
+&lt;/blockquote>
+&lt;p>色は、デザインにとって一番重要と言っても過言ではない要素です。&lt;/p>
+&lt;p>以下の2つの画像を御覧ください。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/table1.png"
+width="455"
+height="378"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/table1_hu_ced05f40f2c5e136.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/table1_hu_7fcf3b75b8e3f2ca.png 1024w"
+loading="lazy"
+alt="テーブル"
+class="gallery-image"
+data-flex-grow="120"
+data-flex-basis="288px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/table2.png"
+width="455"
+height="378"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/table2_hu_d31602fcc250e8a9.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/table2_hu_990fc9c7595ad6d2.png 1024w"
+loading="lazy"
+alt="テーブル"
+class="gallery-image"
+data-flex-grow="120"
+data-flex-basis="288px"
+>&lt;/p>
+&lt;p>(&lt;a class="link" href="https://developer.mozilla.org/ja/docs/Web/HTML/Element/table" target="_blank" rel="noopener"
+>https://developer.mozilla.org/ja/docs/Web/HTML/Element/table&lt;/a> を参考にして作成)&lt;/p>
+&lt;p>どちらも同じ UI ですが、配色によってこれほどにも印象が変わります。&lt;/p>
+&lt;p>色彩という要素を抑えることで、アプリケーションのデザインで他のグループよりも1手先を行くことができます!&lt;/p>
+&lt;h3 id="色彩を構成する3つの要素">色彩を構成する3つの要素
+&lt;/h3>&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/color-space1.png"
+width="400"
+height="400"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/color-space1_hu_a457ae3a783b25dd.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/color-space1_hu_f30a3306cdfa75a5.png 1024w"
+loading="lazy"
+alt="色相環"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+>&lt;/p>
+&lt;p>(出典: &lt;a class="link" href="https://ja.wikipedia.org/wiki/%e8%89%b2%e7%9b%b8#/media/%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab:HLSColorSpace.png" target="_blank" rel="noopener"
+>Wikipedia&lt;/a>)&lt;/p>
+&lt;p>以下の3つの要素を合わせることで、すべての色を作ることが可能です。
+(色の考え方は多くありますが、今回は標準的な HSV 色空間に関して解説します)&lt;/p>
+&lt;h4 id="色相">色相
+&lt;/h4>&lt;p>色相 (&lt;em>Hue&lt;/em>) とは、青、赤などのベースとなる色です。
+色相環の円周上という表現がわかりやすいと思います。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-hue.png"
+width="188"
+height="244"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-hue_hu_a56fd998b1eece3f.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-hue_hu_9ee39d4a86333e6f.png 1024w"
+loading="lazy"
+alt="色相"
+class="gallery-image"
+data-flex-grow="77"
+data-flex-basis="184px"
+>&lt;/p>
+&lt;p>&lt;code>#ff0000&lt;/code> &lt;code>#ff0088&lt;/code> &lt;code>#ff00ff&lt;/code>&lt;/p>
+&lt;h4 id="彩度">彩度
+&lt;/h4>&lt;p>彩度 (&lt;em>Saturation&lt;/em>/&lt;em>Chroma&lt;/em>) とは、ベースの色の濃さです。
+色相が青とすると、彩度が高いときは青に近く、彩度が低いと白に近くなります。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-chroma.png"
+width="188"
+height="244"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-chroma_hu_736c0a181b2c4232.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-chroma_hu_452e37b033a3c2d4.png 1024w"
+loading="lazy"
+alt="彩度"
+class="gallery-image"
+data-flex-grow="77"
+data-flex-basis="184px"
+>&lt;/p>
+&lt;p>&lt;code>#0000ff&lt;/code> &lt;code>#4444ff&lt;/code> &lt;code>#8888ff&lt;/code>&lt;/p>
+&lt;h4 id="明度">明度
+&lt;/h4>&lt;p>明度 (&lt;em>Value&lt;/em>/&lt;em>Brightness&lt;/em>) とは、色の明るさです。
+明度が高いときはベースの色や白に近く、明度が低いときは黒に近くなります。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-value.png"
+width="188"
+height="244"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-value_hu_f77ba9f9d3f07374.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-value_hu_b8e6cc9e1c6a151b.png 1024w"
+loading="lazy"
+alt="明度"
+class="gallery-image"
+data-flex-grow="77"
+data-flex-basis="184px"
+>&lt;/p>
+&lt;p>&lt;code>#00ff00&lt;/code> &lt;code>#00aa00&lt;/code> &lt;code>#008800&lt;/code>&lt;/p>
+&lt;h3 id="配色で気をつけるところ">配色で気をつけるところ
+&lt;/h3>&lt;h4 id="色を多くしすぎない">色を多くしすぎない
+&lt;/h4>&lt;p>色を多くすると、どうしてもごちゃごちゃしているように見えてしまいます。&lt;/p>
+&lt;p>メインで利用する色は4~5色にする、というように決めておくとよいでしょう。&lt;/p>
+&lt;h4 id="補色">補色
+&lt;/h4>&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/color-space2.png"
+width="400"
+height="400"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/color-space2_hu_ebecb10b42777045.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/color-space2_hu_8b40a799d5dc4393.png 1024w"
+loading="lazy"
+alt="補色"
+class="gallery-image"
+data-flex-grow="100"
+data-flex-basis="240px"
+>&lt;/p>
+&lt;p>補色は、色相が逆の色の組み合わせです。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-red-green.png"
+width="187"
+height="166"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-red-green_hu_1bee32e63e73babe.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-red-green_hu_6869afdf57df7e38.png 1024w"
+loading="lazy"
+alt="補色 赤-緑"
+class="gallery-image"
+data-flex-grow="112"
+data-flex-basis="270px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-blue-orange.png"
+width="187"
+height="166"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-blue-orange_hu_764d59e7067b8ce3.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-blue-orange_hu_1c6a6f6a106cc48b.png 1024w"
+loading="lazy"
+alt="補色 青-橙"
+class="gallery-image"
+data-flex-grow="112"
+data-flex-basis="270px"
+>&lt;/p>
+&lt;p>赤の背景に緑の文字など、補色の組み合わせは見づらいので、使わないのが無難でしょう。&lt;/p>
+&lt;h4 id="コントラスト比">コントラスト比
+&lt;/h4>&lt;p>この画像を御覧ください。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-contrast.png"
+width="538"
+height="330"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-contrast_hu_91f5f73c51136f21.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-contrast_hu_30d007e38bee0415.png 1024w"
+loading="lazy"
+alt="コントラスト比"
+class="gallery-image"
+data-flex-grow="163"
+data-flex-basis="391px"
+>&lt;/p>
+&lt;p>どちらの文字が読みやすいでしょうか。&lt;/p>
+&lt;p>もちろん、上ですよね。&lt;/p>
+&lt;p>これは、コントラスト比という要素に関わります。
+そのまま明るさの比なのですが、このコントラスト比が大きいほど文字が読みやすいため、これを意識することは重要です。&lt;/p>
+&lt;p>(人間 (特に色覚異常の人) は色相の違いよりも明度の違いの方が知覚しやすいといわれています)&lt;/p>
+&lt;p>開発者ツールで確認するのが良いでしょう。&lt;/p>
+&lt;h4 id="類似色">類似色
+&lt;/h4>&lt;p>基本的に、色は類似色で固めるのが無難です。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-hue.png"
+width="188"
+height="244"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-hue_hu_a56fd998b1eece3f.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-hue_hu_9ee39d4a86333e6f.png 1024w"
+loading="lazy"
+alt="色相"
+class="gallery-image"
+data-flex-grow="77"
+data-flex-basis="184px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-003/colors-chroma.png"
+width="188"
+height="244"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-003/colors-chroma_hu_736c0a181b2c4232.png 480w, https://takasaki-physics.github.io/p/tutorial-css-003/colors-chroma_hu_452e37b033a3c2d4.png 1024w"
+loading="lazy"
+alt="彩度"
+class="gallery-image"
+data-flex-grow="77"
+data-flex-basis="184px"
+>&lt;/p>
+&lt;p>青紫、青、水色のように、色相を少しずつ変えるパターンと、濃い青、薄い青、白のように、彩度を少しずつ変えるパターンがあります。前者では、水色や黄色などの薄めの色と、青紫のような濃い色を用意し、対比しやすいように準備するのが良いかと思います。&lt;/p>
+&lt;h3 id="色系のツール">色系のツール
+&lt;/h3>&lt;p>便利ツールとして、以下のものがあげられます。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://color.adobe.com" target="_blank" rel="noopener"
+>Adobe Color&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://colorhunt.co/" target="_blank" rel="noopener"
+>Color Hunt&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="おまけ">おまけ
+&lt;/h2>&lt;p>おまけです。読まないほうがいいです。&lt;/p>
+&lt;h3 id="赤紫は存在しない">赤紫は存在しない
+&lt;/h3>&lt;p>&lt;a class="link" href="https://www.youtube.com/watch?v=PYE09lfwSys" target="_blank" rel="noopener"
+>赤紫とかいう「ない色」 | YouTube&lt;/a>&lt;/p>
+&lt;p>面白いので、ぜひ見てみてください。(私は動画の作者ではないです)&lt;/p>
+&lt;h3 id="色覚異常">色覚異常
+&lt;/h3>&lt;p>色覚異常 (色覚多様性) は、人間の錐体 (色の感覚細胞) が欠けている場合に起こる症状です。&lt;/p>
+&lt;p>ほとんどの人は赤、緑、青の3つの錐体が存在し、可視光の色を検知することができます。
+しかし、赤の錐体と緑の錐体は進化する前は元々同じ錐体だったため、稀に赤の錐体または緑の錐体が存在しない人が居ます。
+これを2色彩 (正常に見える色と、グレーまたは別の色として見える色がある) と定義しています。
+(ごく稀に赤の錐体と緑の錐体が存在するのに青の錐体がない人も居ますが、極めて少数です。ほとんどの青の錐体がない人は赤の錐体も、緑の錐体もない1色彩 (モノクロに見える) となります)&lt;/p>
+&lt;p>また、錐体がまったくないわけではないけど、少ないということもあり、色弱または軽度の色覚異常として考慮されています。&lt;/p>
+&lt;p>色覚異常は男性が多く、1型2色彩 (赤の錐体がない) や2型2色彩 (緑の錐体がない) が特に多いです。
+この場合、赤色の文字などは黒またはグレーの文字のように見えるため、区別が難しくなっています。&lt;/p>
+&lt;p>高度なアプリケーションを開発する場合は、このあたりを考慮にいれると多くの人に使いやすいアプリケーションにできます。&lt;/p>
+&lt;p>(Web ページを右クリック -&amp;gt; &amp;ldquo;検証&amp;rdquo; -&amp;gt; 右上の &lt;code>︙&lt;/code> -&amp;gt; その他のツール -&amp;gt; レンダリング -&amp;gt; 色覚異常をエミュレート を利用してください。)&lt;/p>
+&lt;p>ちなみに、3型2色彩 (青の錐体がない) では、青色が青緑のように見えます。
+青の錐体がないのに、青が見えるというのは奇妙ですが、これは錐体の検知の仕組み的にこの様になっているようです。&lt;/p>
+&lt;p>&lt;a class="link" href="https://ja.wikipedia.org/wiki/%e8%89%b2#%e4%b8%89%e7%a8%ae%e3%81%ae%e9%8c%90%e4%bd%93%e7%b4%b0%e8%83%9e%e3%81%a8%e4%b8%89%e5%8e%9f%e8%89%b2" target="_blank" rel="noopener"
+>色 | Wikipedia&lt;/a> とかが参考になるかもしれません。&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.color.org/index.xalter" target="_blank" rel="noopener"
+>ICC&lt;/a> は国際的な色彩学の組織です。英文ですが、詳しく知りたかったらこの組織の文章を読んでみるのも良いでしょう。&lt;/p>
+&lt;h3 id="lch-色空間">L*c*h 色空間
+&lt;/h3>&lt;p>色空間に関しては、HSV 色空間は絶対的な (コンピュータ的な) 指定は得意なのですが、人間による知覚的な色空間はあまり得意ではありません。
+ここで、知覚的な (人間的な) 色の指定を行うことができる L*c*h 色空間の考え方も面白いので、ぜひ調べてもらえたらと思えます。&lt;/p>
+&lt;p>&lt;a class="link" href="https://qiita.com/soi/items/9439ba59cef99b1a1ea5" target="_blank" rel="noopener"
+>OK L*C*H を使おう | Qiita&lt;/a> この文章は参考になると思います。&lt;/p>
+&lt;h3 id="iso-3864-4">ISO 3864-4
+&lt;/h3>&lt;blockquote>
+&lt;p>ISO3864では、標識は、言葉の壁を克服するためにグラフィカルな物とすることと規定している。&lt;/p>
+&lt;p>(&lt;a class="link" href="https://ja.wikipedia.org/wiki/ISO_3864" target="_blank" rel="noopener"
+>ISO 3864 | Wikipedia&lt;/a> より引用)&lt;/p>
+&lt;/blockquote>
+&lt;p>標識の色彩に関する国際規格ですが、警告色などの参考になるかと思います。&lt;/p>
+&lt;p>一般的な UI フレームワークではこれよりも薄い色を利用されることが多いと感じます。&lt;/p>
+&lt;p>例:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://mui.com/material-ui/customization/palette/#values" target="_blank" rel="noopener"
+>Material UI (MUI)&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://fluent2.microsoft.design/color#semantic-colors" target="_blank" rel="noopener"
+>Fluent&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://getbootstrap.jp/docs/5.3/utilities/colors/#%e3%82%ab%e3%83%a9%e3%83%bc" target="_blank" rel="noopener"
+>Bootstrap&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>CSS 基礎 2 - 角丸と空白の美</title><link>https://takasaki-physics.github.io/p/tutorial-css-002/</link><pubDate>Fri, 19 Jul 2024 09:54:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-css-002/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>角丸の使い方と利用しやすい UI について記載します。&lt;/p>
+&lt;h2 id="角丸">角丸
+&lt;/h2>&lt;p>角丸とは、名前の通り角を丸くすることです。&lt;/p>
+&lt;p>角を丸くすることで、より自然物のようなデザインに仕上げることができます。&lt;/p>
+&lt;p>ボタンは、通常以下のようなデザインとなります。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/button1.png"
+width="248"
+height="123"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/button1_hu_ae2f78f478f865b4.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/button1_hu_a6a9e80fb11b2b45.png 1024w"
+loading="lazy"
+alt="ボタン"
+class="gallery-image"
+data-flex-grow="201"
+data-flex-basis="483px"
+>&lt;/p>
+&lt;p>(画像は &lt;code>border-width: 0;&lt;/code> と &lt;code>background-color: lightblue;&lt;/code> の微調整を加えています)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.html" data-lang=".html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">button&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>ボタン&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">button&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>これに、角丸を適応してみましょう。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/button2.png"
+width="248"
+height="123"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/button2_hu_1071cb233c3fc031.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/button2_hu_456fbdbec612cd1a.png 1024w"
+loading="lazy"
+alt="ボタン"
+class="gallery-image"
+data-flex-grow="201"
+data-flex-basis="483px"
+>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">button&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">border-radius&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">6&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>これだけで、柔らかいデザインになったのがわかると思います。&lt;/p>
+&lt;h2 id="空白">空白
+&lt;/h2>&lt;p>まずは以下の2つの画像を御覧ください。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/page2.png"
+width="269"
+height="193"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/page2_hu_a2d7f38396b8d037.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/page2_hu_c8036fe05f2d5c00.png 1024w"
+loading="lazy"
+alt="空白あり"
+class="gallery-image"
+data-flex-grow="139"
+data-flex-basis="334px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/page1.png"
+width="196"
+height="104"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/page1_hu_62c27974aa2c197.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/page1_hu_dc687447330d1bac.png 1024w"
+loading="lazy"
+alt="空白なし"
+class="gallery-image"
+data-flex-grow="188"
+data-flex-basis="452px"
+>&lt;/p>
+&lt;p>どちらのほうが見やすく、使いやすいでしょうか。&lt;/p>
+&lt;p>ほとんどの人は左を選択すると思います。&lt;/p>
+&lt;p>文字が詰まっていると、どこを読めばいいのかがわかりにくくなると思います。
+また、空白の少ないボタンは、タップの範囲が狭くなるため、パソコンでのクリックも、携帯でのタップ操作も難しくなります。&lt;/p>
+&lt;p>ここで、適度な空白を設けることによって視認性を向上し、操作のしやすいデザインに仕上げることができます。&lt;/p>
+&lt;h3 id="padding-と-margin">Padding と Margin
+&lt;/h3>&lt;p>空白の設け方は主に2種類あり、&lt;code>Margin&lt;/code> と &lt;code>Padding&lt;/code> になります。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/padding1.png"
+width="774"
+height="289"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/padding1_hu_40554b07be4c0c34.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/padding1_hu_ae95af30056a2911.png 1024w"
+loading="lazy"
+alt="Margin&amp;Padding"
+class="gallery-image"
+data-flex-grow="267"
+data-flex-basis="642px"
+>&lt;/p>
+&lt;p>それぞれ、&lt;code>Margin&lt;/code> は内側の空白、&lt;code>Padding&lt;/code> は外側の空白となります。&lt;/p>
+&lt;p>といってもよくわからないので、詳しく説明します。&lt;/p>
+&lt;p>&lt;code>Margin&lt;/code> は背景を含めた部分の空白となります。
+それに対し、&lt;code>Padding&lt;/code> は背景を含まない部分の空白となっています。&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/padding2.png"
+width="327"
+height="290"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/padding2_hu_4586e119a6af831e.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/padding2_hu_ce3406dd39b8b30b.png 1024w"
+loading="lazy"
+alt="Padding"
+class="gallery-image"
+data-flex-grow="112"
+data-flex-basis="270px"
+>&lt;/p>
+&lt;p>&lt;code>Padding&lt;/code> は別の要素と重複します。&lt;/p>
+&lt;h3 id="指定">指定
+&lt;/h3>&lt;p>&lt;code>Margin&lt;/code> と &lt;code>Padding&lt;/code> は通常&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">要素&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">margin&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">12&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>のように指定します。&lt;/p>
+&lt;p>しかし、縦と横で異なる値を指定する場合は &lt;code>縦 横&lt;/code> で指定できます。
+つまり、&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">要素&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">margin&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">12&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="mi">18&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>と指定することで、縦方向に12px、横方向に18px の &lt;code>Margin&lt;/code> または &lt;code>Padding&lt;/code> を指定できます。&lt;/p>
+&lt;p>更に、上下左右で異なる指定をする場合は &lt;code>上 右 下 左&lt;/code> の順番にします。&lt;/p>
+&lt;h2 id="おまけ">おまけ
+&lt;/h2>&lt;p>開発者ツールを利用すると便利に開発ができます。&lt;/p>
+&lt;ol>
+&lt;li>Web ページを開き、右クリックをします。&lt;/li>
+&lt;li>&amp;ldquo;検証&amp;quot;を選択します。&lt;br>
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool1.png"
+width="1366"
+height="680"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool1_hu_62210180a35f4cdd.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool1_hu_466358927f6c6cd8.png 1024w"
+loading="lazy"
+alt="検証"
+class="gallery-image"
+data-flex-grow="200"
+data-flex-basis="482px"
+>&lt;/li>
+&lt;li>HTML やそれに関係する CSS を見ることができます。一時的に CSS を変更し、見た目を変更することも可能です。(一時的なので、ここでの変更は保存されません。ロードしたら消えます)
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool2.png"
+width="1366"
+height="681"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool2_hu_2592d2db08795c2a.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool2_hu_ceb05a0b97264883.png 1024w"
+loading="lazy"
+alt="検証"
+class="gallery-image"
+data-flex-grow="200"
+data-flex-basis="481px"
+>&lt;/li>
+&lt;li>ツールの右上のボタンを押し、要素の上にカーソルを乗せると、&lt;code>Margin&lt;/code> や &lt;code>Padding&lt;/code> などの情報が出ます。&lt;br>
+&lt;img src="https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool3.png"
+width="1366"
+height="680"
+srcset="https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool3_hu_b48599a5d6166a12.png 480w, https://takasaki-physics.github.io/p/tutorial-css-002/dev-tool3_hu_654f7c13e3f9dc63.png 1024w"
+loading="lazy"
+alt="検証"
+class="gallery-image"
+data-flex-grow="200"
+data-flex-basis="482px"
+>&lt;/li>
+&lt;/ol>
+&lt;h2 id="まとめ">まとめ
+&lt;/h2>&lt;p>角丸と空白を使いこなし、美しいデザインを目指しましょう。&lt;/p></description></item><item><title>CSS 基礎 1 - 環境構築/準備</title><link>https://takasaki-physics.github.io/p/tutorial-css-001/</link><pubDate>Thu, 18 Jul 2024 12:07:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-css-001/</guid><description>&lt;h2 id="目的">目的
+&lt;/h2>&lt;p>CSS の利用方法を解説します。&lt;/p>
+&lt;h2 id="環境構築">環境構築
+&lt;/h2>&lt;h3 id="css-とは">CSS とは
+&lt;/h3>&lt;p>そもそも、CSS (Cascading Style Sheets) は HTML の装飾に利用されます。&lt;/p>
+&lt;p>詳細は Mozilla が作成する &lt;a class="link" href="https://developer.mozilla.org/ja/docs/Learn/Getting_started_with_the_web/CSS_basics" target="_blank" rel="noopener"
+>CSS の基本&lt;/a>を御覧ください。&lt;/p>
+&lt;h3 id="準備">準備
+&lt;/h3>&lt;p>HTML ファイルは &lt;code>index.html&lt;/code> とします。&lt;/p>
+&lt;p>&lt;code>index.html&lt;/code> 内の &lt;code>&amp;lt;head&amp;gt;&lt;/code> 要素内に &lt;code>&amp;lt;link href=&amp;quot;style.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot;&amp;gt;&lt;/code> を追加してください。 (もしかしたら最初からあるかも)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-index.html" data-lang="index.html">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;ja&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;lt;!-- 略 --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">link&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;style.css&amp;#34;&lt;/span> &lt;span class="na">rel&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;stylesheet&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;lt;!-- 略 --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>続いて、CSS ファイルを &lt;code>style.css&lt;/code> として作成します。
+場所は &lt;code>index.html&lt;/code> と同じにするのが楽です。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">./
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└style.css
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>これですぐに CSS が利用できます。&lt;/p>
+&lt;h3 id="動作確認">動作確認
+&lt;/h3>&lt;p>では、CSS がしっかりと動作するか見てみましょう。&lt;/p>
+&lt;p>まずは、この HTML 要素の色を変えてみましょう。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.html" data-lang=".html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>りんご&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>style.css&lt;/code> を以下のようにしてください。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-style.css" data-lang="style.css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">p&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>これで、文字の色が赤色に変化することがわかると思います。
+この時点で色が変更していない場合は、環境構築がうまくいっていない可能性があるので、やり直してみてください。&lt;/p>
+&lt;h3 id="指定方法">指定方法
+&lt;/h3>&lt;h4 id="基本指定">基本指定
+&lt;/h4>&lt;p>先ほど、サラッと紹介しましたが、CSS は以下の方法で指定します。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">要素&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">変更:&lt;/span> &lt;span class="err">内容&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>要素は、&lt;code>p&lt;/code> や &lt;code>body&lt;/code>、全体を指定する &lt;code>:root&lt;/code> などがあります。&lt;/p>
+&lt;h4 id="id-class-指定">ID, Class 指定
+&lt;/h4>&lt;p>また、&lt;code>&amp;lt;p id=&amp;quot;apple&amp;quot; class=&amp;quot;fruits&amp;quot;&amp;gt;りんご&amp;lt;/p&amp;gt;&lt;/code>
+このような ID は &lt;code>#apple&lt;/code>。Class は &lt;code>.fruits&lt;/code> のように指定できます。&lt;/p>
+&lt;p>また、&lt;code>&amp;lt;p style=&amp;quot;color: blue&amp;quot;&amp;gt;青色&amp;lt;p&amp;gt;&lt;/code> のように直接指定することも可能です。&lt;/p>
+&lt;p>複数指定する場合は &lt;code>,&lt;/code> で区切ります。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">p&lt;/span>&lt;span class="o">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">#&lt;/span>&lt;span class="nn">apple&lt;/span>&lt;span class="o">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">fruits&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">background-color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">blue&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="子要素指定">子要素指定
+&lt;/h4>&lt;p>連続して指定すると、子要素だけに CSS を適応できます。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.css" data-lang=".css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">p&lt;/span> &lt;span class="nt">a&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">yellow&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-.html" data-lang=".html">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;lt;!-- &amp;lt;a&amp;gt; 要素が &amp;lt;p&amp;gt; 要素の中にあるときだけ黄色になる --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>黄色&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;lt;!-- &amp;lt;a&amp;gt; 要素が &amp;lt;p&amp;gt; 要素の中にないときは黄色にならない --&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>黄色じゃない&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>黄色じゃない&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>黄色じゃない&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">a&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>CSS 基礎 0 - 概要</title><link>https://takasaki-physics.github.io/p/tutorial-css-000/</link><pubDate>Thu, 18 Jul 2024 10:54:00 +0900</pubDate><guid>https://takasaki-physics.github.io/p/tutorial-css-000/</guid><description>&lt;p>本シリーズ (CSS 基礎 - アプリケーションに彩りを - ) は、2年生を対象とした CSS の解説資料になっています。&lt;/p>
+&lt;h2 id="経緯">経緯
+&lt;/h2>&lt;p>2年生がウェブアプリケーション (Monaca) を作成しているときに、デザインで困っていそうだったので作成しました。
+(Monaca でなくても参考にできます)&lt;/p>
+&lt;h2 id="一覧">一覧
+&lt;/h2>&lt;ol>
+&lt;li>&lt;a class="link" href="../tutorial-css-001" >環境構築/準備&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-css-002" >角丸と空白の美&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../tutorial-css-003" >色彩の薦め&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;!-- (他の文章は読まなくてもいいけど、これは読んでほしい) -->
+&lt;!-- 1. Material UI から学ぶデザインの真髄 -->
+&lt;h2 id="編集について">編集について
+&lt;/h2>&lt;p>誤字訂正、追記、新資料の寄稿など大歓迎です。
+その際は GitHub から &lt;a class="link" href="https://github.com/takasaki-physics/takasaki-physics.github.io/pulls" target="_blank" rel="noopener"
+>PR&lt;/a> をお願いします。&lt;/p>
+&lt;p>第124期 &lt;a class="link" href="https://github.com/mint73" target="_blank" rel="noopener"
+>mint&lt;/a> (2024年度 3年)&lt;/p></description></item></channel></rss>

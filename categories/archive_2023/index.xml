@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Archive_2023 on 高崎高校 物理部/SSH</title><link>https://takasaki-physics.github.io/categories/archive_2023/</link><description>Recent content in Archive_2023 on 高崎高校 物理部/SSH</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Thu, 21 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://takasaki-physics.github.io/categories/archive_2023/index.xml" rel="self" type="application/rss+xml"/><item><title>Fusion360 を使った基板の作り方</title><link>https://takasaki-physics.github.io/p/fusion360/</link><pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate><guid>https://takasaki-physics.github.io/p/fusion360/</guid><description>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image1.png" alt="Featured image of post Fusion360 を使った基板の作り方" />&lt;h2 id="編集者から">編集者から
+&lt;/h2>&lt;p>こちらは、&lt;a class="link" href="https://github.com/koji1027" target="_blank" rel="noopener"
+>先輩&lt;/a>が作成したWord文章をこちらのサイト向けに書き直したものです。&lt;br />
+忙しい中、このような素晴らしい記事を書いてくださった先輩に、感謝の意を表します。&lt;br />&lt;/p>
+&lt;h2 id="環境準備など">環境準備など
+&lt;/h2>&lt;h3 id="インストールするもの">インストールするもの
+&lt;/h3>&lt;ul>
+&lt;li>Fusion360 (&lt;strong>教育版&lt;/strong>)&lt;/li>
+&lt;/ul>
+&lt;p>Autodesk のホームページからアカウントを教育版にしてください。&lt;br />&lt;/p>
+&lt;ul>
+&lt;li>Eagle&lt;/li>
+&lt;/ul>
+&lt;p>Fusion360 に統合された基板設計ソフトです。&lt;br />
+教育版のアカウントがあれば無料でインストールできます。&lt;br />
+入れておくと助かるときがあるので一応入れておいてください。&lt;br />&lt;/p>
+&lt;h3 id="使うサイト">使うサイト
+&lt;/h3>&lt;ul>
+&lt;li>&lt;a class="link" href="https://www.ultralibrarian.com/" target="_blank" rel="noopener"
+>Ultralibration&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>回路設計に必要な部品のライブラリの多くが無料で配布されています。&lt;br />
+ここにあれば自分でライブラリを作らずに済むのでとても楽になります。&lt;br />&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://jlcpcb.com/" target="_blank" rel="noopener"
+>JLCPCB&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>中国の基板製作サービスです。&lt;br />&lt;/p>
+&lt;h2 id="回路設計を開始する">回路設計を開始する
+&lt;/h2>&lt;p>まずは、&lt;kbd>新規電子デザイン&lt;/kbd>で作成します。&lt;br />
+忘れずに名前を付けて保存をしてください。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image11.png"
+width="1123"
+height="566"
+srcset="https://takasaki-physics.github.io/p/fusion360/image11_hu_e36b787eff8f0709.png 480w, https://takasaki-physics.github.io/p/fusion360/image11_hu_c316b4d52abad8b2.png 1024w"
+loading="lazy"
+alt="Image 11"
+class="gallery-image"
+data-flex-grow="198"
+data-flex-basis="476px"
+>&lt;/p>
+&lt;p>次に、&lt;kbd>新しい回路図&lt;/kbd>を押して回路図を作ります。&lt;br />
+もちろん、名前を忘れずに。&lt;br />
+回路図の作り方は、以下の画像に詳しく書き込んでおいたので、そちらを参照してください。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image2.jpg"
+width="1296"
+height="729"
+srcset="https://takasaki-physics.github.io/p/fusion360/image2_hu_b92e2f7ef25f6682.jpg 480w, https://takasaki-physics.github.io/p/fusion360/image2_hu_fafaacfce0572cfa.jpg 1024w"
+loading="lazy"
+alt="Image 2"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="426px"
+>&lt;/p>
+&lt;p>今回はIRセンサを1つ作る基板を例とします。&lt;br />
+IRセンサ &lt;strong>TSSP58038&lt;/strong> は残念ながら Ultralibration にないので、 SnapEDA からダウンロードします。&lt;br />
+(&amp;quot;(部品名) footprint&amp;quot; と検索すると Ultralibration や SnapEDA 、公式サイト等が出てくると思います。)&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image10.png"
+width="1297"
+height="732"
+srcset="https://takasaki-physics.github.io/p/fusion360/image10_hu_49df1094bf7a139b.png 480w, https://takasaki-physics.github.io/p/fusion360/image10_hu_24856e5326fb28e.png 1024w"
+loading="lazy"
+alt="Image 10"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="425px"
+>&lt;/p>
+&lt;p>ダウンロードの際は、 &lt;strong>Fusion360&lt;/strong> を選択します。&lt;br />
+(Fusion360 がない場合は Eagle を選択してください。互換性があるので問題なく利用できます。今回の SnapEDA もそうです。)&lt;br />
+誤って Altium などの違うソフトを選択しないようにしてください。&lt;br />&lt;/p>
+&lt;p>ダウンロードができたら、拡張子が .&lt;strong>lbr&lt;/strong> のものを探します。&lt;br />
+これが Autodesk 社の回路のライブラリです。&lt;br />
+ファイル名には部品の名前を付けておくとわかりやすいのでおすすめです。&lt;br />
+これを Fusion360 に読み込みます。&lt;br />&lt;/p>
+&lt;p>回路設計の画面を開いて、写真に示すボタンを押してください。&lt;br />
+まず、下の写真のように押します。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image12.png"
+width="1299"
+height="784"
+srcset="https://takasaki-physics.github.io/p/fusion360/image12_hu_cd7eb035deb8b79b.png 480w, https://takasaki-physics.github.io/p/fusion360/image12_hu_e62a245263aa4247.png 1024w"
+loading="lazy"
+alt="Image 12"
+class="gallery-image"
+data-flex-grow="165"
+data-flex-basis="397px"
+>
+&lt;img src="https://takasaki-physics.github.io/p/fusion360/image3.png"
+width="1299"
+height="717"
+srcset="https://takasaki-physics.github.io/p/fusion360/image3_hu_39ae7f99aafde8cb.png 480w, https://takasaki-physics.github.io/p/fusion360/image3_hu_b73d1c8e0bda14fc.png 1024w"
+loading="lazy"
+alt="Image 3"
+class="gallery-image"
+data-flex-grow="181"
+data-flex-basis="434px"
+>&lt;/p>
+&lt;p>次に、上のところを押します。&lt;br />
+すると、4つ選択肢が出てくるので、 &lt;strong>Import from local disk&lt;/strong> を選択してください。&lt;br />
+すると、ファイルを選ぶ画面が出てきます。&lt;br />
+開いたときに出てくるフォルダの中に、別でエクスプローラーを開いてさっきダウンロードしたファイルを移動(コピー)します。&lt;br />
+移動できたらそのファイルを選択して、読み込んでください。
+これで完了です。&lt;br />
+あとは、回路設計に戻って検索ボックスに &lt;strong>TSSP&lt;/strong> と入れれば出てきます。&lt;br />&lt;/p>
+&lt;p>いろいろな部品を使用して配線を行います。&lt;br />
+基本的な部品の検索の仕方はネットに載っていると思うので、調べてみてください。&lt;br />&lt;/p>
+&lt;p>以下は、回路が完成した様子となっています。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image8.jpg"
+width="1300"
+height="746"
+srcset="https://takasaki-physics.github.io/p/fusion360/image8_hu_62ea3de30f63249.jpg 480w, https://takasaki-physics.github.io/p/fusion360/image8_hu_5822adcfa0b34ad5.jpg 1024w"
+loading="lazy"
+alt="Image 8"
+class="gallery-image"
+data-flex-grow="174"
+data-flex-basis="418px"
+>&lt;/p>
+&lt;h2 id="基板外形を設計する">基板外形を設計する
+&lt;/h2>&lt;p>まず、いつも通りに設計します。&lt;br />
+作りたい基板の形を平面上に作ってください。&lt;br />
+板の厚みは 1.2mm もしくは 1.6mm が無難です。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image5.png"
+width="1297"
+height="732"
+srcset="https://takasaki-physics.github.io/p/fusion360/image5_hu_82b46b5536c766b7.png 480w, https://takasaki-physics.github.io/p/fusion360/image5_hu_b803b972cf9c7f99.png 1024w"
+loading="lazy"
+alt="Image 5"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="425px"
+>&lt;/p>
+&lt;p>設計する際には、ねじ穴などをあけることを忘れないようにしてくださいね!&lt;br />
+角が直角だと基板にしたときに結構刺さるので丸くしておくといいかもしれません。&lt;br />
+意外と曲線を多用した基板でもちゃんと作ってくれるのでそこは心配しなくて大丈夫です。&lt;br />
+ロボットに合わせた形にしましょう。&lt;br />
+基板の設計ができたら、上の写真のようにボタンを押してください。&lt;br />
+すると、選択する画面が出てくるので、基板の平面の部分をクリックします。&lt;br />
+そして、 &lt;kbd>OK&lt;/kbd> を押せば新しいタブに移ります。&lt;br />
+これもまた保存を忘れないようにしてください。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image1.png"
+width="1297"
+height="732"
+srcset="https://takasaki-physics.github.io/p/fusion360/image1_hu_8182d116cd3e6fad.png 480w, https://takasaki-physics.github.io/p/fusion360/image1_hu_fa7c0932ddb93cc2.png 1024w"
+loading="lazy"
+alt="Image 1"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="425px"
+>&lt;/p>
+&lt;p>次に、 &lt;kbd>2D PCB にプッシュ&lt;/kbd>というボタンを押します。&lt;br />
+すると、平面に基板の外形が映し出された画面に移ります。
+必ず保存してくださいね。&lt;br />
+保存したらいったん以下の画面に戻ります。&lt;br />
+戻ったら、 &lt;kbd>PCB ドキュメントへの参照&lt;/kbd>を押してください。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image7.png"
+width="1297"
+height="732"
+srcset="https://takasaki-physics.github.io/p/fusion360/image7_hu_63ecefc2792d3106.png 480w, https://takasaki-physics.github.io/p/fusion360/image7_hu_b8938fa55fe234fa.png 1024w"
+loading="lazy"
+alt="Image 7"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="425px"
+>&lt;/p>
+&lt;p>どのファイルをリンクするか聞かれるのでさっき保存したものを選んでください。&lt;br />
+保存してから少し時間が出てこないと選択画面に出てこないので注意してください。&lt;br />
+参照が完了すると、設計した回路図の部品がPCB製作画面に基板外形とともに出てくるので、自分でいい感じに基板上に配置してください。&lt;br />
+部品を移動するときには、部品のところに &lt;kbd>+&lt;/kbd> であらわされたマークがあるのでそれをマウスで長押ししながら移動させると動かすことができます。&lt;br />
+部品を細かく動かしたいときには、キーボードの &lt;kbd>Alt&lt;/kbd>を押しながら動かすと細かく調整できます。&lt;br />
+また、グリッドの調整をすることで、動かす細かさなども変えることができます。&lt;br />&lt;/p>
+&lt;p>部品の配置ができたら配線をします。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image6.png"
+width="1299"
+height="589"
+srcset="https://takasaki-physics.github.io/p/fusion360/image6_hu_48dea758ef6ad40.png 480w, https://takasaki-physics.github.io/p/fusion360/image6_hu_c185ae5edee15710.png 1024w"
+loading="lazy"
+alt="Image 6"
+class="gallery-image"
+data-flex-grow="220"
+data-flex-basis="529px"
+>&lt;/p>
+&lt;p>配線は、手動と自動の2種類の方法があります。&lt;br />
+配線が高密度になる時は、自動ではなく手動をお勧めします。&lt;br />
+配線を適当にやると、ノイズの影響で I2C などの通信ができないからです。&lt;br />
+上のツールから&lt;kbd>配線&lt;/kbd>もしくは、&lt;kbd>クイックルート&lt;/kbd>-&lt;kbd>オートルータ&lt;/kbd>を選ぶことで手動、自動配線ができます。&lt;br />
+基本的に基板は表と裏の2層基板なので配線も赤色と青色の2種類があります。&lt;br />
+配線をしている途中にホイールをクリックすると、ビアを通して配線の表と裏を行き来できます。&lt;br />&lt;/p>
+&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image4.png"
+width="866"
+height="807"
+srcset="https://takasaki-physics.github.io/p/fusion360/image4_hu_ade52b268f30b159.png 480w, https://takasaki-physics.github.io/p/fusion360/image4_hu_d6d7d3dc91df1fd1.png 1024w"
+loading="lazy"
+alt="Image 4"
+class="gallery-image"
+data-flex-grow="107"
+data-flex-basis="257px"
+> &lt;img src="https://takasaki-physics.github.io/p/fusion360/image9.png"
+width="744"
+height="712"
+srcset="https://takasaki-physics.github.io/p/fusion360/image9_hu_96be1eeb39486cb0.png 480w, https://takasaki-physics.github.io/p/fusion360/image9_hu_51dc6984db0f1ade.png 1024w"
+loading="lazy"
+alt="Image 9"
+class="gallery-image"
+data-flex-grow="104"
+data-flex-basis="250px"
+>&lt;/p>
+&lt;p>右の写真は配線が終わった様子です。&lt;br />
+(GND ベタを塗ったりエラーチェックなどのやることが残っているが今回は割愛します。)&lt;br />&lt;/p>
+&lt;h2 id="データを出力して注文">データを出力して注文
+&lt;/h2>&lt;p>&lt;img src="https://takasaki-physics.github.io/p/fusion360/image13.png"
+width="1297"
+height="732"
+srcset="https://takasaki-physics.github.io/p/fusion360/image13_hu_cd58d914cbccd5cc.png 480w, https://takasaki-physics.github.io/p/fusion360/image13_hu_984abbc793230e2.png 1024w"
+loading="lazy"
+alt="Image 13"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="425px"
+>&lt;/p>
+&lt;p>Fusion360 で製作した基板データを出力します。&lt;br />
+上のようにボタンを押して、OKです。&lt;br />
+出力先を求められるので適当に場所を指定すると出力完了です!&lt;br />
+(ファイル名は英語だけにしたほうが注文時にいいかもしれません。)&lt;br />&lt;/p>
+&lt;p>あとは、これを JLCPCB に送って注文すればいいです。&lt;br />
+注文の仕方はネットでいろいろ紹介されています。&lt;br />
+配送先については、 DHL が早くて安心できます。&lt;br />&lt;/p></description></item></channel></rss>
